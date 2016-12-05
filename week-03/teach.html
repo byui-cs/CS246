@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 03 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>03 Teach : Team Activity</h2>
+        <p class="subtitle">Practice with Interfaces</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Practice implementing a Java Interface.</p></li>
+        </ul>
+
+        <h3>Assignment</h3>
+        <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
+
+        <p>You're going to practice implementing interfaces in Java by creating a vacation cost calculator. There are lots of different components that contribute to the cost of a vacation, transportation, food, lodging etc...</p>
+
+        <p>In order to keep our class hierarchy flexible, we're going to create a common interface that will allow us to get the cost of these components.</p> 
+
+        <h4>Part I: Create the Expense Interface and Cruise Class</h4>
+        <ol>
+            <li>
+                <p>First, define an interface called <code>Expense</code> that requires a single method:</p>
+<pre><code class="java">float getCost();
+</code></pre>
+            </li>
+            <li>
+                <p>Next, create an enum type called <code>Destination</code>, which contains three possible options for its values:</p>
+<pre><code class="java">enum Destination {
+    Mexico, Europe, Japan
+}
+</code></pre>
+            </li>
+            <li>
+                <p>Next, create a class called <code>Cruise</code> whose constructor takes a <code>Destination</code>.</p>
+                <p>Add all of the code necessary to make <code>Cruise</code> implement the <code>Expense</code> interface.</p>
+                <p>The <code>Cruise</code> class should calculate its costs this way:</p>
+                <table><tr><th>Destination</th><th>Cost</th></tr>
+                       <tr><td>Mexico</td><td>$1000.00</td></tr>
+                       <tr><td>Europe</td><td>$2000.00</td></tr>
+                       <tr><td>Japan</td><td>$3000.00</td></tr>
+                </table>
+            </li>
+        </ol>
+        <h4>Part II: Create Your Driver Class</h4>
+
+        <ol>
+            <li>
+                <p>Create a Java class called <code>VacationCalculator</code>. This class will contain your <code>main()</code> method, which will create an instance of the class and invoke methods on that instance:</p>
+<pre><code class="java">class VacationCalculator {
+
+    public static void main(String[] args) {
+
+        VacationCalculator vc = new VacationCalculator();
+        
+        // Calculate some vacation costs...
+        float japanCost = vc.calculateVacationCost(Destination.Japan);
+
+        // Print the cost...
+    }
+
+    /**
+     * Calculates the total cost for vacationing at a given location for 
+     * a specific number of nights.
+     *
+     * @param  dest the destination of the vacation
+     * @return      the total cost of the vacation
+    */
+    public float calculateVacationCost(Destination dest)
+    {
+
+    }
+
+    /**
+     * An internal method used by VacationCalculator to loop through
+     * a List of items that implement the Expense interface and 
+     * determine their cost 
+     *
+     * @param  expenses A list of items that implement the Expense interface
+     * @return          the total cost calculated by the items
+    */
+    float tallyExpenses(List<Expense> expenses)
+    {
+
+    }
+}
+</code></pre>
+            </li>
+            <li>
+                <p>Write the code for the <code>tallyExpenses</code> function. It should loop through the list of items in the <code>expenses</code> parameter and return the sum of their costs.</p>
+            </li>
+            <li>
+                <p>Write the code for the <code>calculateVacationCost</code> function. It should create an <code>ArrayList</code> of Expenses, add a <code>Cruise</code> instance for that list for the proper destination, then use the <code>tallyExpenses</code> method to determine the cost of that vacation.</p>
+            </li>
+            <li>
+                <p>Finally, in <code>main</code>, create an instance of the <code>VacationCalculator</code> class, and call the <code>calculateVacationCost</code> function in order to determine the cost of going on a vacation to Japan. Print the result to console using a <a href="https://docs.oracle.com/javase/tutorial/essential/io/formatting.html">format specifier</a>.</p>
+            </li>
+        </ol>
+
+        <p>Once you've made it this far, move on the stretch challenge.</p>
+
+        <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+        <p>Going on a cruise is great, but we might also want to stay at our destination for a certain length of time. So, we'll need to calcuate those expenses as well and include them in our vacation cost.</p>
+
+        <ol>
+            <li>
+                <p>Create a class called <code>Dining</code> that also implements the <code>Expense</code> interface.</p>
+                <p>The constructor for the <code>Dining</code> class should include two parameters, one for the destination, and one for the number of nights you'll be staying there.</p>
+            </li>
+            <li>
+                <p>The <code>Dining</code> class should calculate its cost this way:</p>
+                <table><tr><th>Destination</th><th>Cost</th></tr>
+                       <tr><td>Mexico</td><td>$10.00 per day</td></tr>
+                       <tr><td>Europe</td><td>$20.00 per day</td></tr>
+                       <tr><td>Japan</td><td>$30.00 per day</td></tr>
+                </table>
+            </li>
+            <li>
+               <p>Add another class called <code>Lodging</code> that also implements the <code>Expense</code> interface. Its constructor should also take the destination and number of nights as parameters.</p>
+            </li>
+            <li>
+                <p>The <code>Lodging</code> class should calculate its cost this way:</p>
+                <table><tr><th>Destination</th><th>Cost</th></tr>
+                       <tr><td>Mexico</td><td>$100.00 per day</td></tr>
+                       <tr><td>Europe</td><td>$200.00 per day + 10% Hotel Tax Surchage</td></tr>
+                       <tr><td>Japan</td><td>$300.00 per day + 30% Hotel Tax Surchage</td></tr>
+                </table>
+            </li>
+            <li>
+                <p>In your driver class, modify the <code>calculateVacationCost</code> so that you can specify how many days you'll be spending at your destination and have the function include a lodging and dining as part of the itenerary.</p>
+            </li>
+            <li>
+                <p>Update your <code>main</code> function to calculate the cost of traveling to each destination and staying there for 5 days.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to use Java interfaces.</p>
+        <p>Make sure everyone on your team understands and receives a copy of this code.</p>
+
+        <p><strong>Compare your answer to the <a href="https://gist.github.com/lfalin/717ac62c75c62738cd7eaf0e197b522d">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

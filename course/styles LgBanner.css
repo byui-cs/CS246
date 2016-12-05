@@ -1,0 +1,88 @@
+@import url('fonts.css');
+
+
+#content {
+	width: 100%;
+	font-size: 11pt;
+	font-family: arial, helvetica, sans-serif;
+	background-color: #FFFFFF;
+}
+
+#content > img:first-child {
+	width: 100%;
+}
+
+#content > div {
+	padding: 20px;
+}
+
+
+#content h1 {
+	font-size: 24pt;
+	font-family: arial, helvetica, sans-serif;
+	margin: 5px;
+	text-transform: uppercase;
+	padding: 0;
+	color: #100F3F;
+}
+
+#content h1 + p {
+	padding-top: 20px;
+}
+
+#content h2 {
+	font-size: 24pt;
+	font-family: arial, helvetica, sans-serif;
+	margin: 5px;
+	font-weight: normal;
+	color: #100F3F;
+}
+
+#content h3 {
+	font-size: 18pt;
+	font-family: arial, helvetica, sans-serif;
+	margin: 5px;
+	margin-bottom: 8px;
+	text-transform: uppercase;
+	color: #100F3F;
+}
+
+#content h4 {
+	font-size: 18pt;
+	font-family: arial, helvetica, sans-serif;
+	margin: 5px;
+	color: #100F3F;
+	margin-bottom: 0px;
+}
+
+#content h5 {
+	font-size: 14pt;
+	font-family: arial, helvetica, sans-serif;
+	margin: 5px;
+	padding: 3px 0px 0px;
+	margin: 0;
+	color: #100F3F;
+}
+
+#content p {
+	margin: 5px;
+	color: #000000;
+}
+
+#content ul li {
+	color: #000000;
+}
+
+#content ol li {
+	color: #000000;
+}
+
+#content li {
+	padding-bottom: 6px;
+}
+
+#content hr {
+	width: 100%;
+	height: 0px;
+	color: #000000;
+}

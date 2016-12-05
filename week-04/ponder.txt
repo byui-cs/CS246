@@ -1,0 +1,47 @@
+# 04 Ponder : Weekly Reflection
+
+1. Describe one challenge your team experienced working on the GitHub activity.
+
+
+
+2. What are the advantages to using a version control system like git?
+
+
+
+3. What is the difference between git and GitHub?
+
+
+
+4. What is the purpose of branching in git?
+
+
+
+5. Imagine you're working as a software developer for someone who doesn't have any experience with programming. How would you describe version control and git to your employer?
+
+
+
+6. After completing the assignments this week, what questions do you still have?
+
+
+
+7. A common Java interview question is "describe the difference between an interface and an abstract class". How would you answer that question?
+
+
+
+8. Of all of the resources and tutorials in this week's assignments, which was the _most_ helpful to you and why?
+
+
+
+9. Of all of the resources and tutorials in this week's assignments, which was the _least_ helpful to you and why?
+
+
+
+10. How many hours did you spend on this class this week?
+
+04 Prepare - 
+04 Teach - 
+04 Prove -
+04 Ponder -
+----------------------------
+Total Hours - 
+

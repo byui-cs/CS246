@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 04 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>04 Teach : Team Activity</h2>
+        <p class="subtitle">Practice with Git</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Practice using git.</p></li>
+            <li><p>Learn how to fix problems with git.</p></li>
+        </ul>
+
+        <h3>Assignment</h3>
+        <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
+
+        <p>You're going to practice using git to track changes to simple text files.</p>
+
+        <h4>Part I: Creating, Committing and Pushing Changes</h4>
+
+        <ol>
+            <li>
+                <p>Open the command line and navigate to a directory where you'd like to work. Use the <code>git clone</code> command to create a local copy of the repository you created on GitHub during the preparation assignment.</p>
+                <p>You can find the URL used to clone your respository on github. For example, if your GitHub name is <em>l33tcoder</em>, and your repository name is <em>pacman</em>, the command to clone your repsoitory would be:</p>
+<pre><code class="bash">git clone https://github.com/l33tcoder/pacman.git
+</code></pre>
+                <p>You will now have a directory called <em>&lt;your repository name&gt;</em> in your current directory.</p>
+            </li>
+            <li>
+                <p>Using your favorite text editor, create a text file called <em>sample.txt</em> write a short message in it, and save it to the repository directory.</p>
+            </li>
+            <li>
+                <p>Next, change directories to your git repository directory and use the <code>git status</code> command to view the current status of your repository. The <em>sample.txt</em> file will appear in the list of <em>untracked files</em>. This means it hasn't bee added to the git repository yet.</p>
+<pre><code class="bash">cd &lt;your repository name&gt;
+git status
+</code></pre>
+            </li>
+            <li>
+                <p>Next, use the <code>git add</code> command to add this file to the next commit:</p>
+<pre><code class="bash">git add sample.txt
+</code></pre>
+                <p>If you rerun the <code>git status</code> command, you'll see that <em>sample.txt</em> now appears in the list of changes to be committed.</p>
+            </li>
+            <li>
+                <p>To commit your changes, execute the <code>git commit</code> command, providing a message describing your changes:</p>
+<pre><code class="bash">git commit -m "Added the best file ever."
+</code></pre>
+            </li>
+            <li>
+                <p>Now, to push your changes up to the copy of the repository on GitHub, execute the <code>git push</code> command.</p>
+<pre><code class="bash">git push
+</code></pre>
+            </li>
+            <li>
+                <p>Reload your repository page on GitHub, and verify that your new file is listed there.</p>
+            </li>
+            <li>
+                <p>On the repository webpage, click the link showing your commit history:</p>
+                <img class="screenshot" src="./img/246-01-teach_commitHistory.png" alt="A link represented by a small clock with the number of commits listed next to it">
+                <p>This will show you a list of all the commits you have pushed to the repository.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to add, commit, and push changes from your local repository to the central repository on GitHub.</p>
+
+        <h4>Part II: Pulling Changes</h4>
+        <p>Often when using version control systems like GitHub, you're working with a team of other developers who will be making changes to the code as well. As they <em>push</em> their changes to the central repository, you need to <em>pull</em> those changes to your local copy, so that you can stay in sync with what everyone else is doing.</p>
+
+        <p>We're going to use GitHub's direct editor to simulate that process now. Normally, we don't edit files directly in GitHub, but we'll do that here in order to simulate another developer pushing a commit to the central repository.</p>
+        <ol>
+            <li>
+                <p>Open up your repository page on GitHub and click on the <em>sample.txt</em> file that you added in Part I.</p>
+            </li>
+            <li>
+                <p>Click on the pencil icon on the right side of the screen, which will allow you to edit the file directly in GitHub.</p>
+                <img class="screenshot" alt="A link to edit the file on GitHub represented by a pencil icon." src="./img/246-01-teach_edit.png"/>
+            </li>
+            <li>
+                <p>Change the text in the file, then at the bottom of the screen enter a commit message in the first field of the Commit Changes box. Then, Click the Commit Changes button at the bottom of the screen.</p>
+                <img class="screenshot-large" alt="A screenshot of the commit changes form on GitHub" src="./img/246-01-teach_commitchanges.png"/>
+            </li>
+            <li>
+                <p>If you click on the commit history icon again, you should now see your commit from part one, along with the commit you just made.</p>
+                <p>We're pretending that this new commit came from another developer, who made changes in their local repository, then pushed those changes to the central repository on GitHub.</p>
+            </li>
+            <li>
+                <p>Now you need to use the <code>git pull</code> command to pull the changes from the central repository to your local copy:</p>
+<pre><code class="bash">git pull
+</code></pre>
+            </li>
+            <li>
+                <p>View the contents of the sample.txt file on your computer, and you should see the updated version.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to pull changes from GitHub to your local repository.</p>
+
+        <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+        <p>When multiple developers try to change the same files at the same time, this can result in what is called a <em>merge conflict</em>. By default, git is pretty good at merging changes during pulls and pushes. Sometimes however, it can't figure out the best choice, and so it leaves it up to you.</p>
+        <p>We're going to use GitHub's direct editor to simulate a merge conflict.</p>
+
+        <ol>
+            <li>
+                <p>Just like we did in Part II, open up GitHub and modify the text in the sample.txt file, making sure you commit the changes.</p>
+                <p>Verify that the new changes show up in the commit history on GitHub, but <strong>don't</strong> pull those changes to your local repository yet.</p>
+            </li>
+            <li>
+                <p>Now, open <em>sample.txt</em> on your computer, and modify the same line of text that you modified in step 1, but change it to something different.</p>
+            </li>
+            <li>
+                <p>Add sample.txt to the commit by using <code>git add</code>, then commit the changes using <code>git commit</code>:</p>
+<pre><code class="bash">git add sample.txt
+git commit -m "Made the best changes ever."
+</code></pre>
+            </li>
+            <li>
+                <p>Now, attempt to push your changes to GitHub using the <code>git push</code> command. Observe how it fails with an error: </p>
+<pre><code class="bash">! [rejected]        master -> master (fetch first)
+error: failed to push some refs to ...
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre>
+            <p>Remember, one of the fundamental rules of using git is:</p>
+            <p><strong>Always pull before you push.</strong></p>
+            </li>
+            <li>
+                <p>Attempt to fix this problem by executing <code>git pull</code>. This will also fail:</p>
+<pre><code class="bash">CONFLICT (content): Merge conflict in sample.txt
+Failed to merge in the changes.
+...
+When you have resolved this problem, run "git rebase --continue".
+</code></pre>
+            </li>
+            <li>
+                <p>If you open <em>sample.txt</em> now, you will see something like the following:</p>
+<pre><code class="bash">&lt;&lt;&lt;&lt;&lt;&lt;&lt; fa3f0f0d0dc7834b799af3e4f8a0cf21dd033ff6
+Hello World!!!
+=======
+Goodbye World!
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Goodbye
+</code></pre>
+                <p>The part above the line of equal signs shows you the version of the code you're trying to pull down from the central repository.</p> 
+                <p>The part below the line of equal signs shows the version of the code that is in your local repository. Since these lines dont match, git is unable to merge the changes, and a conflict results.</p>
+            </li>
+            <li>
+                <p>To resolve this conflict, choose the version you want to keep, and delete the other version, along with the merge markers. So if you want to keep your version, you'd delete the line of &gt; symbols, and everything above the equal signs. In the above example, you'd end up with:</p>
+<pre><code class="bash">Goodbye World!
+</code></pre>
+            </li>
+            <li>
+                <p>Once you have resolved the conflict, you need to tell git to continue with the merge. To do this, we tell git that we have finished fixing sample.txt, then tell it to continue with the merging:</p>
+<pre><code class="bash">git add sample.txt
+git rebase --continue
+</code></pre>
+                <p>If all went well, we should see a message from git telling us that it is applying our version of the commit.</p>
+            </li>
+            <li>
+                <p>As a final step, we use <code>git push</code> to send our merged changes back to the central repository.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to resolve simple merge conflicts using git.</p>
+        <p>Make sure everyone on your team understands and receives a copy of this code.</p>
+
+        <p><strong>Be sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

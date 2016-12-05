@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 04 Prepare : Reading</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>04 Prepare : Reading</h2>
+        <p class="subtitle">Version Control with GitHub</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Learn how version control is used in software development.</p></li>
+            <li><p>Learn how to use the git version control system.</p></li>
+            <li><p>Learn how to use GitHub to share code.</p></li>
+        </ul>
+
+        <h3>Software Design Principle</h3>
+        <h4>Use a version control system.</h4>
+
+        <p>Version control systems (VCS) allow developers to maintain a record of how their code has changed over time. When used properly, a VCS can help a developer track down the exact point in time when a bug was introduced or fixed, easily undo changes, and collaborate with other developers.</p>
+
+        <p>There are many types of version control systems. Some of the more popular ones include CVS, subversion, mercurial, and git. In recent years, git has quickly become the most popular of the group.</p>
+
+        <h3>Git</h3>
+
+        <p>Git stores files in a type of database called a <em>repository</em>. Most software teams that work with git keep a central repository on a server somwhere that everyone on the team can access. This repository not only stores the files, but also the history of every change made to each file, including who made the changes and when those changes were made.</p>
+
+        <p>Git works with groups of changes called <em>commits</em>. A single commit might have many changes associated with it. Those changes might include updates to existing files, the addition of new files, or the removal of files.</p>
+
+        <p>Imagine a developer named Sally who has started a new job for US Robotics. She's told that her first assignment is to fix a bug in the positronic brain code that is causing all of the robots to walk around in circles. She takes the following steps:</p>
+
+        <ol>
+            <li>
+                <p>First, Sally will <code>clone</code> the central repository. This creates a copy of the repository on her computer.</p>
+<pre><code class="bash">git clone https://github.com/us-robotics/brain.git
+</code></pre>
+            </li>
+            <li>
+                <p>Next, Sally finds the bug in the PositronicBrain.java file that is causing the odd behavior. She quickly fixes the bug and saves her changes.</p>
+            </li>
+            <li>
+                <p>Sally's next step is to <code>add</code> the PositronicBrain.java file to the list of changed files to commit.</p>
+<pre><code class="bash">git add PositronicBrain.java
+</code></pre>
+            </li>
+            <li>
+                <p>When Sally is done adding files, she will <code>commit</code> those changes, adding a brief message to describe her changes.</p>
+<pre><code class="bash">git commit -m "Fixed the bug that made robots attack ice cream shops."
+</code></pre>
+            </li>
+            <li>
+                <p>Now that her own changes are finished, before she can share them, she must <code>pull</code> any changes her teammates have made from the central repository into her local copy.</p>
+<pre><code class="bash">git pull
+</code></pre>
+            </li>
+            <li>
+                <p>AFter making sure that there isn't a conflict between her teammates' changes and her own, she is ready to <code>push</code> her changes up to the central repository.</p>
+<pre><code class="bash">git push
+</code></pre>
+            </li>
+        </ol>
+
+        <p>Most of your interactions with a git repository will follow the same six steps that Sally followed. Note the sequence of the <code>pull</code> and <code>push</code> commands.</p>
+
+        <p>This is critical when working with git: <strong>Always pull before you push.</strong></p>
+
+        <h3>GitHub</h3>
+
+        <p>One of the reasons that git is so popular is because of <a href="http://github.com">GitHub</a>. GitHub is a site that provides  repository hosting. You can sign up for a free acount and host public repositories that anyone can have access to, or you can sign up for a paid account, which allows you to have private repositories that only you and your team have access to.</p>
+
+        <p>By using github as the central repository, teams can collaborate all over the world, keeping their code in sync easily.</p>
+
+        <h3>Preparation Assignment</h3>
+
+        <p>In order to interact with a git repository, you need to have the git software tools installed on your computer. In addition, you will need to sign up for an account on GitHub. While anyone can sign up for a free account, as a student you can get a student account for free, which allows you to also have private repositories.</p>
+
+        <h4>Before Class, complete the following:</h4>
+
+        <ol>
+            <li>
+                <p>Go to <a href="https://education.github.com/pack">GitHub's Student Developer Pack site</a> and sign up for an account.</p>
+            </li>
+            <li>
+                <p>Next, follow steps 1 - 6 of <a href="https://help.github.com/articles/creating-a-new-repository/">this guide</a> to create your first repository on GitHub. You do not need to import anything into the repository at this time.</p>
+            </li>
+            <li>
+                <p>Follow the steps <a href="https://help.github.com/articles/set-up-git/">outlined here</a> to download and configure git on your computer.</p>
+            </li>
+        </ol>
+
+        <h3>Reading Quiz</h3>
+        <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
+        <p>As before, one of the quiz questions is a "deep thought" question whose answer won't come directly from the reading.</p>
+
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
