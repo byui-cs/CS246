@@ -184,10 +184,6 @@ article h3:before {
     margin-right: 10px;
 }
 
-article ol:.checklist li p:first-child {
-	font-weight: bold;
-}
-
 article li p {
 	font-size: 18px;
 	margin-bottom: 0.5em;
