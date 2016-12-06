@@ -9,6 +9,10 @@ body {
 	counter-reset: h3; 
 }
 
+iframe {
+	margin-bottom: 40px;
+}
+
 p.subtitle {
 	text-align: center;
 	margin-top: -30px;
