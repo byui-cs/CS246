@@ -200,7 +200,7 @@ article ol ul li {
 	border-left: none;
 }
 
-article ul li p:before {
+article ul li p:first-child:before {
 	content: "»";
 	color: #006AB9;
 	font-size: 24px;
