@@ -1,14 +1,14 @@
-# 03 Ponder : Weekly Reflection
+# 01 Ponder : Weekly Reflection
 
-1. Describe one challenge your team experienced working on the Vacation Calendar activity.
-
-
-
-2. For the Game of Life assignment, what advantages do you see in using interfaces to define creature behaviors, rather than subclasses?
+1. Describe one challenge your team experienced working on the Hello World activity.
 
 
 
-3. Did you complete the Stretch Challenge for the Game of Life Assignment? If so, briefly describe what you did, and how you structured your code.
+2. For the NSA Cryptography assignment, what did you learn about how Java parameter passing differs from C++?
+
+
+
+3. Did you complete the Stretch Challenge for the NSA Cryptography? If so, briefly describe what you did, and how you structured your code.
 
 
 
@@ -24,7 +24,7 @@
 
 
 
-7. A common Java interview question is "describe the difference between an interface and an abstract class". How would you answer that question?
+7. A common Java interview question is "What are javadocs and when should they be used?". How would you answer that question?
 
 
 
@@ -38,11 +38,11 @@
 
 10. How many hours did you spend on this class this week?
 
-03 Prepare - 
-03 Teach - 
-03 Prove 1st Attempt -
-03 Prove 2nd Attempt -
-03 Ponder -
+01 Prepare - 
+01 Teach - 
+01 Prove 1st Attempt -
+01 Prove 2nd Attempt -
+01 Ponder -
 ----------------------------
 Total Hours - 
 
