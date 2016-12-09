@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CS 246 - 03 Prove : Individual Assignment</title>
+    <title>CS 246 - 01 Prove : Individual Assignment</title>
     <link rel="stylesheet" type="text/css" href="../course/style.css" />
 </head>
 
@@ -13,165 +13,125 @@
     <h1>Software Design and Development :: CS 246</h1>
 </div>
     <article>
-        <h2>03 Prove</h2>
-        <p class="subtitle">Interfaces and the Game of Life</p>
+        <h2>01 Prove</h2>
+        <p class="subtitle">Java Classes and Cryptography</p>
 
         <h3>Objectives</h3>
 
         <ul>
-            <li><p>Create and implement a Java interface.</p></li>
-            <li><p>Augment an existing application with new behaviors based on interfaces.</p></li>
+            <li><p>Create a Java class with a constructor, getters, and setters.</p></li>
+            <li><p>Understand how Java objects are passed between functions.</p></li>
+            <li><p>Understand how to deal with Java Exceptions.</p></li>
         </ul>
 
-        <h3>Game of Life</h3>
-        <p>A relatively famous computer science simluation is a cellular automation program called
-        <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life#Rules">The Game of Life.</a></p>
-        <p>In this assignment, you will use Java interfaces to implement a modified version of this
-        simulator.</p>
+        <h3>Problem: NSA Password Verification</h3>
+        <p>You just landed an internship with the NSA and they've asked you to write a password verification system for their remote workers.</p>
 
-        <img class="screenshot-large" src="./img/simulation.png"/>
+        <img class="screenshot-large" src="./img/nsa.jpg"/>
+
+        <h4>A (very) basic overview of password hashing.</h4>
+        <p>When we add a new user to a system, we must avoid storing their password in plain text. If an attacker were to gain access to the password database, the user's accounts would be instantly compromised.</p>
+        <p>One option is to store an encrypted version of the user's password, but then we have to safeguard the encryption key so that we can decrypt the password. If the encryption key is ever compromised, the accounts are once again at risk.</p>
+
+        <p>What we need is a way to "encrypt" the passwords in a way that they can't be decrypted. This process is achieved with an algorithm known as a <a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank">hash function</a>. A hash function takes an input value and converts it to an output of fixed size. Once something has been "hashed" into a hash value, (also known as a checksum or digest), it is extremely difficult to retrieve the original value. (For more information on hashing vs encryption, see <a href="http://stackoverflow.com/questions/4948322/fundamental-difference-between-hashing-and-encryption-algorithms">this Stack Overflow post</a>.</p>
+
+        <p>To use hashing to protect our user accounts, we'll first hash the user's password and store the hash in the database. A good hash function will make sure that every password results in a different hash value.</p>
+
+        <img class="screenshot-large" src="./img/hash1.png"/>
+
+        <p>Later, when the user tries to log in, we use the same hash function to calculate the hash value for the password the user types. If the new hash value matches the one we have stored, (and assuming we are using a good hash function) we can assume the initial passwords match up as well.</p>
+
+        <p>Now, if an attacker gains access to our database, instead of getting the user's passwords, they will just have the hashed values of the passwords. If we have chosen a good hash function, it will be really difficult for an attacker to discover the original password based on the hash alone.</p>
+
+        <p>Unfortunately, we still have a problem. If multiple users have the same password, they'll also end up with the same hash value. This greatly diminishes the security of our system and was a major component to the <a href="https://nakedsecurity.sophos.com/2013/11/04/anatomy-of-a-password-disaster-adobes-giant-sized-cryptographic-blunder/">infamous Adobe password leak</a>.</p>
+
+        <p>The most common way to solve this problem is instead of applying the hash function to just the password, we'll include an an additional, random input called a "salt". Since the salt is different for every user, even if multiple users choose the same password, the resulting hash values will be different.</p>
+
+        <img class="screenshot-large" src="./img/hash2.png"/>
+
+        <p>With this system, we store the hash and the salt in our database. When the user attempts to log in, we take the password they provide and the salt from the database and give both of them to the hash function.</p> 
+
+        <p>If the hash we get back from the function matches the one we've stored for that user, we can assume the password they provided matches the one from earlier.</p>
+
+
+        <h3>Assignment</h3>
+        <p>The NSA has provided you with a class containing all of the cryptography algorithms, but they want you to write the auxiliary classes used by the system.</p>
+        <p>The goal is to create a class called <code>User</code> which can store a password, salt, and hash value. You'll ask the user for a password, store it in a <code>User</code> object, and pass that object to provided <code>hashUserPassword()</code> function.</p>
+        <p>The hashing function will choose a random salt, then use it and the user's password to generate a cryptographic hash of their password. It will erase the password from the user object (since we don't want to store that), then store the salt and hash value in the object.</p>
+        <p>You will then ask the user to log in, and use the provided <code>verifyPassword()</code> function to see if the password they typed matches the original.</p>
 
         <h4>Part I (18%) - Become Familiar With the Code:</h4>
 
         <ol>
             <li>
-                <p>Clone the existing source code for this project:</p>
-<pre><code class="bash">git clone git@gist.github.com:4c64c1d8d2ef656d0201852227a0a5d8.git
-</code></pre>
+                <p>Download and explore <a href="https://github.com/byui-cs/CS246/blob/master/week-01/code/NSALogin-Student.zip?raw=true">the files for this project</a>.</p>
             </li>
             <li>
-                <p>Make sure you are able to compile and run the existing program:</p>
-<pre><code class="bash">javac *.java
-java Game
-</code></pre>
+                <p>You start with only one Java file in this project: <em>NSALoginController.java</em>. It contains the cryptographic hashing functions. You don't need to understand how these functions work, but you need to know what their purpose is:</p>
+
+                <p><code>hashUserPassword(User user)</code> - Takes an instance of the <code>User</code> class, reads its password and generates the salted hash value.</p>
+                
+                <p><code>verifyPassword(Users user)</code> - Takes an instance of the <code>User</code> class and returns a <code>Boolean</code> indicating whether or not the User's password value matches the User's salted hash.</p>
             </li>
+
             <li>
-                <p>Examine the .java files to make sure you understand the purpose of each:
-                <ul>
-                    <li><p><em>Game.java</em> - This file contains the <code>main()</code> method. It initializes the <code>List</code> of <code>Creature</code> objects, and then creates the <code>World</code>.</p>
-                    </li>
-                    
-                    <li><p><em>World.java</em> - This class creates the GUI, handles GUI events such as resizing and repaiting, and kicks off the background thread for updating the state of the <code>Creature</code> instances.</p>
-                    </li>
-                    
-                    <li><p><em>Creature.java</em> - Contains the abstract base class from which all <code>Creature</code> subclasses must inherit.</p>
-                    </li>
-                    
-                    <li><p><em>Movable.java</em> - Contains the definition of the <code>Movable</code> interface. This interface should be implemented by all subclasses of <code>Creature</code> that can move.</p>
-                    </li>
-
-                    <li><p><em>Aggressor.java</em> - Contains the definition of the <code>Aggressor</code> interface. This interface should be implemented by all subclasses of <code>Creature</code> that can attack other creatures.</p>
-                    </li>
-
-                    <li><p><em>Aware.java</em> - Contains the definition of the <code>Aware</code> interface. This interface should be implemented by all subclasses of <code>Creature</code> that can sense and react to other creatures around them.</p>
-                    </li>
-
-                    <li><p><em>Plant.java</em> - A subclass of <code>Creature</code> that does nothing but provide food for other creatures. Instances of the <code>Plant</code> class are represented in the game by green circles. Plants start with one health point.</p>
-                    </li>
-
-                    <li><p><em>Animal.java</em> - A subclass of <code>Creature</code> that implements the <code>Movable</code> and <code>Aggressor</code> interfaces. Instances of the <code>Animal</code> class are represented in the game by red squares. They move in random directions and if they land on a plant, they will eat it. <code>Animal</code> instances start with one health point and gain a health point for every plant they eat. Animals inflict one point of damage when they attack.</p>
-                    </li>
-
-                    <li><p><em>Shape.java</em> - An enum that contains possible creature shapes.</p>
-                    </li>
-
-                    <li><p><em>CreatureHandler.java</em> - This class coordinates the behavior of each <code>Creature</code> instance. The key method in this class is the <code>updateCreatures()</code> method, which is called by the <code>World</code> class every time the update loop runs. This method will iterate through a <code>List</code> of <code>Creature</code> instances, determine which behaviors they implement, and signal the <code>Creature</code> instance to carry out those behaviors.</p>
-                    </li>
-                </ul>
-                </p>
+                <p>You'll also notice a <code>doc</code> folder. This contains the compiled javadoc comments for the <code>NSALoginController</code> class. Open the index.html file in that folder, you'll be able to view the documentation, as well as learn more about what javadocs are and how to use them.</p>
             </li>
+           
         </ol>
 
-        <h4>Part II (25%) - Create a Zombie:</h4>
-        <img width="50px" class="pull-left" src="./img/zombie.png" />
-        <p>Your first task is to create a new Zombie creature based on existing behaviors.</p>
-        <p>It will start out by moving from left to right across the screen, devouring anything it comes in contact with, except for plants.</p>
+        <h4>Part II (37.5%) - Write the User Class:</h4>
+        <p>The User class will be a very basic class that just holds user information.</p>
         <ol>
-            <li><p>Create a new file called <code>Zombie.java</code>. That file should contain a <code>public</code> class definition for the <code>Zombie</code> class.</p>
+            <li><p>Create a new file called <code>User.java</code>.</p>
+            </li>
+
+            <li><p>Create a <code>public</code> class definition for a class called <code>User</code>. You can find an <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classdecl.html">example of the syntax for Java class definitions here</a>, but be sure to mark your class as <code>public</code>.</p></li>
+            
+            <li><p>Add private member variables to the class to store the password, salt, and hash value. They should all be <code>String</code> variables.</p></li>
+
+            <li><p>Add public getters and setters for each of these variables. Make sure you follow standard Java conventions for the getters and setters. You can find an <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html">example of the syntax for Java member variables and getters and setters here</a>.</p></li>
+
+            <li><p>Add a non-default constructor to the <code>User</code> class that takes the user's initial password as a <code>String</code>. The constructor should store this value in the appropriate private member variable. You can find an <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html"> example of the syntax for Java constructors here</a>.</p></li>
+        </ol>
+
+        <h4>Part III (37.5%) - Write the Test class and main():</h4>
+        <p>With the user class written, it's time to test it with the NSALoginController class.</p>
+        <ol>
+            <li><p>Create a new file called <code>Test.java</code>. That file should contain a <code>public</code> class definition for a class called <code>Test</code>.</p>
             </li>
             
-            <li><p>The <code>Zombie</code> class should be a subclass of <code>Creature</code> and should implement the <code>Movable</code> and <code>Aggressor</code> interfaces.</p>
-            </li>
+           <li><p>Add a <code>main()</code> method to the class. Remember to get the signature for main correct. Refer back to the <a href="./teach.html">team activity instructions</a> if necessary.</p></li>
 
-            <li><p>Instances of the <code>Zombie</code> class should always move from left to right.</p>
-            </li>
+           <li><p>Have <code>main()</code> prompt the user for a password. (Refer to the stretch challenge portion of the <a href="./teach.html">team activity instructions</a> if you need help getting input from the user.</p><p>Then, create a new instance of the <code>User</code> class, providing the password in the constructor.</p></li>
 
-            <li><p>Instances of the <code>Zombie</code> class should attack any creature they land on, as long as it isn't an instance of the <code>Plant</code> class. They should inflict 10 points of damage when they attack.</p>
-            </li>
+           <li><p>Call the <code>hashUserPassword()</code> function of the <code>NSALoginController</code> class, passing in the <code>User</code> object you created. (Note that we don't need to create an instance of NSALoginController, because the hash method is <code>static</code>.)</p>
+           <p>This function will hash the password, and update the <code>User</code> object with the hash value and random salt.</p>
+           <p>Please note that both <code>hashUserPassword()</code> and <code>verifyPassword()</code> throw exceptions. In Java, we are forced to handle exceptions use <code>try/catch</code> blocks. For more about exceptions in Java, and how to use <code>try/catch</code> blocks, see <a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/handling.html">the official Java documentation on exception handling</a>.</p></li>
 
-            <li><p>Instances of the <code>Zombie</code> class should be represented as blue squares.</p>
-            </li>
+           <li><p>Once the function finishes, the object will contain the new values. This might make you think that the object is being passed by reference, but what we're actually passing is a reference to the object, which is slightly different.</p>
+           <p>Please read over <a href="http://stackoverflow.com/a/40523/28106">this Stack Overflow post</a> to make sure you understand that difference.</p></li>
 
-            <li><p>Modify the <code>Game</code> class to add 10 <code>Zombie</code> instances to the <code>List</code> of <code>Creature</code> objects created at the start of the simulation.</p> 
+           <li><p>To make sure everything worked correctly, have <code>main()</code> print out the user's password, salt and hash values before and after the call to <code>hashUserPassword()</code>.</p></li>
+
+           <li><p>Finally, ask the user to enter a password, and then use the <code>verifyPassword()</code> function of <code>NSALoginController</code> to make sure the new password matches the original.</p></li>
         </ol>
-
-        <h4>Part III (25%) - Create a Wolf:</h4>
-        <img width="50px" class="pull-left" src="./img/wolf.png" />
-        <p>Your next task is to create a Wolf creature based on existing behaviors. Wolves start out by moving in a random direction, searching for something to eat.</p>
-        <p>If a wolf senses an animal nearby, it will decide to move in that direction as soon as possible. If it lands on an animal, it will eat it. Wolves will not eat or purposefully move towards zombies or plants.</p>
-        <ol>
-            <li><p>Create a new file called <code>Wolf.java</code>. That file should contain a <code>public</code> class definition for the <code>Wolf</code> class.</p>
-            </li>
-            
-            <li><p>The <code>Wolf</code> class should be a subclass of <code>Creature</code> and should implement the <code>Movable</code>, <code>Aware</code>, and <code>Aggressor</code> interfaces.</p>
-            </li>
-
-            <li><p>When the <code>move()</code> function is called on a <code>Wolf</code> instance, it should move in its <em>preferred direction</em>. When it is first created, it's <em>preferred direction</em> should be random.</p>
-            </li>
-
-            <li><p>When the <code>senseNeighbors()</code> function is called, the <code>Wolf</code> instance should change its preferred direction to be in the direction of the first <code>Animal</code> instance it sees. When checking for nearby animals, it should first check in the direction it's already moving, then proceed in a clockwise pattern.</p>
-            <p>So, if the <code>Wolf</code> is moving left, it should first check the creature provided in the <code>left</code> parameter of <code>senseNeighbors()</code> , followed by <code>above</code>, then <code>right</code>, then <code>below</code>.</p>
-            </li>
-
-            <li><p>Instances of the <code>Wolf</code> class should attack any <code>Animal</code> instances they land on, but should not attack <code>Plant</code> or <code>Zombie</code> instances. Wolves should inflict 5 points of damage when they attack.</p>
-            </li>
-
-            <li><p>Instances of the <code>Wolf</code> class should be represented as gray squares.</p>
-            </li>
-
-            <li><p>Modify the <code>Game</code> class to add 10 <code>Wolf</code> instances to the <code>List</code> of <code>Creature</code> objects created at the start of the simulation.</p> 
-        </ol>
-
-        <h4>Part IV (25%) - Give Wolves a New Behavior:</h4>
-        <img width="50px" class="pull-left" src="./img/stork.jpg" />
-        <p>Your next task is to allow wolves the ability to spawn baby wolves.</p>
-        <p>Every time a wolf eats another animal, it should gain the ability to spawn a new wolf on its next turn.</p>
-        <p>The newly spawned wolf should be created in the square directly to the left of its parent. After spawning a new wolf, the parent should lose the ability to spawn new wolves until the next time it eats an animal.</p>
-        <ol>
-            <li><p>Create a new <code>interface</code> called <code>Spawner</code>. This interface should define a single method:</p>
-<pre><code class="java">public Creature spawnNewCreature();
-</code></pre>
-            </li>
-            <li><p>Update the <code>Wolf</code> class so that it implements this new behavior.</p>
-            </li>
-            <li><p>Modify the <code>CreatureHandler</code> class so that it handles the <code>Spawner</code> behavior. It should handle this behavior in a similar way to how it handles the other behaviors. <code>Spawner</code> behaviors should be handled after <code>Aggressor</code> behaviors.</p>
-            </li>
-        </ol>
-
-        
+ 
         <p>If you've made it this far successfully, you're eligible for a 93%. To be eligible for 100% credit, complete the Stretch Challenge below.</p>
 
         <h4 class="stretch">🌟Stretch Challenge (7%)🌟</h4>
-        <img width="50px" class="pull-left" src="./img/mystery.png" />
-        <p>Invent a new creature that implements a mix of existing or new behaviors.</p>
 
-        <p>Some possibilities include: a flying creature that swoops down on zombies, a zombie-eating plant, or a wolf-zombie that hunts down other wolves and turns them into zombies.</p>
-        <p>Regardless of what you do, make sure you follow these design guidelines:</p>
+        <p>A new order from the NSA director states that all passwords must be at least eight characters long and contain at least one digit.</p>
+        <p>Because of your success implementing the <code>User</code> class, the director has asked you to implement this policy.</p>
         <ol>
-            <li><p>Each distinct behavior (flying, hunting, etc...) should be in its own interface.</p>
+            <li><p>Modify the <code>hashUserPassword()</code> function so that if the <code>User</code> object contains a password that violates the new policy, it will throw a <code>WeakPasswordException</code>.</p>
+            <p>You'll have to create this exception Class yourself. For some options on how to do that, look at the answers to <a href="http://stackoverflow.com/questions/3776327/how-to-define-custom-exception-class-in-java-the-easiest-way">this Stack Overflow</a> question.</p>
             </li>
-
-            <li><p>Make sure you create separate files for any new interfaces you create, as well as any new creature subclasses you create.</p>
-            </li>
-
-            <li><p>Make sure you modify the <code>CreatureHandler</code> class to incorporate any new behaviors in the update loop.</p>
-            </li>
-
-            <li><p>Make sure you modify the <code>Game</code> class to instantiate some of your new creatures at the start of the simulation.</p>
-            </li>
-
-            <li><p>If you want to use a shape other than a solid circle or square, add the shape option to the <code>Shape</code> enum, and add the necessary drawing code to the <code>paint()</code> method of the <code>World</code> class. You can find additional drawing methods in the <a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html">official Java docs for the Graphics class</a>.
-            </p>
+            <li><p>Modify <code>main()</code> to catch the <code>WeakPasswordException</code> and prompt the user for a new password. (Note that this might require putting the <code>try/catch</code> block inside of a loop).</p>
+            <p>Also note that you'll have to put the catch block of your new exception <em>before</em> the one for general exceptions.</p></li>
+            </p></li>
+           
+            
         </ol>
 
     </article>

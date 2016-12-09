@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 02 Prove : Individual Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>02 Prove</h2>
+        <p class="subtitle">Interfaces and the Game of Life</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Create and implement a Java interface.</p></li>
+            <li><p>Augment an existing application with new behaviors based on interfaces.</p></li>
+        </ul>
+
+        <h3>Game of Life</h3>
+        <p>A relatively famous computer science simluation is a cellular automation program called
+        <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life#Rules">The Game of Life.</a></p>
+        <p>In this assignment, you will use Java interfaces to implement a modified version of this
+        simulator.</p>
+
+        <img class="screenshot-large" src="./img/simulation.png"/>
+
+        <h4>Part I (18%) - Become Familiar With the Code:</h4>
+
+        <ol>
+            <li>
+                <p>Clone the existing source code for this project:</p>
+<pre><code class="bash">git clone git@gist.github.com:4c64c1d8d2ef656d0201852227a0a5d8.git
+</code></pre>
+            </li>
+            <li>
+                <p>Make sure you are able to compile and run the existing program:</p>
+<pre><code class="bash">javac *.java
+java Game
+</code></pre>
+            </li>
+            <li>
+                <p>Examine the .java files to make sure you understand the purpose of each:
+                <ul>
+                    <li><p><em>Game.java</em> - This file contains the <code>main()</code> method. It initializes the <code>List</code> of <code>Creature</code> objects, and then creates the <code>World</code>.</p>
+                    </li>
+                    
+                    <li><p><em>World.java</em> - This class creates the GUI, handles GUI events such as resizing and repaiting, and kicks off the background thread for updating the state of the <code>Creature</code> instances.</p>
+                    </li>
+                    
+                    <li><p><em>Creature.java</em> - Contains the abstract base class from which all <code>Creature</code> subclasses must inherit.</p>
+                    </li>
+                    
+                    <li><p><em>Movable.java</em> - Contains the definition of the <code>Movable</code> interface. This interface should be implemented by all subclasses of <code>Creature</code> that can move.</p>
+                    </li>
+
+                    <li><p><em>Aggressor.java</em> - Contains the definition of the <code>Aggressor</code> interface. This interface should be implemented by all subclasses of <code>Creature</code> that can attack other creatures.</p>
+                    </li>
+
+                    <li><p><em>Aware.java</em> - Contains the definition of the <code>Aware</code> interface. This interface should be implemented by all subclasses of <code>Creature</code> that can sense and react to other creatures around them.</p>
+                    </li>
+
+                    <li><p><em>Plant.java</em> - A subclass of <code>Creature</code> that does nothing but provide food for other creatures. Instances of the <code>Plant</code> class are represented in the game by green circles. Plants start with one health point.</p>
+                    </li>
+
+                    <li><p><em>Animal.java</em> - A subclass of <code>Creature</code> that implements the <code>Movable</code> and <code>Aggressor</code> interfaces. Instances of the <code>Animal</code> class are represented in the game by red squares. They move in random directions and if they land on a plant, they will eat it. <code>Animal</code> instances start with one health point and gain a health point for every plant they eat. Animals inflict one point of damage when they attack.</p>
+                    </li>
+
+                    <li><p><em>Shape.java</em> - An enum that contains possible creature shapes.</p>
+                    </li>
+
+                    <li><p><em>CreatureHandler.java</em> - This class coordinates the behavior of each <code>Creature</code> instance. The key method in this class is the <code>updateCreatures()</code> method, which is called by the <code>World</code> class every time the update loop runs. This method will iterate through a <code>List</code> of <code>Creature</code> instances, determine which behaviors they implement, and signal the <code>Creature</code> instance to carry out those behaviors.</p>
+                    </li>
+                </ul>
+                </p>
+            </li>
+        </ol>
+
+        <h4>Part II (25%) - Create a Zombie:</h4>
+        <img width="50px" class="pull-left" src="./img/zombie.png" />
+        <p>Your first task is to create a new Zombie creature based on existing behaviors.</p>
+        <p>It will start out by moving from left to right across the screen, devouring anything it comes in contact with, except for plants.</p>
+        <ol>
+            <li><p>Create a new file called <code>Zombie.java</code>. That file should contain a <code>public</code> class definition for the <code>Zombie</code> class.</p>
+            </li>
+            
+            <li><p>The <code>Zombie</code> class should be a subclass of <code>Creature</code> and should implement the <code>Movable</code> and <code>Aggressor</code> interfaces.</p>
+            </li>
+
+            <li><p>Instances of the <code>Zombie</code> class should always move from left to right.</p>
+            </li>
+
+            <li><p>Instances of the <code>Zombie</code> class should attack any creature they land on, as long as it isn't an instance of the <code>Plant</code> class. They should inflict 10 points of damage when they attack.</p>
+            </li>
+
+            <li><p>Instances of the <code>Zombie</code> class should be represented as blue squares.</p>
+            </li>
+
+            <li><p>Modify the <code>Game</code> class to add 10 <code>Zombie</code> instances to the <code>List</code> of <code>Creature</code> objects created at the start of the simulation.</p> 
+        </ol>
+
+        <h4>Part III (25%) - Create a Wolf:</h4>
+        <img width="50px" class="pull-left" src="./img/wolf.png" />
+        <p>Your next task is to create a Wolf creature based on existing behaviors. Wolves start out by moving in a random direction, searching for something to eat.</p>
+        <p>If a wolf senses an animal nearby, it will decide to move in that direction as soon as possible. If it lands on an animal, it will eat it. Wolves will not eat or purposefully move towards zombies or plants.</p>
+        <ol>
+            <li><p>Create a new file called <code>Wolf.java</code>. That file should contain a <code>public</code> class definition for the <code>Wolf</code> class.</p>
+            </li>
+            
+            <li><p>The <code>Wolf</code> class should be a subclass of <code>Creature</code> and should implement the <code>Movable</code>, <code>Aware</code>, and <code>Aggressor</code> interfaces.</p>
+            </li>
+
+            <li><p>When the <code>move()</code> function is called on a <code>Wolf</code> instance, it should move in its <em>preferred direction</em>. When it is first created, it's <em>preferred direction</em> should be random.</p>
+            </li>
+
+            <li><p>When the <code>senseNeighbors()</code> function is called, the <code>Wolf</code> instance should change its preferred direction to be in the direction of the first <code>Animal</code> instance it sees. When checking for nearby animals, it should first check in the direction it's already moving, then proceed in a clockwise pattern.</p>
+            <p>So, if the <code>Wolf</code> is moving left, it should first check the creature provided in the <code>left</code> parameter of <code>senseNeighbors()</code> , followed by <code>above</code>, then <code>right</code>, then <code>below</code>.</p>
+            </li>
+
+            <li><p>Instances of the <code>Wolf</code> class should attack any <code>Animal</code> instances they land on, but should not attack <code>Plant</code> or <code>Zombie</code> instances. Wolves should inflict 5 points of damage when they attack.</p>
+            </li>
+
+            <li><p>Instances of the <code>Wolf</code> class should be represented as gray squares.</p>
+            </li>
+
+            <li><p>Modify the <code>Game</code> class to add 10 <code>Wolf</code> instances to the <code>List</code> of <code>Creature</code> objects created at the start of the simulation.</p> 
+        </ol>
+
+        <h4>Part IV (25%) - Give Wolves a New Behavior:</h4>
+        <img width="50px" class="pull-left" src="./img/stork.jpg" />
+        <p>Your next task is to allow wolves the ability to spawn baby wolves.</p>
+        <p>Every time a wolf eats another animal, it should gain the ability to spawn a new wolf on its next turn.</p>
+        <p>The newly spawned wolf should be created in the square directly to the left of its parent. After spawning a new wolf, the parent should lose the ability to spawn new wolves until the next time it eats an animal.</p>
+        <ol>
+            <li><p>Create a new <code>interface</code> called <code>Spawner</code>. This interface should define a single method:</p>
+<pre><code class="java">public Creature spawnNewCreature();
+</code></pre>
+            </li>
+            <li><p>Update the <code>Wolf</code> class so that it implements this new behavior.</p>
+            </li>
+            <li><p>Modify the <code>CreatureHandler</code> class so that it handles the <code>Spawner</code> behavior. It should handle this behavior in a similar way to how it handles the other behaviors. <code>Spawner</code> behaviors should be handled after <code>Aggressor</code> behaviors.</p>
+            </li>
+        </ol>
+
+        
+        <p>If you've made it this far successfully, you're eligible for a 93%. To be eligible for 100% credit, complete the Stretch Challenge below.</p>
+
+        <h4 class="stretch">🌟Stretch Challenge (7%)🌟</h4>
+        <img width="50px" class="pull-left" src="./img/mystery.png" />
+        <p>Invent a new creature that implements a mix of existing or new behaviors.</p>
+
+        <p>Some possibilities include: a flying creature that swoops down on zombies, a zombie-eating plant, or a wolf-zombie that hunts down other wolves and turns them into zombies.</p>
+        <p>Regardless of what you do, make sure you follow these design guidelines:</p>
+        <ol>
+            <li><p>Each distinct behavior (flying, hunting, etc...) should be in its own interface.</p>
+            </li>
+
+            <li><p>Make sure you create separate files for any new interfaces you create, as well as any new creature subclasses you create.</p>
+            </li>
+
+            <li><p>Make sure you modify the <code>CreatureHandler</code> class to incorporate any new behaviors in the update loop.</p>
+            </li>
+
+            <li><p>Make sure you modify the <code>Game</code> class to instantiate some of your new creatures at the start of the simulation.</p>
+            </li>
+
+            <li><p>If you want to use a shape other than a solid circle or square, add the shape option to the <code>Shape</code> enum, and add the necessary drawing code to the <code>paint()</code> method of the <code>World</code> class. You can find additional drawing methods in the <a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html">official Java docs for the Graphics class</a>.
+            </p>
+        </ol>
+
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

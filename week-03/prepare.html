@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CS 246 - 03 Prepare : Reading</title>
+    <title>CS 246 - 02 Prepare : Reading</title>
     <link rel="stylesheet" type="text/css" href="../course/style.css" />
 </head>
 
@@ -13,38 +13,107 @@
     <h1>Software Design and Development :: CS 246</h1>
 </div>
     <article>
-        <h2>03 Prepare : Reading</h2>
-        <p class="subtitle">Java Interfaces</p>
+        <h2>02 Prepare : Reading</h2>
+        <p class="subtitle">Java Collections</p>
 
         <h3>Objectives</h3>
         <ul>
-            <li><p>Understand the design principle "Program to an interface, not an implementation".</p></li>
-            <li><p>Learn when it is appropriate to use an interface.</p></li>
-            <li><p>Learn how to implement an interface in Java.</p></li>
+            <li><p>Understand the history behind Java.</p></li>
+            <li><p>Learn a little about the Java ecosystem.</p></li>
+            <li><p>Set up your computer to compile and run Java code.</p></li>
         </ul>
 
-        <h3>Software Design Principle</h3>
-        <h4>Program to an interface, not an implementation.</h4>
-        <p>Using interfaces makes our code more flexible. To understand why this is:</p>
+        <h3>Java</h3>
+        <p>The Java language was designed in the 1990's. A significant goal in its design was to avoid some of the problems people encountered using C++. Some key differences between Java and C++ are:</p>
 
-        <ol class='checklist'>
-            <li><p>First, read <a href="https://docs.oracle.com/javase/tutorial/java/concepts/interface.html">this official description of interfaces from Oracle's Java Documentation</a> in order to get a basic idea of what an interface is.</p></li>
-            <li><p>Next, watch this video, which shows how interfaces can help us avoid a particular design issue:</p>
-            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/5Aef6vnAxR8" frameborder="0" allowfullscreen></iframe></p></li>
-            <li><p>Then, read the <a href="http://stackoverflow.com/questions/383947/what-does-it-mean-to-program-to-an-interface">first answer to this Stack Overflow question</a> to understand the main advantage of interfaces.</p>
-            <li><p>Finally, read the top four answers to <a href="http://stackoverflow.com/questions/504904/is-there-more-to-an-interface-than-having-the-correct-methods">this Stack Overflow post</a> to see other advantages and thoughts about interfaces.</p></li>
+        <h4>Automatic Memory Management</h4>
+        <p>In C++, you often have to manually allocate memory using <code>new</code>, storing it in a pointer, and freeing it using <code>delete</code>.</p>
+        <p>In Java, you only use <code>new</code> when creating an object instance. When the object instance falls out of scope, it is automatically deleted by the <em>Garbage Collector</em>.</p>
+
+        <h4>No Multiple Inheritance</h4>
+        <p>In C++, a class could have multiple parent classes. In Java, a class can only have a single parent class.</p>
+
+        <h4>Interfaces</h4>
+        <p>Java uses a concept called <em>interfaces</em> to provide many of the benefits of multiple inheritance, with none of the drawbacks. We'll learn more about interfaces in week 03.</p>
+
+        <h4>Write Once, Run Anywhere</h4>
+        <p>One of the key features of Java is that code you write for Java is "platform independent". This means that code you write should work the same way on Windows, Mac, Linux, etc...</p>
+
+        <h4>Everything is a Class</h4>
+        <p>In C++, you could write object-oriented code, or procedural code. In Java, every function must belong to a class.</p>
+
+        <h3>How Java Works</h3>
+        <p>With C++, you wrote code in <code>.cpp</code> files, compiled them into an executable file containing <em>machine code</em> using <code>g++</code>, then ran the executable. Since C++ files are compiled into <em>machine code</em>, they will only run on the same kind of computer you compiled it on. So, if you compiled it on a Linux computer, then copied the executable to your Windows computer, you would find that it wouldn't run there. This is because the machine code that Linux uses is different than the machine code that Windows uses.</p>
+
+        <p>Since one of Java's goals is "Write Once, Run Anywhere", compiling and running code in Java follows a different process.</p>
+
+        <ol>
+            <li><p>Write code in <code>.java</code> files.</p></li>
+            <li><p>Compile the <code>.java</code> files into <code>.class</code> files using the Java Compiler.</p></li>
+            <li><p>Execute the class files using the Java Virtual Machine.</p></li>
         </ol>
 
-        <p>After reading that material, you should understand the advantages provided by programming to an interface rather than an implementation.</p>
+        <h4>Compiling Java Code</h4>
+        <p>In order to compile Java code, you need to install the <em>JDK</em>, or Java Development Kit.</p>
 
-        <p>Namely, it allows our code to move away from this design: <em>"I need this specific class in order to do this work."</em> and instead use this more flexible idea: <em>"I can use any class that can do this kind of thing in order to do this work."</em></p>
+        <p>The Java Development Kit contains a tool called <code>javac</code>. This tool is used to compile .java files much the same way that <code>g++</code> is used to compile C++ files:</p>
+<pre><code class="bash">javac HelloWorld.java
+</code></pre>
+        <p>However, instead of getting an executable, you get one or more <code>.class</code> files. These files contain <em>bytecode</em>. Unlike machine code, bytecode cannot be executed directly. To run it, we need to use another program called the <em>Java Virtual Machine</em>.</p>
 
-        <h3>Java Coding</h3>
-        <p>Now that you know what interfaces are and why they are useful, read through <a href="https://www.tutorialspoint.com/java/java_interfaces.htm">this tutorial</a> for more details on how to use interfaces in Java.</p>
+        <h4>Running Java Programs</h4>
+        <p>The Java Virtual Machine (or JVM), is a program that acts as a translator. It converts the bytecode contained in the <code>.class</code> files into the machine code needed by the computer. It does this in real time, while the program is running. This process is often called <em>JIT</em>, or Just-in-Time Compilation.</p>
+
+        <p>In order to obtain the JVM for their computer, a user must install the Java Runtime Environment or <em>JRE</em>. The Windows JVM converts Java bytecode into Windows machine code. The Linux JVM converts Java bytecode into Linux machine code. There are JVMs for nearly every type of computer.</p>
+
+        <img class="screenshot-large" src="./img/jvm.png"/>
+
+        <p>Once you've compiled your Java code, you can run it using the <code>java</code> command line tool. This launches the JVM for your computer, and uses it to execute your class file.</p>
+
+<pre><code class="bash">java HelloWorld
+</code></pre>
+    
+        <p>Note that if you install the Java Development Kit (JDK) the JRE is also included, so you won't need to install that separately.</p>
+
+        <h3>Java's main() Function</h3>
+
+        <p>One of the differences between Java and C++ is that every function in Java must belong to a class. This includes the <code>main()</code> function. Consider this simple Java program:</p>
+
+<pre><code class="java">// HelloWorld.java
+public class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+
+}
+</code></pre>
+
+        <p>Some things to note:</p>
+        <ul>
+            <li><p>In Java, it is conventional to put each class in its own file. The class name should be "Pascal-Cased", meaning that each word in the class name begins with a capital letter.</p></li>
+            <li><p>In our example, the <code>main()</code> function belongs to the HelloWorld class. It must be marked as <code>public static</code> and have a return type of <code>void</code>.</p></li>
+            <li><p>Unlike in C++, Java requires <code>main()</code> to always accept command-line parameters. They are passed in a single argument called <code>args</code> as an array of strings.</p></li>
+            <li><p>This code is equivalent:</p>
+<pre><code class="java">// Java
+System.out.println("Something");
+</code></pre>
+<pre><code class="cpp">// C++
+cout << "Something" << endl;
+</code></pre></li>
+        </ul>
+
+        <p>To compile our java program, we use the <code>javac</code> command-line tool, followed by the name of the file:</p>
+<pre><code class="bash">javac HelloWorld.java
+</code></pre> 
+        <p>To execute the file, we launch the JVM using the <code>java</code> command-line tool, followed by the name of the class that contains the <code>main()</code> function:</p>
+<pre><code class="bash">java HelloWorld
+</code></pre>
+        <p>Note that we use the <strong>name of the class</strong>, not the name of the file that contains the class.</p>
 
         <h3>Reading Quiz</h3>
         <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
-        <p>As before, one of the quiz questions is a "deep thought" question whose answer won't come directly from the reading.</p>
+        <p>One of the quiz questions is a "deep thought" question. The answer to this question won't come directly from the reading, but will require you to think deeply about what you've learned from the reading.</p>
 
     </article>
 
