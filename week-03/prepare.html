@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CS 246 - 02 Prepare : Reading</title>
+    <title>CS 246 - 03 Prepare : Reading</title>
     <link rel="stylesheet" type="text/css" href="../course/style.css" />
 </head>
 
@@ -13,103 +13,159 @@
     <h1>Software Design and Development :: CS 246</h1>
 </div>
     <article>
-        <h2>02 Prepare : Reading</h2>
-        <p class="subtitle">Java Collections</p>
+        <h2>03 Prepare : Reading</h2>
+        <p class="subtitle">Java Collections and Generics</p>
 
         <h3>Objectives</h3>
         <ul>
-            <li><p>Understand the history behind Java.</p></li>
-            <li><p>Learn a little about the Java ecosystem.</p></li>
-            <li><p>Set up your computer to compile and run Java code.</p></li>
+            <li><p>Understand Java collections.</p></li>
+            <li><p>Understand how Generics work in Java.</p></li>
+            <li><p>Understand the role that interfaces play in the use of collections.</p></li>
         </ul>
 
-        <h3>Java</h3>
-        <p>The Java language was designed in the 1990's. A significant goal in its design was to avoid some of the problems people encountered using C++. Some key differences between Java and C++ are:</p>
+        <h3>Introduction</h3>
 
-        <h4>Automatic Memory Management</h4>
-        <p>In C++, you often have to manually allocate memory using <code>new</code>, storing it in a pointer, and freeing it using <code>delete</code>.</p>
-        <p>In Java, you only use <code>new</code> when creating an object instance. When the object instance falls out of scope, it is automatically deleted by the <em>Garbage Collector</em>.</p>
+        <p>Collections are containers that allow us to efficiently store and process data. In C++, you likely worked with vectors, and possibly trees, maps, and linked-lists. These are all types of collections.</p>
 
-        <h4>No Multiple Inheritance</h4>
-        <p>In C++, a class could have multiple parent classes. In Java, a class can only have a single parent class.</p>
+        <p>In Java, all collections implement the <code>Collection</code> interface. This interface defines a list of methods that all collections must implement. Some of these include:</p>
 
-        <h4>Interfaces</h4>
-        <p>Java uses a concept called <em>interfaces</em> to provide many of the benefits of multiple inheritance, with none of the drawbacks. We'll learn more about interfaces in week 03.</p>
+        <ul>
+            <li><p><code>add()</code> A way to add elements to a collection.</p></li>
+            <li><p><code>clear()</code> A way to remove all elements from a collection.</p></li>
+            <li><p><code>contains()</code> A way to see if a collection contains an element.</p></li>
+            <li><p><code>size()</code> A way to see how many elements a collection contains.</p></li>
+            <li><p>etc...</p></li>
+        </ul>
 
-        <h4>Write Once, Run Anywhere</h4>
-        <p>One of the key features of Java is that code you write for Java is "platform independent". This means that code you write should work the same way on Windows, Mac, Linux, etc...</p>
+        <p>Take some time to look over the complete list of methods every collection must provide, by looking at <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html#method.summary">the official documentation for the Collection interface</a>.</p>
 
-        <h4>Everything is a Class</h4>
-        <p>In C++, you could write object-oriented code, or procedural code. In Java, every function must belong to a class.</p>
+        <h4>Collection Interfaces and Generics</h4>
+        <p>Java provides several subinterfaces that extend the collection interface. Some commonly used ones are <code>List</code>, <code>Map</code>, and <code>Set</code>. Each of these interfaces define additional methods that are appropriate for those types of collections.</p>
 
-        <h3>How Java Works</h3>
-        <p>With C++, you wrote code in <code>.cpp</code> files, compiled them into an executable file containing <em>machine code</em> using <code>g++</code>, then ran the executable. Since C++ files are compiled into <em>machine code</em>, they will only run on the same kind of computer you compiled it on. So, if you compiled it on a Linux computer, then copied the executable to your Windows computer, you would find that it wouldn't run there. This is because the machine code that Linux uses is different than the machine code that Windows uses.</p>
-
-        <p>Since one of Java's goals is "Write Once, Run Anywhere", compiling and running code in Java follows a different process.</p>
-
-        <ol>
-            <li><p>Write code in <code>.java</code> files.</p></li>
-            <li><p>Compile the <code>.java</code> files into <code>.class</code> files using the Java Compiler.</p></li>
-            <li><p>Execute the class files using the Java Virtual Machine.</p></li>
-        </ol>
-
-        <h4>Compiling Java Code</h4>
-        <p>In order to compile Java code, you need to install the <em>JDK</em>, or Java Development Kit.</p>
-
-        <p>The Java Development Kit contains a tool called <code>javac</code>. This tool is used to compile .java files much the same way that <code>g++</code> is used to compile C++ files:</p>
-<pre><code class="bash">javac HelloWorld.java
+        <p>Java's collections are all "generic" types. They work in a similar way to how templates work in C++. Last week, we saw a <code>List</code> of <code>Creature</code> objects could be declared like this:</p>
+<pre><code class="java">List&lt;Creature&gt; someCreatures;
 </code></pre>
-        <p>However, instead of getting an executable, you get one or more <code>.class</code> files. These files contain <em>bytecode</em>. Unlike machine code, bytecode cannot be executed directly. To run it, we need to use another program called the <em>Java Virtual Machine</em>.</p>
 
-        <h4>Running Java Programs</h4>
-        <p>The Java Virtual Machine (or JVM), is a program that acts as a translator. It converts the bytecode contained in the <code>.class</code> files into the machine code needed by the computer. It does this in real time, while the program is running. This process is often called <em>JIT</em>, or Just-in-Time Compilation.</p>
+        <p>As with C++, the type of thing that will be stored in the collection goes inside the angle brackets. Once a collection has been initialized, only objects of that type (or objects that inherit from that type) may be stored in the collection.</p>
 
-        <p>In order to obtain the JVM for their computer, a user must install the Java Runtime Environment or <em>JRE</em>. The Windows JVM converts Java bytecode into Windows machine code. The Linux JVM converts Java bytecode into Linux machine code. There are JVMs for nearly every type of computer.</p>
-
-        <img class="screenshot-large" src="./img/jvm.png"/>
-
-        <p>Once you've compiled your Java code, you can run it using the <code>java</code> command line tool. This launches the JVM for your computer, and uses it to execute your class file.</p>
-
-<pre><code class="bash">java HelloWorld
+        <p>Note that it's not just class names we can use as the generic type. We can also use interfaces:</p>
+<pre><code class="java">List&lt;Movable&gt; someThingsThatMove;
 </code></pre>
-    
-        <p>Note that if you install the Java Development Kit (JDK) the JRE is also included, so you won't need to install that separately.</p>
 
-        <h3>Java's main() Function</h3>
+        <h4>Concrete Implementations</h4>
+        <p>Java also provides several concrete classes that implement the various collection interfaces. (A <em>concrete class</em> is a class you can instantiate using the <code>new</code> keyword, as opposed to an abstract class or interface).</p>
 
-        <p>One of the differences between Java and C++ is that every function in Java must belong to a class. This includes the <code>main()</code> function. Consider this simple Java program:</p>
+        <p>You can see a list of all the classes that implement a particular interface by looking at the <em>All Known Implementing Classes:</em> section of the interface documentation. For example, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">the documentation for the List interface</a> shows several classes that implement that interface. The most commonly used are <code>ArrayList</code> and <code>LinkedList</code>.</p>
 
-<pre><code class="java">// HelloWorld.java
-public class HelloWorld {
+        <p>Typically, when we use a collection, we instantiate it using the concrete class whose attributes we need, but we store it as an interface:</p>
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+<pre><code class="java">List&lt;Creature&gt; creatures = new ArrayList&lt;Creature&gt;();
+</code></pre>
 
+        <p>By storing it as an interface, the rest of our code is isolated from having to change if we decide on a different implementation, as long as we have something that implements <code>List</code>, nothing else has to change.</p>
+
+        <h4>Collections Example</h4>
+        <p>Consider this example:</p>
+
+        <p>You've been working on an asteroids game, and you need to store a collection of <code>Rock</code> classes. You decide to use <code>ArrayList</code> because it's the most familiar to you. You write your <code>AsteroidManager</code> class that keeps track of all of the asteroids like this:</p>
+
+<pre><code class="java">public class AsteroidManager {
+
+  ArrayList&lt;Asteroid&gt; _asteroids;
+
+  public AsteroidManager() {
+    _asteroids = new ArrayList&lt;Asteroid&gt;();
+  }
+
+  public ArrayList&lt;Asteroid&gt; getAsteroids() {
+    return _asteroids;
+  }
+  ...
 }
 </code></pre>
 
-        <p>Some things to note:</p>
-        <ul>
-            <li><p>In Java, it is conventional to put each class in its own file. The class name should be "Pascal-Cased", meaning that each word in the class name begins with a capital letter.</p></li>
-            <li><p>In our example, the <code>main()</code> function belongs to the HelloWorld class. It must be marked as <code>public static</code> and have a return type of <code>void</code>.</p></li>
-            <li><p>Unlike in C++, Java requires <code>main()</code> to always accept command-line parameters. They are passed in a single argument called <code>args</code> as an array of strings.</p></li>
-            <li><p>This code is equivalent:</p>
-<pre><code class="java">// Java
-System.out.println("Something");
-</code></pre>
-<pre><code class="cpp">// C++
-cout << "Something" << endl;
-</code></pre></li>
-        </ul>
+        <p>Let's imagine that this is a complex program with lots of other classes interacting with the <code>AsteroidManager</code> class. Each of those classes calls the <code>getAsteroids()</code> function at different times and performs operations on the <code>ArrayList</code>.</p>
 
-        <p>To compile our java program, we use the <code>javac</code> command-line tool, followed by the name of the file:</p>
-<pre><code class="bash">javac HelloWorld.java
-</code></pre> 
-        <p>To execute the file, we launch the JVM using the <code>java</code> command-line tool, followed by the name of the class that contains the <code>main()</code> function:</p>
-<pre><code class="bash">java HelloWorld
+        <p>One day, you realize that <code>ArrayList</code> is actually the wrong choice for this situation, because you frequently need to add and remove asteroids at the end of the list, a task that the <code>LinkedList</code> class is better suited for. So you decide to change your <code>AsteroidManager</code> class to use a <code>LinkedList</code>:</p>
+
+<pre><code class="java">public class AsteroidManager {
+
+  LinkedList&lt;Asteroid&gt; _asteroids;
+
+  public AsteroidManager() {
+    _asteroids = new LinkedList&lt;Asteroid&gt;();
+  }
+
+  public LinkedList&lt;Asteroid&gt; getAsteroids() {
+    return _asteroids;
+  }
+  ...
+}
 </code></pre>
-        <p>Note that we use the <strong>name of the class</strong>, not the name of the file that contains the class.</p>
+
+        <p>Unfortunately, not only did you have to change the <code>AsteroidManager</code> code in several places, but you'll also have to modify every single class that calls <code>getAsteroids()</code>, because the return type has changed.</p>
+
+        <p>This problem could have been prevented if we had initially used the <code>List</code> interface to store our <code>ArrayList</code>:</p>
+
+<pre><code class="java">public class AsteroidManager {
+
+  List&lt;Asteroid&gt; _asteroids;
+
+  public AsteroidManager() {
+    _asteroids = new ArrayList&lt;Asteroid&gt;();
+  }
+
+  public List&lt;Asteroid&gt; getAsteroids() {
+    return _asteroids;
+  }
+  ...
+}
+</code></pre>
+
+        <p>Now, to switch to a <code>LinkedList</code>, we only need to change one line of code:</p>
+
+<pre><code class="java">_asteroids = new LinkedList&lt;Asteroid&gt;();     
+</code></pre>
+        
+        <p>All the rest of our code just cares that we're using something that implements the <code>List</code> interface, no matter what that something is. These types of situations are one of the main reasons why we "program to an interface, not an implementation".</p>
+
+        <h4>Java Types</h4>
+        <p>Let's take a moment to discuss Java's basic data types. Like most languages, Java has <code>int</code>, <code>float</code>, <code>char</code>, etc.... These are called <em>primitive</em> types. They are memory efficient and take up relatively little space.</p>
+
+        <p>In addition to primitive types, Java also has wrapper classes for each of the primitives. For example, there is a class called <code>Integer</code> that serves as a wrapper class for the <code>int</code> primitive. Aside from providing some <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">useful functionality</a>, these wrapper classes allow us to put primitive data types inside of collections, which require objects:</p>
+<pre><code class="java">Integer myInt = 3;
+List&lt;Integer&gt; myNumbers;
+myNumbers.add(myInt);
+</code></pre>
+        <p>Java will automatically convert back and forth between primitives and wrapper classes as needed through a process called <em>autoboxing</em>:</p>
+<pre><code class="java">Integer myInt = 3;
+System.out.println(myInt + 2);
+</code></pre>
+        <p>People try to avoid the use of wrapper classes and autoboxing whenever possible, because there are pretty strong performance hits in their use.</p>
+
+        <h3>Reading</h3>
+        <p>Read the following resources to gain a better understanding of these principles:</p>
+        <ol class='checklist'>
+            <li><p>Start with <a href="http://www.w3resource.com/java-tutorial/java-wrapper-classes.php">this tutorial about Java wrapper classes</a>.</p></li>
+            <li><p>Next, read these Stack Overflow posts to see the pros and cons of using the wrapper classes:</p>
+                <ul>
+                    <li><p><a href="http://stackoverflow.com/questions/1570416/when-to-use-wrapper-class-and-primitive-type">When to use wrapper class and primitive types.</a></p></li>
+                    <li><p><a href="http://stackoverflow.com/questions/5199359/why-do-people-still-use-primitive-types-in-java">Why do people still use primitive types in Java?</a></p></li>
+                </ul>
+            </li>
+            <li>
+                <p>Also, take a look at the <a href="http://stackoverflow.com/questions/20877086/why-do-comparisons-with-integer-valueofstring-give-different-results-for-12">first and second answers to this post</a> to see the "gotcha" that can occur with autoboxing.</p>
+            </li>
+            <li>
+                <p>Speaking of Java types, make sure you also understand <a href="http://stackoverflow.com/questions/513832/how-do-i-compare-strings-in-java">how to compare two Strings in Java</a>.</p>
+            </li>
+            <li>
+                <p>Then, read over <a href="https://en.wikiversity.org/wiki/Java_Collections_Overview">these tables that describe</a> some of the differences between the different collection interfaces and their concrete implementation classes.</p>
+            </li>
+            <li>
+                <p>Finally, take a look at <a href="http://www.codejava.net/java-core/collections/java-list-collection-tutorial-and-examples">this tutorial for some code examples</a> that use collections.</p>
+            </li>
+        </ol>
 
         <h3>Reading Quiz</h3>
         <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>

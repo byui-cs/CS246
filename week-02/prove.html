@@ -117,7 +117,7 @@ java Game
             <li><p>When the <code>move()</code> function is called on a <code>Wolf</code> instance, it should move in its <em>preferred direction</em>. When it is first created, it's <em>preferred direction</em> should be random.</p>
             </li>
 
-            <li><p>When the <code>senseNeighbors()</code> function is called, the <code>Wolf</code> instance should change its preferred direction to be in the direction of the first <code>Animal</code> instance it sees. When checking for nearby animals, it should first check in the direction it's already moving, then proceed in a clockwise pattern.</p>
+            <li><p>When the <code>senseNeighbors()</code> function is called, the <code>Wolf</code> instance should change its preferred direction to be in the direction of the first <code>Animal</code> instance it sees. When checking for nearby animals, it should first check in the direction it's already moving. If no <code>Animal</code> instance is there, it should search in a clockwise pattern starting at the top.</p>
             <p>So, if the <code>Wolf</code> is moving left, it should first check the creature provided in the <code>left</code> parameter of <code>senseNeighbors()</code> , followed by <code>above</code>, then <code>right</code>, then <code>below</code>.</p>
             </li>
 
@@ -143,6 +143,8 @@ java Game
             <li><p>Update the <code>Wolf</code> class so that it implements this new behavior.</p>
             </li>
             <li><p>Modify the <code>CreatureHandler</code> class so that it handles the <code>Spawner</code> behavior. It should handle this behavior in a similar way to how it handles the other behaviors. <code>Spawner</code> behaviors should be handled after <code>Aggressor</code> behaviors.</p>
+            <p>This part will be tricky, and will require you to do some research on your own, a pattern that will continue throughout the course.</p>
+            <p><strong>Remember, wolves can only spawn once they've eaten something, and once they've spawned a new creature they lose their spawning ability until they eat again.</strong></p>
             </li>
         </ol>
 
