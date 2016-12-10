@@ -14,16 +14,31 @@
 </div>
     <article>
         <h2>03 Prepare : Reading</h2>
-        <p class="subtitle">Java Collections and Generics</p>
+        <p class="subtitle">Java Types and Collections</p>
 
         <h3>Objectives</h3>
         <ul>
+            <li><p>Understand some nuances of the Java typing system.</p></li>
             <li><p>Understand Java collections.</p></li>
             <li><p>Understand how Generics work in Java.</p></li>
             <li><p>Understand the role that interfaces play in the use of collections.</p></li>
         </ul>
 
-        <h3>Introduction</h3>
+        <h3>Java Types</h3>
+        <p>Let's take a moment to discuss Java's basic data types. Like most languages, Java has <code>int</code>, <code>float</code>, <code>char</code>, etc.... These are called <em>primitive</em> types. They are memory efficient and take up relatively little space.</p>
+
+        <p>In addition to primitive types, Java also has wrapper classes for each of the primitives. For example, there is a class called <code>Integer</code> that serves as a wrapper class for the <code>int</code> primitive. Aside from providing some <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">useful functionality</a>, these wrapper classes allow us to put primitive data types inside of collections, which require objects:</p>
+<pre><code class="java">Integer myInt = 3;
+List&lt;Integer&gt; myNumbers;
+myNumbers.add(myInt);
+</code></pre>
+        <p>Java will automatically convert back and forth between primitives and wrapper classes as needed through a process called <em>autoboxing</em>:</p>
+<pre><code class="java">Integer myInt = 3;
+System.out.println(myInt + 2);
+</code></pre>
+        <p>People try to avoid the use of wrapper classes and autoboxing whenever possible, because there are pretty strong performance hits in their use.</p>
+
+        <h3>Collections</h3>
 
         <p>Collections are containers that allow us to efficiently store and process data. In C++, you likely worked with vectors, and possibly trees, maps, and linked-lists. These are all types of collections.</p>
 
@@ -129,19 +144,7 @@
         
         <p>All the rest of our code just cares that we're using something that implements the <code>List</code> interface, no matter what that something is. These types of situations are one of the main reasons why we "program to an interface, not an implementation".</p>
 
-        <h4>Java Types</h4>
-        <p>Let's take a moment to discuss Java's basic data types. Like most languages, Java has <code>int</code>, <code>float</code>, <code>char</code>, etc.... These are called <em>primitive</em> types. They are memory efficient and take up relatively little space.</p>
-
-        <p>In addition to primitive types, Java also has wrapper classes for each of the primitives. For example, there is a class called <code>Integer</code> that serves as a wrapper class for the <code>int</code> primitive. Aside from providing some <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">useful functionality</a>, these wrapper classes allow us to put primitive data types inside of collections, which require objects:</p>
-<pre><code class="java">Integer myInt = 3;
-List&lt;Integer&gt; myNumbers;
-myNumbers.add(myInt);
-</code></pre>
-        <p>Java will automatically convert back and forth between primitives and wrapper classes as needed through a process called <em>autoboxing</em>:</p>
-<pre><code class="java">Integer myInt = 3;
-System.out.println(myInt + 2);
-</code></pre>
-        <p>People try to avoid the use of wrapper classes and autoboxing whenever possible, because there are pretty strong performance hits in their use.</p>
+        
 
         <h3>Reading</h3>
         <p>Read the following resources to gain a better understanding of these principles:</p>
