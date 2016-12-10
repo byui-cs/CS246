@@ -27,7 +27,7 @@
         <h3>Java Types</h3>
         <p>Let's take a moment to discuss Java's basic data types. Like most languages, Java has <code>int</code>, <code>float</code>, <code>char</code>, etc.... These are called <em>primitive</em> types. They are memory efficient and take up relatively little space.</p>
 
-        <p>In addition to primitive types, Java also has wrapper classes for each of the primitives. For example, there is a class called <code>Integer</code> that serves as a wrapper class for the <code>int</code> primitive. Aside from providing some <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">useful functionality</a>, these wrapper classes allow us to put primitive data types inside of collections, which require objects:</p>
+        <p>In addition to primitive types, Java also has wrapper classes for each of the primitives. For example, there is a class called <code>Integer</code> that serves as a wrapper class for the <code>int</code> primitive. Aside from providing some <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html">useful functionality</a>, these wrapper classes allow us to use primitive data types in situations that require objects, such as when dealing with collections:</p>
 <pre><code class="java">Integer myInt = 3;
 List&lt;Integer&gt; myNumbers;
 myNumbers.add(myInt);
