@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<conference month="11" year="2014">
+	<session name="Saturday Morning">
+		<speaker name="Thomas S. Monson" />
+		<speaker name="Boyd K. Packer" />
+		<speaker name="Lynn G. Robbins" />
+		<speaker name="Cheryl A. Esplin" />
+		<speaker name="Chi Hong (Sam) Wong" />
+		<speaker name="D. Todd Christofferson" />
+		<speaker name="Dieter F. Uchtdorf" />
+	</session>
+	<session name="Saturday Afternoon">
+		<speaker name="Dallin H. Oaks" />
+		<speaker name="Neil L. Andersen" />
+		<speaker name="Tad R. Callister" />
+		<speaker name="Jorg Klebingat" />
+		<speaker name="Eduardo Gavarret" />
+		<speaker name="Jeffrey R. Holland" />
+		<speaker name="L. Tom Perry" />
+	</session>
+	<session name="Priesthood">
+		<speaker name="Quentin L. Cook" />
+		<speaker name="Craig C. Christensen" />
+		<speaker name="Dean M. Davies" />
+		<speaker name="Dieter F. Uchtdorf" />
+		<speaker name="Henry B. Eyring" />
+		<speaker name="Thomas S. Monson" />
+	</session>
+	<session name="Sunday Morning">
+		<speaker name="Henry B. Eyring" />
+		<speaker name="Russell M. Nelson" />
+		<speaker name="Carol F. McConkie" />
+		<speaker name="Robert D. Hales" />
+		<speaker name="James J. Hamula" />
+		<speaker name="Thomas S. Monson" />
+	</session>
+	<session name="Sunday Afternoon">
+		<speaker name="M. Russell Ballard" />
+		<speaker name="Richard G. Scott" />
+		<speaker name="Carlos A. Godoy" />
+		<speaker name="Allan F. Packer" />
+		<speaker name="Hugo E. Martinez" />
+		<speaker name="Larry S. Kacher" />
+		<speaker name="David A. Bednar" />
+		<speaker name="Thomas S. Monson" />
+	</session>
+	<session name="General Women's Session">
+		<speaker name="Linda K. Burton" />
+		<speaker name="Jean A. Stevens" />
+		<speaker name="Neill F. Marriott" />
+		<speaker name="Dieter F. Uchtdorf" />
+	</session>
+</conference>
