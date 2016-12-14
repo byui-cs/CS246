@@ -14,96 +14,80 @@
 </div>
     <article>
         <h2>03 Teach : Team Activity</h2>
-        <p class="subtitle">Java Hello World</p>
+        <p class="subtitle">Parsing JSON</p>
 
         <h3>Objectives</h3>
 
         <ul>
-            <li><p>Install the Java JDK.</p></li>
-            <li><p>Configure your system to find the Java JDK.</p></li>
-            <li><p>Write a simple Java Hello World program.</p></li>
+            <li><p>Become familiar with JSON.</p></li>
+            <li><p>Understand how to deserialize JSON into objects and collections.</p></li>
         </ul>
 
         <h3>Assignment</h3>
-        <h4>Part I: Install and Configure Java</h4>
-        <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
+        <h4>Part I: Understanding JSON</h4>
+        <p>JSON is a data storage format originally developed for web applications. It has become one of the most popular data exchange formats because of its compact size and readability. (Another popular data format is XML. If you're interested, you can read more about <a href="http://stackoverflow.com/a/4862511/28106">the pros and cons of the two here</a>.</p>
 
-        <p>First, we need to install the Java SDK and configure your system to use it. Please follow the instructions in the video that corresponds to your operating system.</p>
-        
-        <p>Windows 10</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Wp6uS7CmivE" frameborder="0" allowfullscreen></iframe>
+        <p>Here is what an array looks like in JSON:</p>
 
-        <p>Windows 8/8.1</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/pb-r8U2kpCU" frameborder="0" allowfullscreen></iframe>
+<pre><code class="json">// Array of numbers 
+[ 1, 2, 3, 4]
 
-        <p>macOS</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/GNBzU4n7Okc" frameborder="0" allowfullscreen></iframe>
+// Array of strings
+[ "mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
-        <p>For the first few weeks of the course, we'll be using a text editor to write our Java code. Once we begin Android Development, we'll start using an IDE.</p>
-
-        <p>The following is a list of text editors that many people like. Some are free, some cost money. If you don't already have a text editor you like, choose one from below and install in on your system. If you don't like any of these, there are many others. Simply search for "programmer text editor" on Google.</p>
-
-        <ul>
-            <li><p><a href="https://notepad-plus-plus.org/">Notepad++</a> (Windows)</p></li>
-            <li><p><a href="https://www.sublimetext.com/">Sublime Text</a> (All Platforms)</p></li>
-            <li><p><a href="https://atom.io/">Atom</a> (All Platforms)</p></li>
-        </ul>
-
-        <h4>Part II: Write a Java Hello World program</h4>
-
-        <p>With your system configured, you're ready to write your first Java program. Here are the guidelines to follow:</p>
-
-        <ol>
-            <li><p>Make sure you review the <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a> to see how Java Guide should be styled for this course.</p></li>
-            <li><p>Create a file called <em>HelloWorld.java</em></p></li>
-            <li><p>In that file, create a <code>public</code> Java class called <code>HelloWorld</code></p></li>
-            <li><p>Add the <code>main()</code> method, making sure that you write its signature correctly (review the <a href="./prepare.html">preparation reading</a> if necessary).</p></li>
-            <li><p>Add another method to the the HelloWorld class called <code>sayHello()</code>. This method should print "Hello World" to the console.</p></li>
-            <li><p>Have <code>main()</code> create a new instance of the HelloWorld class and call its <code>sayHello()</code> method. This is all that <code>main()</code> should do.</p></li>
-            <li><p>Compile your code:</p>
-<pre><code class="bash">javac HelloWorld.java
+// Array of booleans:
+[ true, false, true, true]
 </code></pre>
-            </li>
-            <li><p>Execute your code:</p>
-<pre><code class="bash">java HelloWorld
+
+        <p>JSON stands for "JavaScript Object Notation". Even though we can use it to store simple arrays, it's designed to allow complex objects to be stored in key-value pairs.</p>
+        <p>The keys are strings that correspond to the property names, and the values are the values of the property for a particular object:</p>
+
+<pre><code class="java">// Player object 
+Player p = new Player();
+p.setName("Steve");
+p.setHealth(20);
+p.setMana(50);
+p.setCanFly(false);
 </code></pre>
-            </li>     
-        </ol>
+<pre><code class="json">// JSON Representation 
+{ "name": "Steve", "health": 20, "mana": 50, "canFly": false}
+</code></pre>
 
-        <p>Once you've finished, or if you get stuck, compare your code to the <a href="https://gist.github.com/lfalin/eb3bf9ea46725f882a54d14d6b667f81">teacher's solution</a>.
+        <p>We can take an object, <em>serialize</em> into JSON, and then share that data, (either in a file or by sending it over the network. Then we can <em>deserialize</em> it back into an object.</p>
 
-        <h4 class="stretch">🌟Stretch Challenge🌟</h4>
-        <p>Now that you can write simple Java programs, it's time to make something useful. Write a program that asks the user for the radius of a circle, then have it print the area and circumference rounded to two decimal places.</p>
+        <h4>Part II: Use the GSON Library</h4>
+        <p>Unfortunately, Java doesn't have built-in support for JSON, so to parse it we have use a 3rd party library. There are several available, but we'll be using <a href="https://github.com/google/gson">Google's GSON library</a> (GSON just stands for "Google JSON", it isn't a different data format).</p>
+
+        <p>We'll be using a pre-compiled <em>jar</em> version of the library. A <em>jar</em> file is like a zip file containing a bunch of compiled java classes. It's how java programs and libraries are typically shared.</p>
 
         <ol>
             <li>
-               <p>Before you begin, you should read the following:
-                    <ul>
-                        <li><a href="https://docs.oracle.com/javase/tutorial/java/data/numberformat.html">Formatting Numeric Output</a></li>
-                        <li><a href="http://pages.cs.wisc.edu/~hasti/cs368/JavaTutorial/NOTES/JavaIO_Scanner.html">How to use Java's Scanner class to get user input.</a></li>
-                    </ul>
-               </p>
+                <p>To begin, download this sample project.</p>
             </li>
             <li>
-                <p>Create a public class called <code>CircleCalculator</code> and save it in a <em>.java</em> file with the same name.</p>
+                <p>Read through the comments in the code to understand what is happening.</p>
             </li>
             <li>
-                <p>Add a function to the class called <code>getRadius()</code> that gets the radius from the user as a float.</p>
-            </li>
-            <li>
-                <p>Add a function to the class called <code>displayCircumference()</code> that takes the radius as a parameter, calculates the circumference, and displays it to two decimal places.</p>
-            </li>
-             <li>
-                <p>Add a function to the class called <code>displayArea()</code> that takes the radius as a parameter, calculates the circumference, and displays it to two decimal places.</p>
-            </li>
-             <li>
-                <p>As before, have <code>main()</code> create an instance of the class. Then call the instance's <code>getRadius()</code>, <code>displayCircumference()</code>, and <code>displayArea()</code> methods.</p>
-            </li>
-        </ol>
-        <p>Congratulations! You now know how to write, compile, and run basic Java programs.</p>
-        <p>Make sure everyone on your team understands and receives a copy of this code.</p>
+                <p>To compile the code, navigate to the directory containing the java files and execute this command:</p>
 
-        <p><strong>Once again, compare your answer to the <a href="https://gist.github.com/lfalin/5250b7844605fe36d9101f9575e4516b">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+<pre><code class="bash">javac -cp "./lib/gson-2.8.0.jar" *.java
+</code></pre>
+
+                <p>The <code>-cp</code> flag means "Class path", and it allows to tell the compiler where it can find extra code we want to reference when we compile.</p>
+            </li>
+            <li>
+                <p>Unlike C++, Java doesn't include the library permanently in our code. This means we still need to reference it when we execute the code:</p>
+
+<pre><code class="bash">java -cp ".;./lib/gson-2.8.0.jar" Parser
+</code></pre>
+
+                <p>In this case, the <code>-cp</code> flag tells the Java runtime everywhere we want it to look for code. We tell it to first look in the current directory (<code>.</code>) and to also look in the GSON jar file in the lib directory (<code>./lib/gson-2.8.0.jar</code>).</p>
+
+                <p>The <code>;</code> is just a separator between each location. (If you're running <code>java</code> on a mac or linux computer, you'll need to use a <code>:</code> for your path separator rather than <code>;</code>).
+            </li>
+
+        </ol>
+
     </article>
 
    <script src="../course/js/highlight/highlight.pack.js"></script>

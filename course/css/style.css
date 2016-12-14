@@ -63,6 +63,12 @@ img.screenshot-large {
     margin: 0 auto 0.5em auto;
 }
 
+img.screenshot-xlarge {
+	display: block;
+    max-width: 90%;
+    margin: 0 auto 0.5em auto;
+}
+
 p code, li code {
 	color: #A10200;
 	font-size: 16px;

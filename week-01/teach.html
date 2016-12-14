@@ -19,13 +19,13 @@
         <h3>Objectives</h3>
 
         <ul>
-            <li><p>Install the Java JDK.</p></li>
+            <li><p>Install the JDK and the IntelliJ IDE.</p></li>
             <li><p>Configure your system to find the Java JDK.</p></li>
             <li><p>Write a simple Java Hello World program.</p></li>
         </ul>
 
         <h3>Assignment</h3>
-        <h4>Part I: Install and Configure Java</h4>
+        <h4>Part I: Install and Configure the Java JDK</h4>
         <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
 
         <p>First, we need to install the Java SDK and configure your system to use it. Please follow the instructions in the video that corresponds to your operating system.</p>
@@ -49,25 +49,72 @@
             <li><p><a href="https://atom.io/">Atom</a> (All Platforms)</p></li>
         </ul>
 
+        <h4>Part II: Install the IntelliJ IDE</h4>
+
+        <p>While we could now write and compile Java code on the command line, most modern software developers use IDEs (Integrated Development Environments) for these tasks.</p>
+
+        <p>There are several Java IDEs available. We'll be using the IntelliJ IDE because it will allow us to create regular Java and Android projects.</p>
+        
+        <p>To begin, download and install the <a href="https://www.jetbrains.com/idea/">free, Community edition of IntelliJ</a>.</p> 
+
         <h4>Part II: Write a Java Hello World program</h4>
 
         <p>With your system configured, you're ready to write your first Java program. Here are the guidelines to follow:</p>
 
         <ol>
-            <li><p>Make sure you review the <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a> to see how Java Guide should be styled for this course.</p></li>
-            <li><p>Create a file called <em>HelloWorld.java</em></p></li>
-            <li><p>In that file, create a <code>public</code> Java class called <code>HelloWorld</code></p></li>
-            <li><p>Add the <code>main()</code> method, making sure that you write its signature correctly (review the <a href="./prepare.html">preparation reading</a> if necessary).</p></li>
-            <li><p>Add another method to the the HelloWorld class called <code>sayHello()</code>. This method should print "Hello World" to the console.</p></li>
-            <li><p>Have <code>main()</code> create a new instance of the HelloWorld class and call its <code>sayHello()</code> method. This is all that <code>main()</code> should do.</p></li>
-            <li><p>Compile your code:</p>
-<pre><code class="bash">javac HelloWorld.java
-</code></pre>
+            <li><p>If you haven't already, make sure you review the <a href="../welcome/style.html">Course Style Guide</a> to see how Java code should be styled for this course.</p></li>
+            <li>
+                <p>Launch IntelliJ and select "Create a New Project".</p>
+                <p>Select "Java" from the project types on the left-side of the window, make sure the Java SDK version you downloaded is selected at the top, and then click "Next".</p>
+                <img class="screenshot-xlarge" src="./img/ij1.png"/>
             </li>
-            <li><p>Execute your code:</p>
-<pre><code class="bash">java HelloWorld
-</code></pre>
+            <li>
+                <p>Check the "Create project from template box", select "Command Line App" from the template list, and click "Next".</p>
+                <img class="screenshot-xlarge" src="./img/ij2.png"/>
+            </li>
+             <li>
+                <p>Fill in the project settings. What you enter here isn't too critical, but a good guideline is to name your projects after the assignment number (e.g. this one would be "teach-01"). Another good guideline is to your base package name to either your last name or the name of the project without spaces (e.g. "HelloWorld").</p>
+                <p>Once you've entered the values, click "Next".</p>
+                <img class="screenshot-xlarge" src="./img/ij3.png"/>
+            </li>
+            <li>
+                <p>Wait a few moments while the project loads, and if everything went well, you should see a new project loaded with a class called <code>Main</code> that is pre-populated with the <code>main()</code> method.</p>
+            </li>
+            <li>
+                <p>Find the line that says: <code>public class Main {</code>. Rename the class to <code>HelloWorld</code></p>
+                <p>After you do so, you should see a red, squiggly line appear under the class definition. This line indicates there is an error in the code. Hover your mouse over the line to see the error.</p>
+                <img class="screenshot-xlarge" src="./img/error.png"/>
+            </li>
+            <li>
+                <p>In this case, the error is warning us that a public class must be defined in a file with the same name.</p>
+                <p>Click anywhere on the line where the red squiggle appears and press <code>Alt+Enter</code> (or <code>Option+Enter</code> on OX X).</p>
+                <p>A list of possible solutions to this error appear. Select the action that says "Rename File". The file will be renamed to <em>HelloWorld.java</em>, and the error indicator should disappear.</p>
+                <img class="screenshot-large" src="./img/resolve.png"/>
+                <p>This same pattern (hover over squiggly line to see error then click on line and press <code>Alt+Enter</code> to see possible fixes) can often be used in IntelliJ for resolving common problems.</p>
+            </li>
+            <li>
+                <p>Add another method to the the HelloWorld class called <code>sayHello()</code>. This method should print "Hello World" to the console.</p>
+            </li>
+            <li>
+                <p>Have <code>main()</code> create a new instance of the HelloWorld class and call its <code>sayHello()</code> method. This is all that <code>main()</code> should do.</p>
+            </li>
+            <li>
+                <p>Try to compile and execute your code by clicking on the green play button in the upper-right hand corner of the window.</p>
+                <img class="screenshot" src="./img/run.png"/>
+                <p>Unfortunately, this will fail with a runtime error stating that it can't find the class called <code>Main</code>. Since we renamed the class that has our <code>main()</code> method, we need to tell the IDE which class it should look in.</p>
+                <img class="screenshot-xlarge" src="./img/runtime-error.png"/>
+                <p>To do so, click on the Select Configuration button in the top, right-hand corner of the screen, just to the left of the Run button.</p>
+                <img class="screenshot" src="./img/edit-config1.png"/>
+                <p>In the menu that appears, select "Edit Configurations...".</p>
+                 <img class="screenshot" src="./img/edit-config-menu.png"/>
+                <p>You'll see a window appear that contains settings for how to run our program. The setting we're interested in is the one for the Main class.</p>
+                <img class="screenshot-xlarge" src="./img/edit-config2.png"/>
+                <p>Change the part in red that says <code>Main</code> to <code>HelloWorld</code> to match the name of the class with the <code>main()</code> function in it. Then click "OK".</p>
+                <img class="screenshot-xlarge" src="./img/edit-config3.png"/>
             </li>     
+            <li>
+                <p>Now click the Run button again, and if all goes well, you should see the text "Hello World" displayed in the output console at the bottom of the window.</p>
+                <img class="screenshot-xlarge" src="./img/output.png"/>
         </ol>
 
         <p>Once you've finished, or if you get stuck, compare your code to the <a href="https://gist.github.com/lfalin/eb3bf9ea46725f882a54d14d6b667f81">teacher's solution</a>.
