@@ -208,13 +208,17 @@ article ul li p:first-child:before {
 }
 
 table {
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 table, th, td {
 	border: 1px solid black;
 	padding: 10px;
 	text-align: center;
+}
+
+table.left-table th, table.left-table td {
+	text-align: left;
 }
 
 th {

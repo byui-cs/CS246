@@ -14,7 +14,7 @@
 </div>
     <article>
         <h2>03 Prepare : Reading</h2>
-        <p class="subtitle">Java Types and Collections</p>
+        <p class="subtitle">JSON Parsing</p>
 
         <h3>Objectives</h3>
         <ul>
@@ -144,7 +144,29 @@ System.out.println(myInt + 2);
         
         <p>All the rest of our code just cares that we're using something that implements the <code>List</code> interface, no matter what that something is. These types of situations are one of the main reasons why we "program to an interface, not an implementation".</p>
 
-        
+        <h3>Primitive Arrays</h3>
+        <p>One downside to the collection classes like <code>ArrayList</code> is that they can only store objects. While wrapper classes or autoboxing will allow us to store primitive values using these classes, there is enough of a performance penalty that we usually want to avoid it.</p>
+
+        <p>So, instead of using something like <code>ArrayList</code> to store a list of <code>int</code> values, we can use a simple array, just like in C++:</p>
+
+<pre><code class="java">int[] a = {1, 2, 3};
+System.out.println(a[0]);
+</code></pre>
+
+        <p>A couple of things to note about Java arrays:</p>
+
+        <p>First, once an array has been created, its size cannot be changed. (You can modify its values, but you can't add or remove values.)</p>
+        <p>Second, Java arrays can store anything, including objects (though we usually use a Java collection class for those situations):</p>
+<pre><code class="java">// Create an array that can hold six Student objects
+Student[] students = new Student[6];
+students[0].printName();
+</code></pre>
+        <p>Finally, Java arrays always know their length:</p>
+<pre><code class="java">// Create an array that can hold four floats
+float grades[] = new float[4];
+// Prints 4
+System.out.println(grades.length);
+</code></pre>
 
         <h3>Reading</h3>
         <p>Read the following resources to gain a better understanding of these principles:</p>
