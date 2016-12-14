@@ -226,6 +226,12 @@ th {
     color: white;
 }
 
+.team-pdf {
+	width: 90%;
+	margin: 0 auto;
+	height: 800px;
+}
+
 @media only screen and (max-width: 1250px) {
     aside.pull-right, aside.pull-left {
     	width: 96.5%;
