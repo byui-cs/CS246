@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 246 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
+        <div id="content">
+
+
+
+
+        <h1>Team Activity - Javadocs</h1>
+        <h3>Introduction</h3>
+        <p>Before meeting with your team, make sure to go over the <a href="../prepare/246-11-prepare.html">Team Activity Preparation - Javadocs</a> so that your time together can be as efficient as possible.</p>
+        <p>This activity will help you become more familiar with Javadocs and how they should be used with your project.</p>
+        <p>As you saw in your reading of the preparation material, Javadocs provide a way for us to annotate our methods and variables in a specific consistent manner so that documentation can automatically be generated, and IDE's can offer intellisense and code helps.</p>
+        <p>By using the correct Javadocs comments in our code, we can easily generate documentation that looks and behaves just like the standard documentation (e.g., <a href="http://docs.oracle.com/javase/7/docs/api/index.html?java/io/File.html" target="_blank">http://docs.oracle.com/javase/7/docs/api/index.html?java/io/File.html</a> ).</p>
+        <h3>Instructions</h3>
+        <ol>
+            <li>Generate the HTML javadocs for your project to see what is produced. This can be done via the command line "javadocs" utility, or through an IDE. In Android Studio, this can be done by clicking Tools -&gt; Generate Javadocs, then make sure to select an output directory where you want the documentation to be put.
+                <br />
+                <br />
+            </li>
+            <li>In the box for "Other command line arguments" you need to specify the location of your Android SDK (JAR file), like so:
+                <br />
+                <br />-bootclasspath C:\Users\nathanael\AppData\Local\Android\sdk\platforms\android-21\android.jar
+                <br />
+                <br />
+            </li>
+            <li>In a file explorer, browse to that directory to see what was created. Look through the directory and its subdirectories to see just how many things were created for you.
+                <br />
+                <br />
+            </li>
+            <li>Next, in a browser, open the index.html file in the root of the output directory. This should display a web page for the root of your project with links to your different classes and methods. Click on some of these links to get familiar with the navigation.
+                <br />
+                <br />
+            </li>
+            <li>Identify a method in your code that has non-trivial parameters, but does not have any information in the generated documentation.
+                <br />
+                <br />
+            </li>
+            <li>Return to your Java code and find this method.
+                <br />
+                <br />
+            </li>
+            <li>Place the proper Javadoc comment block before the method. Make sure to give a description for the method, each parameter, and the return value (if applicable).
+                <br />
+                <br />
+            </li>
+            <li>Regenerate the html Javadocs, and navigate to this method again. Your new comments should be displayed next to the method and the parameters.
+                <br />
+                <br />
+            </li>
+            <li>Make sure that each member of the team can generate the Javadocs and view the comments that you added.
+                <br />
+                <br />
+            </li>
+            <li>Your final task is to go through the remainder of your project and fill in the proper Javadoc comments. Please note that according to our style guide this should be at a minimum, every public class and every public or protected method in those classes (with a few exceptions specifically noted), plus other classes/methods that are not trivial.
+                <br />
+                <br />
+            </li>
+            <li>You may divide up the task of adding the Javadoc comments among teammates, but make sure that all the Javadocs comments have been written before you finish your meeting, and all of your code is committed and pushed to GitHub.</li>
+        </ol>
+        <h3>Submission</h3>
+        <p>After completing this activity, each member of the team should answer the following assessment questions</p>
+
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

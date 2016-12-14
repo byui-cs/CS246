@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 246 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
+        <div id="content">
+
+
+
+
+        <h1>Team Activity: Threads</h1>
+
+        <h3><span style="font-family: verdana,geneva;">Instructions</span></h3>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Before meeting with your team for this activity, please read the material in the <a href="../prepare/246-06-prepare.html">Team Activity Preparation Material</a>.</span></p>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Next, meet with your team (e.g., Skype, Google Hangouts) to complete the following activity. This activity is designed to take 1 hour and will help you in your individual assignment for the week.</span></p>
+        <h3><span style="font-family: verdana,geneva;">Assignment</span></h3>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">This assignment will be done in parts, as follows:</span></p>
+        <h4><span style="font-family: verdana,geneva;">Part 1 - Simple Multithreading</span></h4>
+        <ol>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Write a Java program that simultaneously counts to 100 by odds and even numbers. In other words, you should have two loops that each count to 100 and have these loops run on different threads concurrently.</span></li>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">In order to see the progress, have each thread wait for 100 milliseconds (i.e., "Thread.sleep(100);").</span></li>
+        </ol>
+        <h4><span style="font-family: verdana,geneva;">Part 2 - Waiting for threads to finish</span></h4>
+        <ol>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Have the program display the message "All finished" when both threads are finished.</span></li>
+        </ol>
+        <h4><span style="font-family: verdana,geneva;">Part 3 - Stopping a thread</span></h4>
+        <ol>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Add an additional thread that displays the text "running&hellip;" every second. This thread should be started concurrently with the other two counting threads. It should be set to continue looping forever (rather than going through a predetermined number of times).</span></li>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Have the program properly stop the "running&hellip;" thread when the two counting threads are both finished.</span></li>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Please note that the "Thread.stop()" and "Thread.destroy()" methods are deprecated, and are not the proper way to stop the thread.</span></li>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">See this page for more information about why the stop method is deprecated and what you might do: <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html" target="_blank">http://docs.oracle.com/javase/7/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html</a></span></li>
+        </ol>
+        <h3><span style="font-family: verdana,geneva;">Submission</span></h3>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">When you have completed the assignment please upload your .java file (or files) to I-Learn. In the comments box, please specify which of the following were completed:</span></p>
+        <ul>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Every member of the team was present and contributed.</span></li>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Completed part 1</span></li>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Completed part 2</span></li>
+            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Completed part 3</span></li>
+        </ul>
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

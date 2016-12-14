@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 246 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
+        <div id="content">
+
+
+
+
+        <h1>Team Activity - Android Data Storage</h1>
+        <h3>Overview</h3>
+        <p>Before meeting with your team, please review the preparation material so that your time can be as efficient as possible.</p>
+        <p>For this activity, we will explore some options for storing data in an Android application. To demonstrate this, we will be storing a count of the number of times a user has clicked a button. You are required to implement this functionality using SharedPreferences, and have the opportunity to also do it using a SQLite database for extra credit. If you will be using SQLite in your project, I would strongly recommend completing the extra at this point to get you started.</p>
+        <h3>Instructions</h3>
+        <p>Part I - A simple counter</p>
+        <ol>
+            <li>Create a new, blank Android project.</li>
+            <li>Create a new activity that has two buttons labeled: "Save Count" and "Advance", and a single text box.</li>
+            <li>When the activity starts, have it put the number "0" in the text box.</li>
+            <li>Make the "Advance" button increment the number in the text box by one.</li>
+        </ol>
+        <p>Part II - Data storage</p>
+        <ol>
+            <li>Make the "Save Count" button save the count to the user's SharedPreferences.</li>
+            <li>Change the activity so that when it loads, it tries to load the saved value from the SharedPreferences. If no value can be found, it should put "0" in the box.</li>
+            <li>Verify that your saving works by doing the following:</li>
+            <ol>
+                <li>Advance to "4"</li>
+                <li>Click "Save Count"</li>
+                <li>Advance to "5"</li>
+                <li>Close the application, and restart it. The number in the box should be 4.</li>
+            </ol>
+        </ol>
+        <p>Part III - Extra Credit</p>
+        <ol>
+            <li>For 25% extra credit. Convert the above logic to use a SQLite database (natively on Android).</li>
+        </ol>
+        <h3>Submission</h3>
+        <p>Commit your source code to a shared public repository at GitHub, then each team member should submit the following questions in I-Learn.&nbsp;It is due by 11:59 PM Wednesday night.</p>
+
+
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 246 - Prepare</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
+        <div id="content">
+
+
+
+
+        <h1>Team Activity Preparation - Logging</h1>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">This week, we will be focussing on logging in Android, and you will have a team activity that walks you through the basics of including Log statements in your code and viewing them in the Android Studio IDE. To help make your team meeting as efficient as possible, please read the following brief introduction on logging including the accompanying links <b>BEFORE</b> meeting with your team.</span></p>
+        <p><span style="font-family: verdana, geneva; font-size: 14pt;">An Introduction to Logging</span></p>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">The are two main ways that we attempt to track down bugs in our code. One approach is to use the debugger. The debugger is a powerful tool that lets us set breakpoints and walk through our code line-by-line, examining the state of variable at any given point in time. Learning to effectively use a debugger is a critical skill for every software engineer.</span></p>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Another tool or approach to identifying what our programs are doing, especially when they arrive in an error state is to use logging. We are likely all familiar with the idea of sprinkling console messages throughout our programs, in an attempt to output the state of variables or the order of execution at various points in the process. While this process of console messages can be helpful, it has some inherent problems. One problem is that there is no priority level among the messages. We may want very detailed messages for one section of code, but afterward want to focus solely on the critical failures, and console messages make it very difficult to filter in a meaningful way.</span></p>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Another potential problem with console outputs is that on a server, for example, a critical failure may occur, and a message may be displayed to some console output that no one will ever see.</span></p>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">A good logging framework builds on the power of outputting important data, but formalizes the process to overcome some of these shortcomings. For example, log messages are often tagged in some way to indicate the module or class to which they belong, and are given a priority level, each of which can be filtered on later. Further, many logging framework are flexible enough to allow a user to easily change, via a configuration file, which messages should appear on the console, which should be saved to files, and how they should be formatted.</span></p>
+        <p><span style="font-family: verdana,geneva; font-size: 10pt;">There are several pre-built and well-used logging frameworks for Java and for almost any other language you are programming in. You should become familiar with them and try to use them in lieu of console messages for all the reasons stated above. This is why you may have noticed that in Netbeans, when you have it auto generate a try/catch block, it produces the lines:</span></p>
+        <p>&nbsp;</p>
+        <p><span style="font-family: 'courier new', courier;">} catch (Exception ex) {</span>
+            <br /><span style="font-family: 'courier new', courier;">&nbsp; Logger.getLogger(MyClass.class.getName()).log(Level.SEVERE, null, ex);</span>
+            <br /><span style="font-family: 'courier new', courier;"> }</span></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">This is using the native Java logging API to log your message with a tag of the class name, a severe priority level, and the details of the exception. If you choose not to do anything else, it will display the message to the console, but it is prepared to do much more.</span></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Android has it's own logging system designed for its specific context. Because the apps will be running on end users mobile devices in production, the logging framework is not designed to log messages to the file system, but rather is focused on the debugging process.</span></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">The following page discusses debugging in Android Studio. Please read the section on Using the System Log (you might also want to read the section on debugging):</span></p>
+        <p><a href="https://developer.android.com/tools/debugging/debugging-studio.html" target="_blank" title="Debugging in Android Studio"><span style="font-family: verdana, geneva; font-size: 10pt;">https://developer.android.com/tools/debugging/debugging-studio.html</span></a></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Then read over the first part of the following page on reading and writing logs, where the different log levels are discussed. (Please note that you will be looking at the log messages in the IDE, so you can skim over the sections about running the abd/logcat from the console).</span></p>
+        <p><a href="http://developer.android.com/tools/debugging/debugging-log.html" target="_blank"><span style="font-family: verdana, geneva; font-size: 10pt;">http://developer.android.com/tools/debugging/debugging-log.html</span></a></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">And also, look over the short "Class Overview" for the Log class:&nbsp;</span><a href="http://developer.android.com/reference/android/util/Log.html" target="_blank"><span style="font-family: verdana, geneva; font-size: 10pt;">http://developer.android.com/reference/android/util/Log.html</span></a></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Please note that the different levels of messages should be used appropriately (things that are informational use "i", an actual error in the code should use "e", etc.).</span></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Finally, watch this short YouTube video about using LogCat in Android Studio:</span></p>
+        <p><a href="https://www.youtube.com/watch?v=2AHJsRKa_J8" target="_blank"><span style="font-family: verdana, geneva; font-size: 10pt;">https://www.youtube.com/watch?v=2AHJsRKa_J8</span></a></p>
+        <p><span style="font-family: verdana, geneva; font-size: 10pt;">&nbsp;</span></p>
+
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
