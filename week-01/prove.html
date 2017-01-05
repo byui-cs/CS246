@@ -77,12 +77,15 @@
             <li>
                 <p>You'll also notice a <code>doc</code> folder. This contains the compiled javadoc comments for the <code>NSALoginController</code> class. Open the index.html file in that folder, you'll be able to view the documentation, as well as learn more about what javadocs are and how to use them.</p>
             </li>
-           
+            
         </ol>
 
         <h4>Part II (37.5%) - Write the User Class:</h4>
         <p>The User class will be a very basic class that just holds user information.</p>
         <ol>
+            <li>
+                <p>If you're using an IDE like IntelliJ, create a new project as explained in <a href="../teach.html">the Teach 01 assignment.</a></p>
+            </li>
             <li><p>Create a new file called <code>User.java</code>.</p>
             </li>
 
@@ -97,8 +100,25 @@
 
         <h4>Part III (37.5%) - Write the Test class and main():</h4>
         <p>With the user class written, it's time to test it with the NSALoginController class.</p>
+
+
         <ol>
-            <li><p>Create a new file called <code>Test.java</code>. That file should contain a <code>public</code> class definition for a class called <code>Test</code>.</p>
+            <li>
+                <p>Create a new file called <code>Test.java</code>. That file should contain a <code>public</code> class definition for a class called <code>Test</code>.</p>
+                <p>Note that if you're using an IDE, such as IntelliJ, instead of creating a new file to hold your <code>main()</code> method, you can rename the one created for you. If you've forgotten how to do that, look back at the <a href="../teach.html">Teach 01 assignment.</a>.</p>
+            </li>
+
+            <li>
+                <p>You'll also need to add the code found in <em>NSALoginController.java</em> to this project.</p> 
+                <p>There are a couple of ways to do this.</p>
+                <p><strong>Option 1:</strong> One way is to tell the IDE to add a new class to the project (File->New->Java Class), and name that class NSALoginController. Then you can just copy and paste the code from the existing file to the new one.</p>
+                <p>If you follow this option, make sure you keep the <code>package</code> declaration at the top of the file IntelliJ creates for you, otherwise the java classes won't be able to find each other.</p>
+                <p><strong>Option 2:</strong> Another option is to simply drag the <em>NSALoginController.java</em> file to the the project tree, making sure to drop it in your package root. This should be the folder directly under the <em>src</em> folder.</p>
+
+                <img class="screenshot" src="./img/drop.png"/>
+
+                <p>If you take this option, you'll need to add the <code>package</code> declaration to the top of the file.</p>
+
             </li>
             
            <li><p>Add a <code>main()</code> method to the class. Remember to get the signature for main correct. Refer back to the <a href="./teach.html">team activity instructions</a> if necessary.</p></li>
@@ -129,9 +149,7 @@
             </li>
             <li><p>Modify <code>main()</code> to catch the <code>WeakPasswordException</code> and prompt the user for a new password. (Note that this might require putting the <code>try/catch</code> block inside of a loop).</p>
             <p>Also note that you'll have to put the catch block of your new exception <em>before</em> the one for general exceptions.</p></li>
-            </p></li>
-           
-            
+            </p></li>    
         </ol>
 
     </article>
