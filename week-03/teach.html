@@ -55,39 +55,82 @@ p.setCanFly(false);
 
         <p>We can take an object, <em>serialize</em> into JSON, and then share that data, (either in a file or by sending it over the network. Then we can <em>deserialize</em> it back into an object.</p>
 
-        <h4>Part II: Use the GSON Library</h4>
-        <p>Unfortunately, Java doesn't have built-in support for JSON, so to parse it we have use a 3rd party library. There are several available, but we'll be using <a href="https://github.com/google/gson">Google's GSON library</a> (GSON just stands for "Google JSON", it isn't a different data format).</p>
+        <h4>Part II: Create a Project with the GSON Library</h4>
+        <p>Unfortunately, Java doesn't have built-in support for JSON, so to parse it we have to use a 3rd party library. There are several available, but we'll be using <a href="https://github.com/google/gson">Google's GSON library</a> (GSON just stands for "Google JSON", it isn't a different data format).</p>
 
         <p>We'll be using a pre-compiled <em>jar</em> version of the library. A <em>jar</em> file is like a zip file containing a bunch of compiled java classes. It's how java programs and libraries are typically shared.</p>
 
+        <p>Maven is a popular place to store 3rd party libraries. IntelliJ can load libraries directly from Maven pretty easily.</p>
+
         <ol>
             <li>
-                <p>To begin, download this sample project.</p>
+                <p>To begin, create a new command line project in IntelliJ.</p>
             </li>
             <li>
-                <p>Read through the comments in the code to understand what is happening.</p>
+                <p>After the project loads, add the GSON library from Maven. If you're not sure how to do this, you might need to google: <em>intellij add library from maven</em> and look at the official docs on the JetBrains website.</p>
+                <p>You should use the most recent version of GSON, at this time, that is: <em>com.google.code.gson:gson:2.8.0</em>.</p>
             </li>
             <li>
-                <p>To compile the code, navigate to the directory containing the java files and execute this command:</p>
+                <p>Test that the library has been installed correctly by trying to use the <code>Gson</code> class in <code>main()</code> and making sure it compiles without errors:</p>
+<pre><code class="java">package teach03;
 
-<pre><code class="bash">javac -cp "./lib/gson-2.8.0.jar" *.java
+import com.google.gson.Gson;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Gson g = new Gson();
+    }
+}
 </code></pre>
-
-                <p>The <code>-cp</code> flag means "Class path", and it allows to tell the compiler where it can find extra code we want to reference when we compile.</p>
+                <p>If you got an error, about not being able to find the Gson library, you'll need to go back to step 2 and try to add it again.</p>             
+            </li>
+        </ol>
+        <h4>Part III: Use the GSON library.</h4>
+        <p>With the GSON library installed, it's now time to try serializing and deserializing some things.</p>
+        <p>Note that this part will be a bit difficult, as I'm leaving many of the details up to you to figure out.</p>
+        <p>You may want to refer to the <a href="https://futurestud.io/tutorials/gson-getting-started-with-java-json-serialization-deserialization">GSON tutorials here</a> as you go through the rest of this assignment.</p>
+        <ol>
+            <li>
+                <p>Create a class definition for a class called <code>Player</code> that has properties for name, health, mana, and gold.</p>
+                <p>You might also want to add some kind of display function you can use to easily show those values.</p>
             </li>
             <li>
-                <p>Unlike C++, Java doesn't include the library permanently in our code. This means we still need to reference it when we execute the code:</p>
-
-<pre><code class="bash">java -cp ".;./lib/gson-2.8.0.jar" Parser
-</code></pre>
-
-                <p>In this case, the <code>-cp</code> flag tells the Java runtime everywhere we want it to look for code. We tell it to first look in the current directory (<code>.</code>) and to also look in the GSON jar file in the lib directory (<code>./lib/gson-2.8.0.jar</code>).</p>
-
-                <p>The <code>;</code> is just a separator between each location. (If you're running <code>java</code> on a mac or linux computer, you'll need to use a <code>:</code> for your path separator rather than <code>;</code>).
+                <p>Create a class called <code>Game</code> that will take an instance of the <code>Player</code> class in its constructor and store it in a member variable.</p>
             </li>
-
+            <li>
+                <p>Create a function in the <code>Game</code> class called <code>saveGame()</code> that will use the GSON library to serialize the object to a string, and save that string to a file.</p>
+            </li>
+            <li>
+                <p>Add a <em>static</em> function to the <code>Game</code> class that takes a filename as a String and returns a new <code>Game</code> generated from the data in that file.</p>
+                <p>This function should load the file contents as a String, then use the GSON library to deserialize it into a new Player class, create a new <code>Game</code> instance with that player, then return the game.</p>
+            </li>
+            <li>
+                <p>In <code>main()</code>, create a new instance of the <code>Player</code> class, populate its values. Then, create a new instance of the <code>Game</code> class, passing the player you created to its constructor. Then call the <code>saveGame()</code> method. Verify the save file contains the correct JSON data.</p>
+            </li>
+            <li>
+                <p>Use the <em>static</em> function of the <code>Game</code> class to create a second <code>Game</code> object, passing in the filename you used in the previous step. Verify that the player has been loaded correctly.</p>
+            </li>
         </ol>
 
+        <p>Once you've made it this far, move on the stretch challenge.</p>
+        <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+        <p>Let's allow our player to have some equipment.</p>
+        <ol>
+            <li>
+                <p>Add a <code>HashMap</code> member variable called <code>equiment</code> to the <code>Player</code> object that will map equipment names as Strings to equipment costs as Integers.</p>
+            </li>
+            <li>
+                <p>Modify <code>main()</code> so that it will add some equipment to the <code>Player</code> instance before passing it to the <code>Game</code> constructor.</p>
+            </li>
+            <li>
+                <p>Verify that you can still serialize and deserialize the complete <code>Player</code> object (including euqipment), and if not, modify your code as needed to make it work.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to serialize an deserialize with JSON.</p>
+        <p>Make sure everyone on your team understands and receives a copy of this code.</p>
+
+        <p><strong>Compare your answer to the <a href="https://gist.github.com/lfalin/f3e93678fbdc3b61635b11d3895c8b60">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
     </article>
 
    <script src="../course/js/highlight/highlight.pack.js"></script>
