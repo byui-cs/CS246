@@ -103,13 +103,13 @@ public class Main {
             </li>
             <li>
                 <p>Add a <em>static</em> function to the <code>Game</code> class that takes a filename as a String and returns a new <code>Game</code> generated from the data in that file.</p>
-                <p>This function should load the file contents as a String, then use the GSON library to deserialize it into a new Player class, create a new <code>Game</code> instance with that player, then return the game.</p>
+                <p>This function should load the file contents as a String, then use the GSON library to deserialize it into a new Player class, create a new <code>Game</code> instance with that player, then return the new game instance.</p>
             </li>
             <li>
-                <p>In <code>main()</code>, create a new instance of the <code>Player</code> class, populate its values. Then, create a new instance of the <code>Game</code> class, passing the player you created to its constructor. Then call the <code>saveGame()</code> method. Verify the save file contains the correct JSON data.</p>
+                <p>In <code>main()</code>, create an instance of the <code>Player</code> class, and populate its values. Then, create a new instance of the <code>Game</code> class, passing the player you created to its constructor. Then call the <code>saveGame()</code> method. Verify the save file contains the correct JSON data.</p>
             </li>
             <li>
-                <p>Use the <em>static</em> function of the <code>Game</code> class to create a second <code>Game</code> object, passing in the filename you used in the previous step. Verify that the player has been loaded correctly.</p>
+                <p>Use the <em>static</em> function of the <code>Game</code> class you created in order to create a second <code>Game</code> object, passing in the filename you used in the previous step. Verify that the <code>Player</code> object contained in the new game has been loaded correctly. Its values should match those of the original.</p>
             </li>
         </ol>
 
@@ -118,10 +118,10 @@ public class Main {
         <p>Let's allow our player to have some equipment.</p>
         <ol>
             <li>
-                <p>Add a <code>HashMap</code> member variable called <code>equiment</code> to the <code>Player</code> object that will map equipment names as Strings to equipment costs as Integers.</p>
+                <p>Add a <code>Map</code> called <code>equipment</code> to the <code>Player</code> class that will map equipment names as Strings to equipment costs as Integers.</p>
             </li>
             <li>
-                <p>Modify <code>main()</code> so that it will add some equipment to the <code>Player</code> instance before passing it to the <code>Game</code> constructor.</p>
+                <p>Modify <code>main()</code> so that it will add some equipment to the <code>Player</code> instance before passing it to the <code>Game</code> constructor. Make sure you're following good rules of encapsulation here and not acessing the <code>Map</code> directly from <code>main()</code>.</p>
             </li>
             <li>
                 <p>Verify that you can still serialize and deserialize the complete <code>Player</code> object (including euqipment), and if not, modify your code as needed to make it work.</p>
