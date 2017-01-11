@@ -35,6 +35,7 @@
                 <p>First, define an interface called <code>Expense</code> that requires a single method:</p>
 <pre><code class="java">float getCost();
 </code></pre>
+                <p>Typically, interfaces in Java go in their own file, so this one would go in a file called <em>Expense.java.</em></p>
             </li>
             <li>
                 <p>Next, create an enum type called <code>Destination</code>, which contains three possible options for its values:</p>
@@ -42,6 +43,9 @@
     Mexico, Europe, Japan
 }
 </code></pre>
+                <p>Like the interface, enums are defined in their own, separate files. This one should go in a file called <em>Destination.java</em>.</p>
+
+                <p>It might seem overcomplicated to put the enum and interface in their own files, since they both contain such a small amount of code, but putting everything in its own file is the "Java Way".</p>
             </li>
             <li>
                 <p>Next, create a class called <code>Cruise</code> whose constructor takes a <code>Destination</code>.</p>
