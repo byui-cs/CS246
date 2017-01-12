@@ -90,6 +90,7 @@ public class Main {
         <p>With the GSON library installed, it's now time to try serializing and deserializing some things.</p>
         <p>Note that this part will be a bit difficult, as I'm leaving many of the details up to you to figure out.</p>
         <p>You may want to refer to the <a href="https://futurestud.io/tutorials/gson-getting-started-with-java-json-serialization-deserialization">GSON tutorials here</a> as you go through the rest of this assignment.</p>
+
         <ol>
             <li>
                 <p>Create a class definition for a class called <code>Player</code> that has properties for name, health, mana, and gold.</p>
@@ -102,19 +103,21 @@ public class Main {
                 <p>Create a function in the <code>Game</code> class called <code>saveGame()</code> that will use the GSON library to serialize the object to a string, and save that string to a file.</p>
             </li>
             <li>
-                <p>Add a <em>static</em> function to the <code>Game</code> class that takes a filename as a String and returns a new <code>Game</code> generated from the data in that file.</p>
+                <p>Add a <em>static</em> function to the <code>Game</code> class called <code>loadGame()</code> that takes a filename as a String and returns a new <code>Game</code> generated from the data in that file.</p>
                 <p>This function should load the file contents as a String, then use the GSON library to deserialize it into a new Player class, create a new <code>Game</code> instance with that player, then return the new game instance.</p>
             </li>
             <li>
                 <p>In <code>main()</code>, create an instance of the <code>Player</code> class, and populate its values. Then, create a new instance of the <code>Game</code> class, passing the player you created to its constructor. Then call the <code>saveGame()</code> method. Verify the save file contains the correct JSON data.</p>
             </li>
             <li>
-                <p>Use the <em>static</em> function of the <code>Game</code> class you created in order to create a second <code>Game</code> object, passing in the filename you used in the previous step. Verify that the <code>Player</code> object contained in the new game has been loaded correctly. Its values should match those of the original.</p>
+                <p>Use the <code>loadGame()</code> function of the <code>Game</code> class you created in order to create a second <code>Game</code> object, passing in the filename you used in the previous step. Verify that the <code>Player</code> object contained in the new game has been loaded correctly. Its values should match those of the original.</p>
             </li>
         </ol>
 
         <p>Once you've made it this far, move on the stretch challenge.</p>
         <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+        <p>The following is a UML diagram of how the class relationships might look after you complete the Stretch Challenge.</p>
+        <img src="./img/teach-uml.png" class="screenshot-large"/>
         <p>Let's allow our player to have some equipment.</p>
         <ol>
             <li>
