@@ -55,7 +55,7 @@ System.out.println(myInt + 2);
         <p>Take some time to look over the complete list of methods every collection must provide, by looking at <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html#method.summary">the official documentation for the Collection interface</a>.</p>
 
         <h4>Collection Interfaces and Generics</h4>
-        <p>Java provides several subinterfaces that extend the collection interface. Some commonly used ones are <code>List</code>, <code>Map</code>, and <code>Set</code>. Each of these interfaces define additional methods that are appropriate for those types of collections.</p>
+        <p>Java provides several <em>subinterfaces</em> that extend the collection interface. Some commonly used ones are <code>List</code>, <code>Map</code>, and <code>Set</code>. Each of these interfaces define additional methods that are appropriate for those types of collections.</p>
 
         <p>Java's collections are all "generic" types. They work in a similar way to how templates work in C++. Last week, we saw a <code>List</code> of <code>Creature</code> objects could be declared like this:</p>
 <pre><code class="java">List&lt;Creature&gt; someCreatures;
@@ -182,10 +182,13 @@ System.out.println(grades.length);
                 <p>Also, take a look at the <a href="http://stackoverflow.com/questions/20877086/why-do-comparisons-with-integer-valueofstring-give-different-results-for-12">first and second answers to this post</a> to see the "gotcha" that can occur with autoboxing.</p>
             </li>
             <li>
-                <p>Speaking of Java types, make sure you also understand <a href="http://stackoverflow.com/questions/513832/how-do-i-compare-strings-in-java">how to compare two Strings in Java</a>.</p>
+                <p>Make sure you also understand <a href="http://stackoverflow.com/questions/513832/how-do-i-compare-strings-in-java">how to compare two Strings in Java</a>.</p>
             </li>
             <li>
                 <p>Then, read over <a href="https://en.wikiversity.org/wiki/Java_Collections_Overview">these tables that describe</a> some of the differences between the different collection interfaces and their concrete implementation classes.</p>
+            </li>
+            <li>
+                <p>This <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/summary.html">article from Oracle</a> provides a nice summary of how the collection interfaces are related.</p>
             </li>
             <li>
                 <p>Finally, take a look at <a href="http://www.codejava.net/java-core/collections/java-list-collection-tutorial-and-examples">this tutorial for some code examples</a> that use collections.</p>
