@@ -63,6 +63,12 @@ img.screenshot-large {
     margin: 0 auto 0.5em auto;
 }
 
+img.screenshot-medium {
+	display: block;
+    max-width: 70%;
+    margin: 0 auto 0.5em auto;
+}
+
 img.screenshot-xlarge {
 	display: block;
     max-width: 90%;

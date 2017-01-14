@@ -61,9 +61,33 @@
         <p>As is the case for most popular APIs, Twitter requires developers to first sign up for a developer account and acquire a set of API credentials before using their API.</p>
         <ol>
             <li>
-                <p></p>
+                <p>Go to <a href="https://apps.twitter.com/">https://apps.twitter.com/</a> and sign in using your Twitter account. If you don't have a Twitter account, create one, then sign in to the app developer site above.</p>
+            </li>
+            <li>
+                <p>Click on the link to create or register a new app, and fill out the form that appears. The exact values you use for name, description, and website do not matter very much for our purposes, but you must adhere to the rules Twitter has in place for uniqueness and length.</p>
+                <p>
+                    <img class="screenshot-xlarge" src="./img/create-app.png"/>
+                </p>
+            </li>
+            <li>
+                <p>Once the application has been created, click on the tab labeled "Keys and Access Tokens"</p>
+                <p>
+                    <img class="screenshot-medium" src="./img/api-keys.png"/>
+                </p>
+                <p>Here you will find your Consumer Key and Consumer Secret. You'll need these values for Part III.</p>
+            </li>
+            <li>
+                <p>Below the application information, click on the button labeled "Create Access Token".</p>
+                <p>This will cause an access token to be generated for your application using your Twitter account permissions. Make note of the Access Token and Access Token Secret. You'll also need these values for Part III.</p>
             </li>
         </ol>
+
+         <p><strong>Security Warning</strong></p>
+         
+         <p>Note that some of these items are labeled <em>Secret</em> for a reason. You should not share these values with anyone. You should remove them from your code before submitting it.</p>
+         <p>With these token values, anyone can access your Twitter account and post messages as if they were you.</p>
+         <p>This same caution is generally true for all APIs that use authentication tokens.</p>
+
 
         <h4>Part II: Load the Necessary Libraries</h4>
         <p>We'll be using a 3rd party API to assist us in handing the API calls. While we could make these requests using the built-in libraries of the Java framework, such as <code>HttpClient</code>, this will make our program much more complex, especially when attempting to handle the authentication step.</p>
