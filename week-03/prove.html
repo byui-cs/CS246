@@ -16,8 +16,169 @@
         <h2>03 Prove</h2>
         <p class="subtitle">JSON APIs</p>
 
-        <h3>Coming Soon...</h3>
+        <h3>Objectives</h3>
 
+        <ul>
+            <li><p>Understand what an API is and how they're used.</p></li>
+            <li><p>Learn to parse a JSON response from an API.</p></li>
+            <li><p>Learn to store and access data in a Map.</p></li>
+        </ul>
+
+        <h3>APIs</h3>
+
+        <p>Companies with data-driven websites will often create APIs, (Application Programming Interfaces) to allow people to programmatically pull data from their site.</p>
+
+        <p><a href="https://developers.facebook.com/docs/graph-api">Facebook</a>, <a href="https://dev.twitter.com/docs/api">Twitter</a>, <a href="https://cloud.google.com/translate/">Google Translate</a>, and <a href="https://go.developer.ebay.com/">Ebay</a>, are just a few examples of sites that provide public APIs.</p>
+
+        <p>Developers use APIs for a variety of reasons. Often, they want to pull specific types of data for data-mining. Other times, they might want to create their own applications that use the services of those companies, such as an iOS app that allows you to sell things on Ebay.</p>
+
+        <p>While every API is different, the general sequence of steps is usually the same:</p>
+
+        <ol>
+            <li>
+                <p>Sign up for a developer account (sometimes called an API Key) with the organization whose API you want to access and obtain authentication credentials.</p>
+            </li>
+            <li> 
+                <p>Send an HTTP request to authenticate with the API using the authentication credentials you were given and receive an authentication token.</p>
+            </li>
+            <li> 
+                <p>Use that authentication token to make API requests via HTTP to specific URLs (called "end points") which allow you to retrieve the data that you're interested in.</p>
+            </li>
+            <li>
+                <p>The data is returned in a structured format. The most common data format for APIs is JSON.</p>
+            </li>
+        </ol>
+
+
+        <h3>Assignment</h3>
+        <p>You will write a program that uses the Twitter API to retrieve tweets made with the hash tag #byui. You'll first display the tweets in order by the user's name, then in order by the number of followers the user has.</p>
+
+        <p><strong>Warning</strong></p>
+        <p>This assignment is more difficult than any of your past assignments. I have purposefully left out many of the implementation details, which will force you to do quite a bit of research on your own.</p>
+        <p>Make sure you exercise diligence prior to asking for help.</p>
+
+        <h4>Part I: Obtain a Twitter API Account</h4>
+        <p>As is the case for most popular APIs, Twitter requires developers to first sign up for a developer account and acquire a set of API credentials before using their API.</p>
+        <ol>
+            <li>
+                <p></p>
+            </li>
+        </ol>
+
+        <h4>Part II: Load the Necessary Libraries</h4>
+        <p>We'll be using a 3rd party API to assist us in handing the API calls. While we could make these requests using the built-in libraries of the Java framework, such as <code>HttpClient</code>, this will make our program much more complex, especially when attempting to handle the authentication step.</p>
+        <p>Instead, we'll use a 3rd party library called <em>twitter4j</em>, which will make this process much less complicated.</p>
+        <p>We'll also make use of the GSON library again to handle parsing the JSON data ourselves.</p>
+        <ol>
+            <li>
+                <p>Create a new IntelliJ project.</p>
+            </li>
+            <li>
+                <p>Add a reference to the GSON library as you did for <a href="./teach.html">the teach assignment</a>.</p>
+            </li>
+            <li>
+                <p>Use that same process to add a reference to the twitter4j library. (We're specifically going to be using the library called <em>org.twitter4j:twitter4j-core:4.0.6</em>.</p>
+            </li>
+        </ol>
+
+        <h4>Part III: Create a Class to Store the Data</h4>
+        <p>There is a lot of information in a tweet, but for this assignment we only care about some of it.</p>
+        <p>As we did in <a href="./teach.html">the teach assignment</a>, we'll be creating a class to hold just the data we're interested in.</p>
+        <ol>
+            <li>
+                <p>First, create two classes based on the following UML diagram:</p>
+                <p><img class="screenshot-large" src="./img/BYUI-tweet.png"/></p>
+            </li>
+            <li>
+                <p>Now, when the GSON library deserializes a JSON String into a class instance, it expects the key names in the JSON to exactly match the variable names of the class.</p>
+                <p>Sometimes this isn't ideal, so it provides a way for you to specify which JSON key should connect to a given variable in a class.</p>
+                <p>In our case, we have a variable in our <code>User</code> class called <code>followers</code>, but in the JSON string we get back from Twitter, the number of followers is stored in a key called "follower_count". So, we need to add an "annotation" to our variable to tell GSON that those two things should go together.</p>
+                <p>Modify the declaration of <code>followers</code> in your <code>User</code> class so it looks like this:</p>
+<pre><code class="java">@SerializedName("followers_count")
+int followers;
+</code></pre>
+            </li>
+        </ol>
+
+        <h4>Part IV: Retrieve the Data</h4>
+        <ol>
+            <li>
+                <p>Create a class called <code>TweetLoader</code>. This class will serve as our "Data Access Layer", giving us a single point of access to the Twitter API.</p>
+                <p>The class should contain a private member variable of type <code>Twitter</code> (from the twitter4j library).</p>
+            </li>
+            <li>
+                <p>Have the constructor call a private member function called <code>configureKeys()</code> which will use the code similar to the following to configure the twitter4j library (make sure to replace the authentication strings with your developer keys you received from Twitter):</p>
+<pre><code class="java">ConfigurationBuilder cb = new ConfigurationBuilder();
+
+// This continuous set of function calls all connected together is referred to
+// as "method chaining". It is a popular technique amongst web developers and has
+// gradually found its way into other languages.
+//
+// The way it works is that each setter returns a reference to the object.
+// For example, the code in the setDebugEnabled function might look like this:
+//
+//  ConfigurationBuilder setDebugEnabled(Boolean value) {
+//      this.debugEnabled = value;
+// 
+//      // Returning "this" allows method chaining.
+//      return this;  
+//  }
+//
+cb.setDebugEnabled(true)
+    .setOAuthConsumerKey("PUT YOUR CONSUMER KEY HERE")
+    .setOAuthConsumerSecret("PUT YOUR CONSUMER SECRET HERE")
+    .setOAuthAccessToken("PUT YOUR ACCESS TOKEN HERE")
+    .setOAuthAccessTokenSecret("PUT YOUR ACCESS TOKEN SECRET HERE")
+    .setJSONStoreEnabled(true);
+
+TwitterFactory tf = new TwitterFactory(cb.build());
+this.twitter = tf.getInstance();
+</code></pre>
+            </li>
+            <li>
+                <p>Add a public function to the class called <code>retrieveTweetsWithHashTag(String hashtag)</code>. It should return a <code>Map</code> with instances of <code>String</code> for keys and instances of <code>BYUITweet</code> as values.</p>
+            </li>
+            <li>
+                <p>In this function, you'll need to do the following:</p>
+                <ol>
+                    <li>
+                        <p>Create an instance of a class that implements the Map interface. Popular options are <code>HashMap</code> and <code>TreeMap</code></p>
+                    </li>
+                    <li>
+                        <p>Use the <code>search()</code> method of the <code>Twitter</code> object to retrieve all tweets with the hashtag supplied in the hashtag parameter.</p>
+                    </li>
+                    <li>
+                        <p>Loop through every <code>Status</code> message stored in the results, and use the <code>TwitterObjectFactory.getRawJSON()</code> function to get the JSON String for that tweet.</p>
+                    </li>
+                    <li>
+                        <p>Use the GSON library to deserialize that JSON string into an instance of the <code>BYUITweet</code> class.</p>
+                    </li>
+                    <li>
+                        <p>Store that instance in the <code>Map</code> you created, using the user name of the tweet as the key.</p>
+                    </li>
+                    <li>
+                        <p>Finally, when the loop ends, return the <code>Map</code>.</p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <p>In <code>main()</code>, create an instance of the <code>TweetLoader</code> class and call its <code>retrieveTweetsWithHashTag()</code> function to retrieve tweets with the <em>#byui</em> hashtag.</p>
+            </li>
+            <li>
+                <p>Loop through the results, and display the user name, the user's follower count, and the text of the tweet in this format, making sure that they are displayed in alphabetical order by the user's name:</p>
+<pre><code class="markdown">CoolMormonGuy (48 Followers) - This is the best school ever! #byui
+</code></pre>
+            </li>
+
+        </ol>
+
+            <p>Once you've made it this far, move on the stretch challenge.</p>
+            
+            <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+            
+            <p>Now, display the tweets in order by the user's follower count, so that the users with the most followers appear first.</p>
+            
+            <p>There are several ways to accomplish this. The most elegant methods make use of <code>Collections.sort()</code> and either a custom <code>Comparator</code> class, or a <em>lambda function.</em></p>
 
     </article>
 

@@ -1,14 +1,14 @@
 # 03 Ponder : Weekly Reflection
 
-1. Describe one challenge your team experienced working on the Hello World activity.
+1. Describe one challenge your team experienced working on the JSON parsing activity.
 
 
 
-2. For the NSA Cryptography assignment, what did you learn about how Java parameter passing differs from C++?
+2. For the Twitter API assignment, what did you learn about how APIs work?
 
 
 
-3. Did you complete the Stretch Challenge for the NSA Cryptography? If so, briefly describe what you did, and how you structured your code.
+3. Did you complete the Stretch Challenge for the Twitter API Assignment? If so, briefly describe which method you used.
 
 
 
@@ -20,19 +20,19 @@
 
 
 
-6. If you were getting paid to work on this week's Prove assignment and you had another month to work on it, what would you add?
+6. Aside from just searching for tweets with a given hashtag, what is another use you could see for the twitter API?
 
 
 
-7. A common Java interview question is "What are javadocs and when should they be used?". How would you answer that question?
+7. A common Java interview question is "Describe what an API is and how it's used". (Sometimes people refer to these types of APIs as "REST APIs") How would you answer that question?
 
 
 
-8. Of all of the resources in this week's Preparation assignment, which was the _most_ helpful to you and why?
+8. Of all of the resources in this week's reading, which was the _most_ helpful to you and why?
 
 
 
-9. Of all of the resources in this week's Preparation assignment, which was the _least_ helpful to you and why?
+9. Of all of the resources in this week's reading, which was the _least_ helpful to you and why?
 
 
 

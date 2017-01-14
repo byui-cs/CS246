@@ -130,8 +130,11 @@ article h4 {
 	color: #006AB9;
 	text-transform: uppercase;
 	padding-top: 10px;
+	padding-bottom: 10px;
 	margin-bottom: 1em;
+	margin-top: 2em;
 	font-weight: bold;
+	border-bottom: 1px solid #006AB9;
 }
 
 article h4.stretch {
@@ -186,6 +189,11 @@ article ol li {
 	color: #006AB9;
 	margin-bottom: 1em;
 	border-left: 2px solid #CCC;
+}
+
+article ol li ol li {
+	list-style: lower-alpha;
+	border-left: 1px solid #006AB9;
 }
 
 article h3:before {
