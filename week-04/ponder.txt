@@ -24,7 +24,7 @@
 
 
 
-7. A common Java interview question is "describe the difference between an interface and an abstract class". How would you answer that question?
+7. A common git-related interview question is "How do you revert a commit that has already been pushed and made public?". How would you answer that question?
 
 
 
