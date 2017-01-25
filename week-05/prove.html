@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CS 246 - Prove 2.0</title>
+    <title>CS 246 - 05 Prove : Fragments</title>
     <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
@@ -13,28 +13,59 @@
     <h1>Software Design and Development :: CS 246</h1>
 </div>
     <article>
-        <h2>Prove 2.0 :: Basic Android App</h2>
+        <h2>05 Prove</h2>
+        <p class="subtitle">Android App</p>
 
         <h3>Objectives</h3>
 
         <ul>
-            <li><p>Learn how to use Intents to communicate between Activities.</p></li>
-            <li><p>Learn how to create a second Activity in Android.</p></li>
+            <li><p>Create your own Android application.</p></li>
         </ul>
 
-        <h3>Intents</h3>
-       
+        <h3>Assignment</h3>
+        
+        <h4>Part I (46.5%) - Communicating Between Activities:</h4>
         <ol>
-            <li>
-                <p><strong>For a score of 93%:</strong> Follow <a href="http://developer.android.com/training/basics/firstapp/starting-activity.html" target="_blank">this tutorial from Google</a> to add a second activity to your project.</p>
+           <li>
+                <p>Create a new Android project.</p>
             </li>
             <li>
-                <p><strong>For a score of 100%:</strong> Add a cool feature to your Android App, this can be just about anything, you want, but you'll need either two minor embellishments or one major.</p>
-                <p>At this stage, major embellishments would include things like extra functionality, displaying the message in a toast, sending additional data through the intent, etc...</p>
-                <p>Minor embellishments would include layout and presentation changes.</p> 
+                <p>The main activity should have a label asking the user to enter their favorite scripture. It should provide separate input boxes for the Book, chapter, and verse values.</p>
             </li>
             <li>
-                <p>Be sure to take the corresponding quiz on I-Learn once you are finished.</p>
+                <p>Add a button to your first activity that when tapped, will create an Intent, store the user's scripture information in the intent, and then use the Intent to invoke a second Activity.</p>
+            </li>
+            <li>
+                <p>The second Activity should display the information in the traditional format: Book Chapter:Verse.</p>
+            </li>
+        </ol>
+
+        <h4>Part II (46.5%) - Debug Logging:</h4>
+        <ol>
+           <li>
+                <p>Read <a href="https://developer.android.com/studio/debug/am-logcat.html">this overview of logging in Android.</a></p>
+            </li>
+            <li>
+                <p>Add a debug log message to the first activity's button handler code that is invoked before the intent is created. This message should say something like: "About to create intent with John 3:16.</p>
+            </li>
+            <li>
+                <p>Add another message to the second activity in the <code>onCreate</code> function. It should log a message like: "Received intent with John 3:16".</p>
+            </li>
+            <li>
+                <p>Use the logcat tab in Android Studio to find your messages.</p>
+            </li>
+        </ol>
+
+        <h4 class="stretch">🌟Stretch Challenge (7%)🌟</h4>
+        <ol>
+           <li>
+                <p>Modify your application so that it has a button on the second activity labeled "Save Scripture".</p>
+                <p>When tapped, that button should store the Book, chapter, and verse values in the user's Shared Preferences.</p>
+                <p>A Toast should appear, informing the user that the scripture was saved successfully.</p>
+            </li>
+            <li>
+                <p>Add a new button to the first activity labeled "Load Scripture".</p>
+                <p>When tapped, that button should load the Book, chapter, and verse values from the user's Shared Preferences and populate the text fields with those values.
             </li>
         </ol>
 
