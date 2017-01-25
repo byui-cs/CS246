@@ -1,0 +1,43 @@
+# 05 Ponder : Weekly Reflection
+
+1. Describe one challenge your team experienced working on the Android activity.
+
+
+
+2. What is the difference between an Activity and an Intent?
+
+
+
+3. Describe how the onCreate() callback works.
+
+
+
+4. What's the biggest challenge you've experienced regarding Android development compared to pure Java development?
+
+
+
+5. After completing the assignments this week, what questions do you still have?
+
+
+
+6. A common Android-related interview question is "What's the difference between onPause() and onDestroy() and what kinds of things might you do in those functions?". How would you answer that question?
+
+
+
+7. Of all of the resources and tutorials in this week's assignments, which was the _most_ helpful to you and why?
+
+
+
+8. Of all of the resources and tutorials in this week's assignments, which was the _least_ helpful to you and why?
+
+
+
+9. How many hours did you spend on this class this week?
+
+05 Prepare - 
+05 Teach - 
+05 Prove -
+05 Ponder -
+----------------------------
+Total Hours - 
+
