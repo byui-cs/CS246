@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>CS 246 - Prepare 2.0</title>
+    <title>CS 246 - 05 Prepare : Reading</title>
     <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
@@ -13,60 +13,58 @@
     <h1>Software Design and Development :: CS 246</h1>
 </div>
     <article>
-        <h2>Prepare 2.0 :: Introduction to Android Studio</h2>
-
+        
+        <h2>05 Prepare : Reading</h2>
+        <p class="subtitle">Android Development</p>
+        
         <h3>Objectives</h3>
 
         <ul>
-            <li><p>Learn about Android Studio.</p></li>
-            <li><p>Learn about Java programming style.</p></li>
-            <li><p>Download and install Android Studio.</p></li>
-            <li><p>Learn about app development.</p></li>
+            <li><p>Learn about Android Development.</p></li>
         </ul>
 
-        <h3>Android Studio</h3>
-        <p>Througout this course we will be using the Android operating system to learn Java, and the principles of software design and development. If you don't have an Android device, don't worry. You can use the built-in Android emulator or a 3rd party Android emulator to simulate an Android phone on your computer.</p>
+        <h3>Developing for Android</h3>
+        <p>When Android development first became popular, developers had to use a collection of command-line tools to do Android development. One tool would let them configure an Android device for testing; another would compile their code; another would create the app package for testing, etc...</p>
+        <p>Over time, people wanted a real Android IDE, so Google teamed up with the people behind IntelliJ to create one. There are now two options. First, you can use the stand-alone Android Studio IDE, which is based on IntelliJ, but with some specific plugins added for Android Development. Second, you can continue to use IntelliJ with the Android development plugins turned on.</p>
+        <p>Since they are essentially the same software, there's no real difference between what you can accomplish. However, most tutorials and guides you will find online will assume you're using Android Studio, so that's what we'll use.</p>
+        <p>You are welcome to use IntelliJ, but if you do, you'll be mostly on your own.</p>
 
-        <h3>Java Style</h3>
-
-        <p>An important component of software development, especially when working with others, is learning to use a consistent programming style. This is especially important when multiple developers are contributing to the same codebase.</p>
-
-        <p>Using a consistent style in a project provides the following benefits:</p>
-
-        <ul>
-            <li><p>It will help developers to navigate through the code more quickly.</p></li>
-            <li><p>It helps you to spot errors.</p></li>
-            <li><p>It reduces the cost of code maintenance</p></li>
-        </ul>
-
-        <p>Most languages have a generally accepted style guide for that language. In addition, many companies have their own software style guides. Learning to follow a style guide is an important skill.</p>
-
-        <p>In this course, we will use one of the most popular style guides for Java programming, <a href="https://google-styleguide.googlecode.com/svn/trunk/javaguide.html">the Google Java Style guide.</a></p>
         
-        <p>This style is likely different than what you're used to using when programming in C++. For example, it uses the &ldquo;K &amp; R style&rdquo; of braces (Style Rule 4.1.2), where the opening brace appears on the same line as the method name or if statement:</p>
-<pre><code class="java">if (expression) {
-   statement;
-   statement;
-}
-</code></pre>
-        
+        <h3>Preparation Assignment</h3>
+
+        <p>We've discussed before how the Java libraries and methods of doing things have evolved over the years. For example, the options available to you for reading from a file in Java 8 are much different than those that were available in Java 2.</p>
+        <p>This "progressive evolution" is even more remarkable in Android, because new versions of the framework come out almost every year. As with Java, there is a difference between the version number used for marketing, and the one used by internal frameworks (called the API Level). You'll need to be familiar with both.</p>
 
         <h4>Before Class, complete the following:</h4>
 
         <ol>
             <li>
-                <p>Watch <a href="https://www.youtube.com/watch?v=Z98hXV9GmzY">this video from Google</a>, which provides an overview of Android Development and Android Studio. Follow along with the steps in the video to download Android Studio, and test it out on your computer.</p>
-                <p>If you have trouble getting the default emulator to run, you might need to change some configuration options on your machine. The answers on <a href="http://stackoverflow.com/questions/21635504/error-during-installing-haxm-vt-x-not-working" target="_blank">this Stack Overflow post</a> explain the most common issues.</p>
-                <p>If all else fails, you can use install and configure a 3rd party Android emulator, such as <a href="https://www.genymotion.com/download" target="_blank">Genymotion. (You'll need to create an account on their site to download the free version for individuals)</a>
-                </p>
+                <p>Look at <a href="https://en.wikipedia.org/wiki/Android_version_history">this table</a> showing how the version numbers and API Levels match up. (You don't need to memorize it, but keep it handy in case you're wondering when a specific feature was added.</p>
             </li>
             <li>
-                <p>Take some time to become familiar with <a href="https://google-styleguide.googlecode.com/svn/trunk/javaguide.html">Google's Java style guide</a>, especially the formatting requirements from section 4.</p>
+                <p>Watch <a href="https://www.youtube.com/watch?v=Z98hXV9GmzY">this video from Google</a>, which provides an overview of Android Development and Android Studio.</p>
+                <p>Note that the video might show you some information for an older version of Android Studio. As with all aspects of software development, you have to adapt bits and pieces of information to your current needs.</p>
             </li>
-             <li>
-                <p>Make sure you complete the Prepare quiz for week 02 on I-Learn.</p>
+            <li>
+                <p>Follow the <a href="https://developer.android.com/studio/install.html">instructions in this guide</a> to install Android Studio.</p>
+            </li>
+            <li>
+                <p>Read <a href="https://developer.android.com/studio/workflow.html">this overview of the Android development process.</a></p>
+            </li>
+            <li>
+                <p>Read this introduction regarding <a href="https://developer.android.com/guide/components/activities/intro-activities.html">Android activities.</a></p>
+            </li>
+            <li>
+                <p>Review <a href="https://developer.android.com/guide/components/activities/activity-lifecycle.html">this diagram of the Activity lifecycle.</a></p>
+            </li>
+            <li>
+                <p>Read about how <a href="https://developer.android.com/studio/projects/index.html">Android project code is structured.</a></p>
             </li>
         </ol>
+
+        <h3>Reading Quiz</h3>
+        <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
+        <p>As before, one of the quiz questions is a "deep thought" question whose answer won't come directly from the reading.</p>
 
     </article>
 
