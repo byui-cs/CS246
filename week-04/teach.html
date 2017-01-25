@@ -152,8 +152,8 @@ Hello World!!!
 Goodbye World!
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; Goodbye
 </code></pre>
-                <p>The part above the line of equal signs shows you the version of the code you're trying to pull down from the central repository.</p> 
-                <p>The part below the line of equal signs shows the version of the code that is in your local repository. Since these lines dont match, git is unable to merge the changes, and a conflict results.</p>
+                <p>In this example the part between the hash code and the equal signs shows you the version of the code you're trying to pull down from the central repository.</p> 
+                <p>The part between the line of equal signs and HEAD shows the version of the code that is in your local repository. Since these lines dont match, git is unable to merge the changes, and a conflict results.</p>
             </li>
             <li>
                 <p>To resolve this conflict, choose the version you want to keep, and delete the other version, along with the merge markers. So if you want to keep your version, you'd delete the line of &gt; symbols, and everything above the equal signs. In the above example, you'd end up with:</p>
@@ -166,6 +166,10 @@ Goodbye World!
 git rebase --continue
 </code></pre>
                 <p>If all went well, we should see a message from git telling us that it is applying our version of the commit.</p>
+                <p>If you get an error message about `no rebase in progress`, instead of rebasing, you can just commit and push:</p>
+<pre><code class="bash">git commit -m "Fixed merge conflict"
+git push
+</code></pre>
             </li>
             <li>
                 <p>As a final step, we use <code>git push</code> to send our merged changes back to the central repository.</p>
