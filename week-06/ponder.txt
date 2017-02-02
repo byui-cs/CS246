@@ -1,0 +1,47 @@
+# 06 Ponder : Weekly Reflection
+
+1. Describe how multithreading works.
+
+
+
+2. What is the difference between sublcassing Thread and implementing Runnable?
+
+
+
+3. What was one of the most difficult challenges your team faced working on the multithreading assignment?
+
+
+
+4. After completing the assignments this week, what questions do you still have?
+
+
+
+5. A common Android-related interview question is "If you need to update the GUI from a background thread, how can you accomplish this?". How would you answer that question?
+
+
+
+6. How would you explain to a new developer what a software design pattern is?
+
+
+
+7. Give an example of when you would use the Strategy pattern other than the examples given in the reading.
+
+
+
+8. Of all of the resources and tutorials in this week's assignments, which was the _most_ helpful to you and why?
+
+
+
+9. Of all of the resources and tutorials in this week's assignments, which was the _least_ helpful to you and why?
+
+
+
+10. How many hours did you spend on this class this week?
+
+06 Prepare - 
+06 Teach - 
+06 Prove -
+06 Ponder -
+----------------------------
+Total Hours - 
+

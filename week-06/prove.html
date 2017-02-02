@@ -2,67 +2,51 @@
 <html>
 
 <head>
-    <title>CS 246 - Ponder and Prove</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 06 Prove : Design Patterns</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-
-        <h1>Multi-threaded Programming</h1>
-        <h2>Overview</h2>
-        <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI.</p>
-        <p>Don't forget to collaborate with others and post questions and suggestions to the course website!</p>
-        <h2>Instructions</h2>
-        <p>Create an Android app that reads and writes a file and updates a list on the GUI and a progress bar as the file is read.</p>
-        <ol>
-            <li>Create a new Android app with a blank activity.</li>
-            <li>Add your app's source to a new GitHub repository.</li>
-            <ol>
-                <li>In Android Studio, this can be done in one step by clicking the "VCS" menu and selecting, "Import into Version Control" -&gt; "Share Project on GitHub", which will prompt for GitHub information and perform the task.</li>
-            </ol>
-            <li>Create a horizontal progress bar at the top, a ListView beneath it, and three buttons at the bottom:</li>
-            <ol>
-                <li>Button 1 - Create</li>
-                <li>Button 2 - Load</li>
-                <li>Button 3 - Clear</li>
-            </ol>
-            <li>Add an event handler for the Create button to do the following:</li>
-            <ol>
-                <li>Create a new file in the internal storage area, called numbers.txt .</li>
-                <li>You can get a File object in the internal storage area like so: "File file = new File(context.getFilesDir(), filename);" (see this page for more information: <a href="http://developer.android.com/training/basics/data-storage/files.html">http://developer.android.com/training/basics/data-storage/files.html</a> )</li>
-                <li>In the file, print the numbers 1-10, one per line.</li>
-                <li>After writing each line, add a "Thread.sleep(250);" to pause for a quarter of a second to simulate a more difficult task.</li>
-            </ol>
-            <li>Add an event handler for the Load button to do the following:</li>
-            <ol>
-                <li>Load the file numbers.txt and read it line by line.</li>
-                <li>As you read each line, store the number in a list.</li>
-                <li>After reading each line, add a "Thread.sleep(250);" to simulate a more difficult task.</li>
-                <li>Then add this list your ListView (Hint: Use an ArrayAdapter)</li>
-            </ol>
-            <li>Add an event handler for the Clear button that clears the list. (Hint: Clear the ArrayAdapter)</li>
-            <li>Ensure that you can write and then read the file and populate the ListView. And notice that the GUI hangs while it is reading and writing, because you are doing this on the main thread.</li>
-            <li>Change the file processes to happen on a background thread.</li>
-            <ol>
-                <li>Start the reading and writing tasks on a background thread.</li>
-                <li>After reading/writing each line, update the progress bar to show the percentage of completion.</li>
-                <li>Keep in mind that you cannot manipulate the GUI from a background thread.</li>
-                <li>You are welcome to set up the background thread manually (using new Thread(), etc.) or you may also consider using an AsyncTask which requires you to set up a new derived class and override methods, but then handles the switching between the background and main threads for you.</li>
-            </ol>
-        </ol>
-        <h2>Submission</h2>
-        <p>Make sure that your code adheres to the course code conventions and that it is pushed to your GitHub repository, then answer the questions in the I-Learn assessment.</p>
-    </div>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
 </div>
+    <article>
+        <h2>06 Prove</h2>
+        <p class="subtitle">Design Patterns</p>
 
+        <h3>Objectives</h3>
 
+        <ul>
+            <li><p>Learn about design patterns.</p></li>
+            <li><p>Learn about the strategy pattern.</p></li>
+        </ul>
 
+        <h3>Introduction</h3>
 
+        <p>Design patterns are guidelines/best practices for how to structure your code in certain scenarios. These aren't compiler-rules or Java libraries, they are language-agnostic principles developed by the software development community over the years.</p>
+
+        <p>There are many difference design patterns. Throughout the rest of the semester, we'll be learning a new pattern each week.</p>
+
+        <h3>Assignment</h3>
+        
+        <ol>
+            <li>
+                <p>Read <a href="https://sourcemaking.com/design_patterns">this overview of Design Patterns</a>. You don't need to read the details of each pattern at this time.</p>
+            </li>
+            <li>
+                <p>Read <a href="https://sourcemaking.com/design_patterns/strategy">this description of the Strategy pattern</a>.</p>
+            </li>
+            <li>
+                <p>Read <a href="http://stackoverflow.com/questions/91932/how-does-the-strategy-pattern-work">this StackOverflow post</a>, which provides another example of the Strategy pattern.</p>
+            </li>
+        </ol>
+
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>

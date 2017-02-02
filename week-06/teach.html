@@ -2,55 +2,103 @@
 <html>
 
 <head>
-    <title>CS 246 - Team Activity</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 06 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>06 Teach : Team Activity</h2>
+        <p class="subtitle">Using AsyncTask</p>
 
+        <h3>Objectives</h3>
 
-
-
-        <h1>Team Activity: Threads</h1>
-
-        <h3><span style="font-family: verdana,geneva;">Instructions</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Before meeting with your team for this activity, please read the material in the <a href="../prepare/246-06-prepare.html">Team Activity Preparation Material</a>.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Next, meet with your team (e.g., Skype, Google Hangouts) to complete the following activity. This activity is designed to take 1 hour and will help you in your individual assignment for the week.</span></p>
-        <h3><span style="font-family: verdana,geneva;">Assignment</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">This assignment will be done in parts, as follows:</span></p>
-        <h4><span style="font-family: verdana,geneva;">Part 1 - Simple Multithreading</span></h4>
-        <ol>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Write a Java program that simultaneously counts to 100 by odds and even numbers. In other words, you should have two loops that each count to 100 and have these loops run on different threads concurrently.</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">In order to see the progress, have each thread wait for 100 milliseconds (i.e., "Thread.sleep(100);").</span></li>
-        </ol>
-        <h4><span style="font-family: verdana,geneva;">Part 2 - Waiting for threads to finish</span></h4>
-        <ol>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Have the program display the message "All finished" when both threads are finished.</span></li>
-        </ol>
-        <h4><span style="font-family: verdana,geneva;">Part 3 - Stopping a thread</span></h4>
-        <ol>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Add an additional thread that displays the text "running&hellip;" every second. This thread should be started concurrently with the other two counting threads. It should be set to continue looping forever (rather than going through a predetermined number of times).</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Have the program properly stop the "running&hellip;" thread when the two counting threads are both finished.</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Please note that the "Thread.stop()" and "Thread.destroy()" methods are deprecated, and are not the proper way to stop the thread.</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">See this page for more information about why the stop method is deprecated and what you might do: <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html" target="_blank">http://docs.oracle.com/javase/7/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html</a></span></li>
-        </ol>
-        <h3><span style="font-family: verdana,geneva;">Submission</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">When you have completed the assignment please upload your .java file (or files) to I-Learn. In the comments box, please specify which of the following were completed:</span></p>
         <ul>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Every member of the team was present and contributed.</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Completed part 1</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Completed part 2</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Completed part 3</span></li>
+            <li><p>Create a multithreaded program in Android using AsyncTask.</p></li>
         </ul>
 
+        <h3>Assignment</h3>
+        <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
 
+        <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI..</p>
 
-        </div>
-    </div>
+            
+        <h4>Part I: Create the Basic App</h4>
 
+        <ol>
+            <li>
+                <p>Create a new Android project.</p>
+            </li>
+            <li>
+                <p>Add a <a href="https://developer.android.com/guide/topics/ui/layout/listview.html">ListView</a> to your main activity.</p>
+                <p>Add three buttons below the list view, labeled "Create", "Load", and "Clear".</p>
+                <p>Add a <a href="https://developer.android.com/reference/android/widget/ProgressBar.html">ProgressBar</a> above your ListView.</p>
+            </li>
+            <li>
+                <p>Add an event handler to your Create button that does the following:</p>
+                    <ol>
+                        <li>
+                            <p>Creates a <a href="https://developer.android.com/training/basics/data-storage/files.html">new file in the internal storage area</a>, called <em>numbers.txt</em></p>
+                        </li>
+                        <li>
+                            <p>Write the numbers 1 - 10 to the file, one on each line.</p>
+                        </li>
+                        <li>
+                            <p>After writing each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
+                        </li>
+                    </ol>
+            </li>
+            <li>
+                <p>Add an event handler to your Load button that does the following:</p>
+                    <ol>
+                        <li>
+                            <p>Load the file <em>numbers.txt</em> and read it line by line.</p>
+                        </li>
+                        <li>
+                            <p>As you read each line, store each number in a list.</p>
+                        </li>
+                        <li>
+                            <p>After writing each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
+                        </li>
+                        <li>
+                            <p>After reading each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
+                        </li>
+                        <li>
+                            <p>Connect the List to your ListView so the numbers appear there. (You may want to investigate ArrayAdapters).</p>
+                        </li>
+                    </ol>
+            </li>
+            <li>
+                <p>Add an event handler to your Clear button that clears the list. (This is typically done by clearing the ArrayAdapter).</p>
+            </li>
+            <li>
+                <p>Run the app, confirming that you can create the file, load it into the ListView, and clear it again.</p>
+                <p>Notice how the creating the file and loading it cause the app to hang momentarily.</p>
+            </li>
+        </ol>
 
+        <h4>Part II: Make it Multithreaded</h4>
+
+        <ol>
+            <li>
+                <p>Modify the program so that creating and loading the file happens on a background thread.</p>
+                <p>After reading or writing each line, update the progress bar. (i.e. Pressing the Create button should set the progress to 0, and it should steadily fill up as each line is written. Pressing the Load button should again set it to 0, and it should steadily fill up as each line is read.)</p>
+                <p>Remember that background threads can't update the GUI directly.</p>
+                <p>You can use any multithreading option that Android has to offer, but <code>AsyncTask</code> is particularly suited for this type of scenario.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to create and use multithreading in Android.</p>
+        
+        <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>
