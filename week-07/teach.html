@@ -2,69 +2,86 @@
 <html>
 
 <head>
-    <title>CS 246 - Team Activity</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 07 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
+    </div>
+    <article>
+        <h2>07 Teach : Team Activity</h2>
+        <p class="subtitle">Set up Team Git Repo</p>
 
 
+        <h3>Objectives</h3>
 
-        <h1>Team Activity: Set Up Team Git Repo</h1>
+        <ul>
+            <li><p>Create the GitHub repository your team will use for the project.</p></li>
+        </ul>
+
         <h3>Overview</h3>
-        <p>To ensure that you are ready to begin development in earnest next week, you need to set up the initial project and commit the source to GitHub (if you haven't already done this). Each team member needs to pull the content down and make at least one push to make sure that everything is configured correctly. In addition, you need to make sure that each person can resolve a merge conflict.</p>
+        <p>To ensure that you are ready to begin development in earnest next week, you need to set up the initial project and commit the source to GitHub (if you haven't already done this).</p>
+        <p>Each team member needs to pull the content down and make at least one push to make sure that everything is configured correctly. In addition, you need to make sure that each person can resolve a merge conflict.</p>
+        
         <h3>Instructions</h3>
         <p>Even though this should be straightforward, issues always seem to arise when there are merges and conflicts to resolve, so you may consider having everyone perform their push/pull during a live meeting, so that you can walk through it together.</p>
-        <p>If you do run into challenges with merge conflicts, you may find it easiest to close down your IDE and work through it on the command line (GitBash on Windows). By going to your project directory and typing "git status", you will often see more information about the state of your repository, as well as good suggestions for the commands you'll want to type next. Using the built-in Git integration in the IDE seems to work great when everything is going smoothly, but the command line is often the best way to get untangled if the project is in a bad state.</p>
+        <p>If you do run into challenges with merge conflicts, you may find it easiest to close down your IDE and work through it on the command line (GitBash on Windows). By going to your project directory and typing "git status", you will often see more information about the state of your repository, as well as good suggestions for the commands you'll want to type next.</p>
+        <p>Using the built-in Git integration in the IDE seems to work great when everything is going smoothly, but the command line is often the best way to get untangled if the project is in a bad state.</p>
+        
         <p>The following steps will guide you through this process.</p>
-        <p dir="ltr"><span>Part I - Create the project and repository</span></p>
+        
+        <h4>Part I - Create the project and repository</h4>
         <ol>
-            <li>Have one person create a new project, create a new repository on GitHub, and push the project code to that repository.</li>
-            <ul>
-                <li>In Android Studio, this can be done in one step by clicking the "VCS" menu and selecting, "Import into Version Control" -&gt; "Share Project on GitHub", which will prompt for GitHub information and perform the task.</li>
-            </ul>
-            <li>Then have this person add each team member as a contributor to the GitHub repository. This is done by going to the repository page in a Web browser and looking in the "settings" section.</li>
-            <li>Have all the other team members pull the repository and load the project their IDEs.</li>
-            <ul>
-                <li>In Android Studio, this can be done as follows:</li>
-                <li>Click the "VCS" Menu, select "Checkout from version control" -&gt; "GitHub"</li>
-                <li>Enter your repository URL and the directory on your local computer where you want it.</li>
-                <li>Open the project (it should prompt you to do this immediately after cloning it)</li>
-                <li>Click "VCS" -&gt; Enable Version Control Integration</li>
-                <li>Select "Git"</li>
-                <li>You should now be able to see the Git options on the VCS menu (to commit, push, etc.)</li>
-            </ul>
+            <li><p>Have one person create a new project, create a new repository on GitHub, and push the project code to that repository.</p>
+
+            <p>In Android Studio, this can be done in one step by clicking the "VCS" menu and selecting, "Import into Version Control" -&gt; "Share Project on GitHub", which will prompt for GitHub information and perform the task.</p>
+
+            </li>
+            
+            <li><p>Then have, this person add each team member as a contributor to the GitHub repository. This is done by going to the repository page in a Web browser and looking in the "settings" section.</p></li>
+            <li><p>Have all the other team members pull the repository and load the project their IDEs.</p>
+            <p>In Android Studio, this can be done as follows:</p>
+            <ol>
+                
+                <li><p>Click the "VCS" Menu, select "Checkout from version control" -&gt; "GitHub"</p></li>
+                <li><p>Enter your repository URL and the directory on your local computer where you want it.</p></li>
+                <li><p>Open the project (it should prompt you to do this immediately after cloning it)</p></li>
+                <li><p>Click "VCS" -&gt; Enable Version Control Integration</p></li>
+                <li><p>Select "Git"</p></li>
+                <li><p>You should now be able to see the Git options on the VCS menu (to commit, push, etc.)</p></li>
+            </ol>
+            </li>
         </ol>
-        <p>Part II - Push and pull changes</p>
+        
+        <h4>Part II - Push and pull changes and resolve merge conflicts</h4>
         <ol>
-            <li>Have one team member make a change to one of the files (add a comment), commit it, and push it to GitHub. Then have each other teammate do a pull and ensure that you all see the change.</li>
-            <li>Repeat the previous step for each team member, so that everyone makes a push.</li>
-            <li>This ensures that each team member has been correctly added as a contributor and has their local project set up correctly.</li>
+            <li><p>Have one team member make a change to one of the files (add a comment), commit it, and push it to GitHub. Then have each other teammate do a pull and ensure that you all see the change.</p></li>
+            <li><p>Repeat the previous step for each team member, so that everyone makes a push.</p></li>
+            <li><p>This ensures that each team member has been correctly added as a contributor and has their local project set up correctly.</p></li>
+            <li><p>Have each team member make a change to the same part of the code at the same time (each of you add a different comment on the same line).</p></li>
+            <li><p>Have team member 1 push their changes first. Then have everyone else try to push their changes.</p>
+            <ol>
+                <li><p>You will find that the other team members need to pull before they can push. This will cause a merge conflict that you will have to resolve.</p></li>
+                <li><p>Look at the file after making the merge, it will show you both your changes as well as the other person's and will require you to handle the conflict.</p></li>
+                <li><p>Address the conflict by leaving both comments in and cleaning up any Git markers such as "=========" or "&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;".</p></li>
+                <li><p>Then "add" the file to mark it as resolved.</p></li>
+                <li><p>Then commit the merge, and push it.</p></li>
+            </ol>
+            </li>
+            <li><p>Repeat the previous step until each team member has successfully handled a merge conflict.</p></li>
         </ol>
-        <p>Part III - Merge Conflicts</p>
-        <ol>
-            <li>Have each team member make a change to the same part of the code at the same time (each of you add a different comment on the same line).</li>
-            <li>Have team member 1 push their changes first. Then have everyone else try to push their changes.</li>
-            <ul>
-                <li>You will find that the other team members need to pull before they can push. This will cause a merge conflict that you will have to resolve.</li>
-                <li>Look at the file after making the merge, it will show you both your changes as well as the other person's and will require you to handle the conflict.</li>
-                <li>Address the conflict by leaving both comments in and cleaning up any Git markers such as "=========" or "&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;".</li>
-                <li>Then "add" the file to mark it as resolved.</li>
-                <li>Then commit the merge, and push it.</li>
-            </ul>
-            <li>Repeat the previous step until each team member has successfully handled a merge conflict.</li>
-        </ol>
-        <h3>Submission</h3>
-        <p>When you have finished each of the steps above, please mark the corresponding answers in the accompanying I-Learn assessment.</p>
 
+        <p>Congratulations! Your team can now work together on the same code.</p>
 
+        <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
 
-
-        </div>
-    </div>
-
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 

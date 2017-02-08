@@ -2,43 +2,58 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>CS 246 - Prepare</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-
-        <h1>UML Basics</h1>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">UML (Unified Modeling Language) gives us a powerful way to model different components of our programs in a language agnostic manner, so we can focus on the architecture, organization, and design, without worrying about syntactic details.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">UML is very descriptive and has many details that allow us to specify very minor differences. However, for this class, for simplicity, we will focus on a more loose view of UML and only use the notation described herein to model our classes, interfaces, and the relations among them.</span></p>
-        <h3><span style="font-family: verdana,geneva;">Rule 1 - Boxes for all classes and interfaces</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">All custom classes and interfaces should be present in the diagram, in a rectangular box. The top section refers to the name, the middle section holds the member variables, and the bottom lists the methods. (We do not need to include classes from libraries we use unless there is a specific need to bring one out). The name of an interface should be underneath the text "&lt;&lt;Interface&gt;&gt;". Remember that class names should be nouns.</span></p>
-        <h3><span style="font-family: verdana,geneva;">Rule 2 - Data and method annotations</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Member variables and methods are preceded by a symbol indicating their accessibility (+ public, # protected, - private). The data type, or return type is specified after the name. Remember that variable names should be nouns, method names should be verbs.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">The following is an example of a class:</span></p><span style="font-family: verdana,geneva;"><img src="../attachments/246-07-exampleOfClass.jpg" border="0" alt="Example of Class" title="Example of class" width="300" height="165" /></span>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">And the following is an example of an interface:</span></p><span style="font-family: verdana,geneva;"><img src="../attachments/246-07-exampleOfInterface.jpg" border="0" alt="Example of Interface" title="Example of Interface" width="202" height="130" /></span>
-        <h3><span style="font-family: verdana,geneva;">Rule 3 - Inheritance Relationships</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Inheritance relationships ("is-a") are designated with an arrow from the derived sub-class to the base class (or interface). The arrowhead, should be the open, "triangle" arrow, appearing at the bottom of the superclass. This arrow should always leave the top of a sub-class, and should always enter the bottom of a super-class (never on the sides). If space limitations require putting classes on the side of each other the arrow should still go out the top, around the boxes, and then into the bottom.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">The following are examples of proper inheritance relationships:</span></p><span style="font-family: verdana,geneva;"><img src="../attachments/246-07-exampleOfInheritanceRelationships01.jpg" border="0" alt="Example of Inheritance Relationships" title="Example of Inheritance Relationships" width="248" height="286" /></span>
-        <p><span style="font-family: verdana,geneva;">&nbsp;</span></p><span style="font-family: verdana,geneva;"><img src="../attachments/246-07-exampleOfInheritanceRelationships02.jpg" border="0" alt="Example of Inheritance Relationships" title="Example of Inheritance Relationships" width="543" height="240" /></span>
-        <h3><span style="font-family: verdana,geneva;">Rule 4 - Composition Relationships</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Composition relationships ("has-a") as well as "uses-a" relationships should be shown with an arrow leaving and entering the side of the class. The arrow should point from the owning class to the one that is owned/used. The arrowhead should be the standard two-line arrow (not a block arrow or filled one). If space limitations require the classes to be above and below one another, the arrows should still leave and enter from the sides of the boxes.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">The following are examples of proper composition relationships:</span></p><span style="font-family: verdana,geneva;"><img src="../attachments/246-07-exampleOfCompositionRelationships01.jpg" border="0" alt="Example of Composite Relationships" title="Example of Composite Relationships" width="579" height="107" /></span>
-        <p><span style="font-family: verdana,geneva;">&nbsp;</span></p><span style="font-family: verdana,geneva;"><img src="../attachments/246-07-exampleOfCompositionRelationships02.jpg" border="0" alt="Example of Composite Relationships" title="Example of Composite Relationships" width="295" height="238" /></span>
-        <h3><span style="font-family: verdana,geneva;">Rule 5 - Professional Appearance</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Diagrams should be professional in appearance. They should not be hand drawn. There are several free software packages available, find one that you like and get familiar with it.</span></p>
-
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
 
+        <h2>07 Prepare : Reading</h2>
+        <p class="subtitle">UML Basics</p>
+        
+        <h3>Objectives</h3>
+
+         <ul>
+            <li><p>Understand the most commonly used parts of UML.</p></li>
+        </ul>
+
+        <h3>Introduction</h3>
+        <p>UML (Unified Modeling Language) gives us a powerful way to model different components of our programs in a language agnostic manner, so we can focus on the architecture, organization, and design, without worrying about syntactic details.</p>
+        <p>UML is very descriptive and has many details that allow us to specify very minor differences. However, for this class, for simplicity, we will focus on a more loose view of UML and only use the notation described herein to model our classes, interfaces, and the relations among them.</p>
+
+        <h3>Boxes for all classes and interfaces</h3>
+        <p>All custom classes and interfaces should be present in the diagram, in a rectangular box. The top section refers to the name, the middle section holds the member variables, and the bottom lists the methods. (We do not need to include classes from libraries we use unless there is a specific need to bring one out). The name of an interface should be underneath the text "&lt;&lt;Interface&gt;&gt;". Remember that class names should be nouns.</p>
+
+        <h3>Data and method annotations</h3>
+        <p>Member variables and methods are preceded by a symbol indicating their accessibility (+ public, # protected, - private). The data type, or return type is specified after the name. Remember that variable names should be nouns, method names should be verbs.</p>
+        <p>The following is an example of a class:</p><img src="../attachments/246-07-exampleOfClass.jpg" border="0" alt="Example of Class" title="Example of class" width="300" height="165" />
+        <p>And the following is an example of an interface:</p><img src="../attachments/246-07-exampleOfInterface.jpg" border="0" alt="Example of Interface" title="Example of Interface" width="202" height="130" />
+        <h3>Rule 3 - Inheritance Relationships</h3>
+        <p>Inheritance relationships ("is-a") are designated with an arrow from the derived sub-class to the base class (or interface). The arrowhead, should be the open, "triangle" arrow, appearing at the bottom of the superclass. This arrow should always leave the top of a sub-class, and should always enter the bottom of a super-class (never on the sides). If space limitations require putting classes on the side of each other the arrow should still go out the top, around the boxes, and then into the bottom.</p>
+        <p>The following are examples of proper inheritance relationships:</p><img src="../attachments/246-07-exampleOfInheritanceRelationships01.jpg" border="0" alt="Example of Inheritance Relationships" title="Example of Inheritance Relationships" width="248" height="286" />
+        <img src="../attachments/246-07-exampleOfInheritanceRelationships02.jpg" border="0" alt="Example of Inheritance Relationships" title="Example of Inheritance Relationships" width="543" height="240" />
+        
+        <h3>Composition Relationships</h3>
+        <p>Composition relationships ("has-a") as well as "uses-a" relationships should be shown with an arrow leaving and entering the side of the class. The arrow should point from the owning class to the one that is owned/used. The arrowhead should be the standard two-line arrow (not a block arrow or filled one). If space limitations require the classes to be above and below one another, the arrows should still leave and enter from the sides of the boxes.</p>
+        <p>The following are examples of proper composition relationships:</p><img src="../attachments/246-07-exampleOfCompositionRelationships01.jpg" border="0" alt="Example of Composite Relationships" title="Example of Composite Relationships" width="579" height="107" />
+        <img src="../attachments/246-07-exampleOfCompositionRelationships02.jpg" border="0" alt="Example of Composite Relationships" title="Example of Composite Relationships" width="295" height="238" />
+        <h3>Professional Appearance</h3>
+        <p>Diagrams should be professional in appearance. They should not be hand drawn. There are several free software packages available, find one that you like and get familiar with it.</p>
+
+         <h3>Reading Quiz</h3>
+        <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
+        <p>As before, one of the quiz questions is a "deep thought" question whose answer won't come directly from the reading.</p>
+
+    </article>
+
+    <script src="../course/js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 

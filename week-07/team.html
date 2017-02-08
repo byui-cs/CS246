@@ -2,48 +2,53 @@
 <html>
 
 <head>
-    <title>CS 246 - Team Project</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 07 Team : Design Document</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-
-        <h1>Team Project - Design Document</h1>
-        <h3><span style="font-family: verdana,geneva;">Instructions</span></h3>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Now that you have determined what you are going to build (features/requirements), have a basic idea of how an Android project is organized, and thought about some of the major components of your project, researching the biggest unknowns, it is time to work with your team to do a more detailed design.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">While you will be producing a design document to turn in, the real benefit of this activity is to think through the different components of your system and how they will interact. And at an even more detailed level, you will identify the classes you will need, along with the public methods they will provide and a knowledge of what each of those methods should do. Once you have this design in place, you will be prepared to stub out the classes/methods, write unit tests, break up the coding tasks a little, and generally get to work on the project.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">This design document itself should be professional in its appearance and content. It should contain the following sections. (The first few sections can be copied directly from your earlier feature requirements document, and tuned if necessary)</span></p>
-        <ol>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">Team contact information</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">An overview of the problem</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">A bulleted list of the core features and stretch goals from your requirements document</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">An overview of the design / approach</span></li>
-            <ul>
-                <li><span style="font-size: 10pt; font-family: verdana,geneva;">Describe your overall approach to the problem including a description of the major, high-level components you will have, and how they will interact.</span></li>
-            </ul>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">UML showing the classes you will have and the relations among them</span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;">User interface plans (likely showing some rough mock-ups)</span></li>
-        </ol>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">As a gauge, consider that another member was going to be added to your team next week. Would they be able to read this document to come up to speed on what the project is and how you are going about it, to the point that they could be a valuable contributor?</span></p>
-        <h2>Submission</h2>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Each member of each team should upload a PDF version of this document to I-Learn.</span></p>
-        <h4><span style="font-family: verdana,geneva;">Design Process Suggestion</span></h4>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">A great way to get started with your design is to come up with as many "use cases" as you can for your project. Then, walk through each of these use cases, noting what the user might see and do, but also considering how the system will carry out the necessary actions.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Once you have a description of these use cases, you should be able to come up with some user interface designs and mock-ups. But also, look at the process you described for your system to carry out these actions. See if you can identify any nouns in the process, these can become classes in your class design.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">For each of these nouns / classes, make a bulleted list of the responsibilities of each one. If you find too many responsibilities for a class, consider breaking it up into multiple classes, perhaps with a parent class that "has-a" child class or two. Then, look at the verbs, or things that the class needs to do to carry out the responsibilities.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">If you cannot come up with every private method of every class at this point, that's ok, but you should try to be as accurate as possible about the public interface to help in coordinating the efforts of your team members. In other words, you need to agree on the interface between classes at this point, but the details of how the implementation will be done can be determined later.</span></p>
-
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
+        <h2>07 Team - Design Document</h2>
 
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Plan the design of your app.</p></li>
+        </ul>
+
+
+        <h3>Instructions</h3>
+        <p>Now that you have determined what you are going to build (features/requirements), have a basic idea of how an Android project is organized, and thought about some of the major components of your project, researching the biggest unknowns, it is time to work with your team to do a more detailed design.</p>
+        <p>While you will be producing a design document to turn in, the real benefit of this activity is to think through the different components of your system and how they will interact. And at an even more detailed level, you will identify the classes you will need, along with the public methods they will provide and a knowledge of what each of those methods should do. Once you have this design in place, you will be prepared to stub out the classes/methods, write unit tests, break up the coding tasks a little, and generally get to work on the project.</p>
+        <p>This design document itself should be professional in its appearance and content. It should contain the following sections. (The first few sections can be copied directly from your earlier feature requirements document, and tuned if necessary)</p>
+        
+        <h3>Design Document</h3>
+        <p>Here is what your design document should contain:</p>
+        <ol>
+            <li><p>Team contact information</p></li>
+            <li><p>An overview of the problem</p></li>
+            <li><p>A bulleted list of the core features and stretch goals from your requirements document</p></li>
+            <li><p>An overview of the design / approach</p>
+                <p>Here, you'll describe your overall approach to the problem including a description of the major, high-level components you will have, and how they will interact.</p></li>
+            <li><p>UML showing the classes you will have and the relations among them</p></li>
+            <li><p>User interface plans (likely showing some rough mock-ups)</p></li>
+        </ol>
+        <p>As a gauge, consider that another member was going to be added to your team next week. Would they be able to read this document to come up to speed on what the project is and how you are going about it, to the point that they could be a valuable contributor?</p>
+
+        <h3>Design Process Suggestion</h3>
+        <p>A great way to get started with your design is to come up with as many "use cases" as you can for your project. Then, walk through each of these use cases, noting what the user might see and do, but also considering how the system will carry out the necessary actions.</p>
+        <p>Once you have a description of these use cases, you should be able to come up with some user interface designs and mock-ups. But also, look at the process you described for your system to carry out these actions. See if you can identify any nouns in the process, these can become classes in your class design.</p>
+        <p>For each of these nouns / classes, make a bulleted list of the responsibilities of each one. If you find too many responsibilities for a class, consider breaking it up into multiple classes, perhaps with a parent class that "has-a" child class or two. Then, look at the verbs, or things that the class needs to do to carry out the responsibilities.</p>
+        <p>If you cannot come up with every private method of every class at this point, that's ok, but you should try to be as accurate as possible about the public interface to help in coordinating the efforts of your team members. In other words, you need to agree on the interface between classes at this point, but the details of how the implementation will be done can be determined later.</p>
+    </article>
+
+    <script src="../course/js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 
