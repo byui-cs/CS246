@@ -2,40 +2,67 @@
 <html>
 
 <head>
-    <title>CS 246 - Team Activity</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 07 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-        <h1>Team Activity: Test Driven Development</h1>
-        <h3>Overview</h3>
-        <p>Please read the <a href="../prepare/246-08-prepare.html">preparation material</a> before meeting with your team for this activity, so that your time together can be as efficient as possible.</p>
-        <p>This week you will get exposed to writing automated test cases. This is a major component of effective software engineering and helping projects succeed. Learning to write good test cases will help you think through your design decisions more clearly, develop your code more systematically, and will yield huge dividends in the maintenance and support phases of your projects. In future classes you will learn more about testing and different testing strategies, but in this class you should be exposed to the concepts, learn the mechanics and see the value.</p>
-        <h3>Instructions</h3>
-        <p>For this activity, you will write some unit tests that will be part of your team project. The goal of this activity is that you will start some tests now, and then continue to develop them throughout the rest of your project.</p>
-        <ol>
-            <li>As a team, choose three classes that need to be tested (from your design).</li>
-            <li>For the purposes of this activity, each team member should be in charge of implementing tests for a different class. Please follow along with the others on their classes.</li>
-            <li>If these classes do not yet exist, create the class and at least two methods that will need to be tested. At least one of these methods should be more complicated than a getter/setter.</li>
-            <li>*** Please note that at this point these classes may not have any functionality. That is just fine! Create the method with the correct parameters and return type, and then just return "null" if necessary.</li>
-            <li>Write one test case for each of these methods (this should be 2 test cases per person, if you have a team of 3, or 6 total).</li>
-            <li>The test case should Assert that the correct value was return from the method, and fail if this value is not returned.</li>
-            <li>*** Please note that this means almost of your test cases will be failing right now. This is just fine. Then, as you implement this functionality, you are making your tests pass.</li>
-        </ol>
-        <h3>Submission</h3>
-        <p>Make sure that your code is committed to your team GitHub repository. Then each team member should answer the following I-Learn questions.</p>
-
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
+        <h2>08 Teach : Team Activity</h2>
+        <p class="subtitle">Unit Testing in Android</p>
 
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Write some unit tests for your android project.</p></li>
+        </ul>
+
+        <h3>Overview</h3>
+        <p>This week, you'll be writing unit tests for your team project. In the spirit of TDD, it's perfectly acceptable if all of the tests fail. As long as they can compile and run, you are good.</p>
+        
+        <h3>Instructions</h3>
+        
+        <p>The following steps will guide you through this process.</p>
+        
+        <h4>Part I - Make sure you can run unit tests.</h4>
+        <ol>
+            <li>
+                <p>Follow the instructions in the "Setting Up Your Test Environment" section of <a href="https://developer.android.com/training/testing/unit-testing/local-unit-tests.html">the Local Unit Tests</a> documentation to make sure the JUnit dependency is correctly added to your project.</p>
+            </li>
+           
+            
+            <li>
+                <p>To make sure everything is working correctly, create a unit test in the ExampleUnitTest class provided by Android Studio that will always pass. Something like:</p>
+<pre><code class="java">assertEquals(4, 2 + 2);
+</code></pre>
+            </li>
+            <li>
+                <p><a href="https://developer.android.com/training/testing/unit-testing/local-unit-tests.html#run">Run the test</a> and make sure everything works.</p>  
+            </li>
+        </ol>
+        
+        <h4>Part II - Add some real unit tests to your project.</h4>
+        <ol>
+            <li>
+                <p>Brainstorm with your group some possible unit tests for your project. Model and Controller classes are good candidates for unit tests.</p>
+                <p>Try to think of it in terms of "If this function received this input, what should the output always be?"</p>
+            </li>
+            <li><p>Write at least three unit tests for your project. Again, they don't have to pass at this point, but they should compile and run.</p></li>
+        </ol>
+
+        <p>Congratulations! You now know how to write unit tests for Android projects.</p>
+
+        <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 
