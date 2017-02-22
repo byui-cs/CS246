@@ -2,55 +2,66 @@
 <html>
 
 <head>
-    <title>CS 246 - Team Activity</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 09 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-
-        <h1>Team Activity - Android Data Storage</h1>
-        <h3>Overview</h3>
-        <p>Before meeting with your team, please review the preparation material so that your time can be as efficient as possible.</p>
-        <p>For this activity, we will explore some options for storing data in an Android application. To demonstrate this, we will be storing a count of the number of times a user has clicked a button. You are required to implement this functionality using SharedPreferences, and have the opportunity to also do it using a SQLite database for extra credit. If you will be using SQLite in your project, I would strongly recommend completing the extra at this point to get you started.</p>
-        <h3>Instructions</h3>
-        <p>Part I - A simple counter</p>
-        <ol>
-            <li>Create a new, blank Android project.</li>
-            <li>Create a new activity that has two buttons labeled: "Save Count" and "Advance", and a single text box.</li>
-            <li>When the activity starts, have it put the number "0" in the text box.</li>
-            <li>Make the "Advance" button increment the number in the text box by one.</li>
-        </ol>
-        <p>Part II - Data storage</p>
-        <ol>
-            <li>Make the "Save Count" button save the count to the user's SharedPreferences.</li>
-            <li>Change the activity so that when it loads, it tries to load the saved value from the SharedPreferences. If no value can be found, it should put "0" in the box.</li>
-            <li>Verify that your saving works by doing the following:</li>
-            <ol>
-                <li>Advance to "4"</li>
-                <li>Click "Save Count"</li>
-                <li>Advance to "5"</li>
-                <li>Close the application, and restart it. The number in the box should be 4.</li>
-            </ol>
-        </ol>
-        <p>Part III - Extra Credit</p>
-        <ol>
-            <li>For 25% extra credit. Convert the above logic to use a SQLite database (natively on Android).</li>
-        </ol>
-        <h3>Submission</h3>
-        <p>Commit your source code to a shared public repository at GitHub, then each team member should submit the following questions in I-Learn.&nbsp;It is due by 11:59 PM Wednesday night.</p>
-
-
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
+        <h2>09 Teach : Team Activity</h2>
+        <p class="subtitle">Unit Testing in Android</p>
 
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Use SharedPreferences in your project to store user data.</p></li>
+        </ul>
+
+        <h3>Overview</h3>
+        <p>This week you'll use the SharedPreferences system to store data that you want to persist between launches of your application, but that isn't large enough to require a database.</p>
+        
+        <h3>Instructions</h3>
+        
+        <p>The following steps will guide you through this process.</p>
+        
+        <h4>Part I - Plan what you need to store and store it.</h4>
+        <ol>
+            <li>
+                <p>Brainstorm with your team the types of things you should be storing between sessions that aren't database-type items. For example, the user's profile name, the last screen they were looking at, their email address, their favorite number, etc...</p>
+                <p>If you were previously thinking of using a database for local storage, consider whether using the shared preferences system, (possibly by serializing a class instance into JSON), would work just as well for your app, without the hassle of setting up a database.</p> 
+            </li>
+           
+            
+            <li>
+                <p>Write the code necessary to use SharedPreferences to store those items.</p>  
+                <p>You could wait until <code>onPause()</code> or <code>onResume()</code> is called, or you could save changes as they occur.</p>
+                <p>Make sure you use best practices for your key names, by using <a href="http://stackoverflow.com/questions/4234129/should-i-use-constants-instead-of-strings-even-if-the-strings-are-only-ever-used">static final strings, rather than "bare strings"</a>.</p>
+            </li>
+        </ol>
+        
+        <h4>Part II - Write the code necessary to retrieve the data from Shared Preferences.</h4>
+        <ol>
+            <li>
+                <p>Decide the best place to load the data you saved previously (likely in <code>onCreate()</code>).</p>
+            </li>
+            <li>
+                <p>Load the data from shared preferences, and restore the application state as necessary.</p>
+                <p>Don't forget to check that the data your looking for <a href="http://stackoverflow.com/questions/8757573/android-check-if-value-exists-in-shared-preferences">was actually stored in SharedPreferences</a> (which wouldn't be the case the first time the app is used, for example) and is valid (i.e. not <code>null</code>), before you attempt to use it for something.</p>
+            </li>
+        </ol>
+
+        <p>Congratulations! You now know how to use SharedPreferences in your Android Project.</p>
+
+        <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 

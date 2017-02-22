@@ -2,29 +2,57 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>CS 246 - Prepare</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-        <h1>Team Activity Preparation</h1>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Before meeting with your team, please review the preparation material so that your time can be as efficient as possible.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Please read the following information on data storage options in Android:</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;"><a href="http://developer.android.com/guide/topics/data/data-storage.html">http://developer.android.com/guide/topics/data/data-storage.html</a></span></p>
-        <div><span style="font-family: verdana,geneva; font-size: 10pt;">Please note that you will be required to use SharedPreferences for your team activity, and can also use a SQLite database for extra credit.</span></div>
-
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
+        <h2>09 Prepare : Reading</h2>
+        <p class="subtitle">Storing User Preferences</p>
+        
+        <h3>Objectives</h3>
+
+         <ul>
+            <li><p>Understand how Android stores User Preferences.</p></li>
+            <li><p>Understand how to store custom classes.</p></li>
+        </ul>
 
 
+        <h3>Introduction</h3>
+
+        <p>Before meeting with your team for your team activity, please read the following information:</p>
+        <ul>
+            <li>
+                <p>Read about <a href="https://developer.android.com/guide/topics/data/data-storage.html#pref">how Android uses Shared Preferences to store data between application launches</a>.</p>
+            </li>
+            <li>
+                <p>Read <a href="http://stackoverflow.com/questions/5946135/difference-between-getdefaultsharedpreferences-and-getsharedpreferences">this StackOverflow question about getSharedPreferences vs getDefaultSharedPreferences</a>.</p>
+            </li>
+            <li>
+                <p>Review the <a href="https://developer.android.com/guide/components/activities/activity-lifecycle.html">Activity Lifecycle</a> guide, and read about the kinds of things you should do in the nonPause and onStop callbacks.</p>
+            </li>
+            <li>
+                <p>Read <a href="http://stackoverflow.com/questions/29480890/when-to-save-data-to-database-onpause-or-onstop">this StackOverflow question about onPause vs onStop</a>.</p>
+            </li>
+            <li>
+                <p>Read <a href="http://stackoverflow.com/a/15588512/28106">this StackOverflow post about how to use GSON to serialize a custom class into shared preferences</a>. (Note they use preferences rather than shared preferences, which probably isn't what you want).</p>
+            </li>
+        </ul>
+
+        <h3>Reading Quiz</h3>
+        <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
+        <p>As before, one of the quiz questions is a "deep thought" question whose answer won't come directly from the reading.</p>
+
+    </article>
+    <script src="../course/js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+        
 </body>
 
 </html>

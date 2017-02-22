@@ -1,0 +1,49 @@
+# 08 Ponder : Weekly Reflection
+
+1. What is the purpose of a unit test?
+
+
+
+2. What are the pros and cons of Test Driven Development?
+
+
+
+3. How are assert statements used by JUnit for unit testing?
+
+
+
+4. A common design-pattern interview question is "Describe a situation where you would use the Observer pattern.". How would you answer that question?
+
+
+
+5. Of all of the resources and tutorials in this week's assignments, which was the _most_ helpful to you and why?
+
+
+
+6. Of all of the resources and tutorials in this week's assignments, which was the _least_ helpful to you and why?
+
+
+7. How would you say your team project is proceeding so far?
+
+
+
+8. Did anyone on your team have any violations/infractions of the Team Agreement this week? If so, were the punishments enforced?
+
+
+
+9. Are there any concerns regarding your project or your team that you want the teacher to know about?
+
+
+
+10. How many hours did you spend on this class this week?
+
+
+
+08 Prepare - 
+08 Teach - 
+08 Prove -
+08 Ponder -
+08 Team Project - 
+----------------------------
+Total Hours - 
+
