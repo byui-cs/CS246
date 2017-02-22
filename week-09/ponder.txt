@@ -1,49 +1,23 @@
-# 08 Ponder : Weekly Reflection
+# 09 Ponder : Status Report
 
-1. What is the purpose of a unit test?
-
-
-
-2. What are the pros and cons of Test Driven Development?
+1. What features were completed on your project this week?
 
 
 
-3. How are assert statements used by JUnit for unit testing?
+2. What bugs were fixed in your project this week?
 
 
 
-4. A common design-pattern interview question is "Describe a situation where you would use the Observer pattern.". How would you answer that question?
+3. Did anyone on your team have an infraction this week?
 
 
 
-5. Of all of the resources and tutorials in this week's assignments, which was the _most_ helpful to you and why?
+4. If someone did have an infraction, was the penalty paid?
 
 
 
-6. Of all of the resources and tutorials in this week's assignments, which was the _least_ helpful to you and why?
+5. How many hours did you spend on your team project this week?
 
 
-7. How would you say your team project is proceeding so far?
-
-
-
-8. Did anyone on your team have any violations/infractions of the Team Agreement this week? If so, were the punishments enforced?
-
-
-
-9. Are there any concerns regarding your project or your team that you want the teacher to know about?
-
-
-
-10. How many hours did you spend on this class this week?
-
-
-
-08 Prepare - 
-08 Teach - 
-08 Prove -
-08 Ponder -
-08 Team Project - 
-----------------------------
-Total Hours - 
+6. Are there any issues related to your team or project you want to tell your instructor about?
 
