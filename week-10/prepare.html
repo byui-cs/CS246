@@ -2,47 +2,74 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>CS 246 - Prepare</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-
-        <h1>Team Activity Preparation - Logging</h1>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">This week, we will be focussing on logging in Android, and you will have a team activity that walks you through the basics of including Log statements in your code and viewing them in the Android Studio IDE. To help make your team meeting as efficient as possible, please read the following brief introduction on logging including the accompanying links <b>BEFORE</b> meeting with your team.</span></p>
-        <p><span style="font-family: verdana, geneva; font-size: 14pt;">An Introduction to Logging</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">The are two main ways that we attempt to track down bugs in our code. One approach is to use the debugger. The debugger is a powerful tool that lets us set breakpoints and walk through our code line-by-line, examining the state of variable at any given point in time. Learning to effectively use a debugger is a critical skill for every software engineer.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Another tool or approach to identifying what our programs are doing, especially when they arrive in an error state is to use logging. We are likely all familiar with the idea of sprinkling console messages throughout our programs, in an attempt to output the state of variables or the order of execution at various points in the process. While this process of console messages can be helpful, it has some inherent problems. One problem is that there is no priority level among the messages. We may want very detailed messages for one section of code, but afterward want to focus solely on the critical failures, and console messages make it very difficult to filter in a meaningful way.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Another potential problem with console outputs is that on a server, for example, a critical failure may occur, and a message may be displayed to some console output that no one will ever see.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">A good logging framework builds on the power of outputting important data, but formalizes the process to overcome some of these shortcomings. For example, log messages are often tagged in some way to indicate the module or class to which they belong, and are given a priority level, each of which can be filtered on later. Further, many logging framework are flexible enough to allow a user to easily change, via a configuration file, which messages should appear on the console, which should be saved to files, and how they should be formatted.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">There are several pre-built and well-used logging frameworks for Java and for almost any other language you are programming in. You should become familiar with them and try to use them in lieu of console messages for all the reasons stated above. This is why you may have noticed that in Netbeans, when you have it auto generate a try/catch block, it produces the lines:</span></p>
-        <p>&nbsp;</p>
-        <p><span style="font-family: 'courier new', courier;">} catch (Exception ex) {</span>
-            <br /><span style="font-family: 'courier new', courier;">&nbsp; Logger.getLogger(MyClass.class.getName()).log(Level.SEVERE, null, ex);</span>
-            <br /><span style="font-family: 'courier new', courier;"> }</span></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">This is using the native Java logging API to log your message with a tag of the class name, a severe priority level, and the details of the exception. If you choose not to do anything else, it will display the message to the console, but it is prepared to do much more.</span></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Android has it's own logging system designed for its specific context. Because the apps will be running on end users mobile devices in production, the logging framework is not designed to log messages to the file system, but rather is focused on the debugging process.</span></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">The following page discusses debugging in Android Studio. Please read the section on Using the System Log (you might also want to read the section on debugging):</span></p>
-        <p><a href="https://developer.android.com/tools/debugging/debugging-studio.html" target="_blank" title="Debugging in Android Studio"><span style="font-family: verdana, geneva; font-size: 10pt;">https://developer.android.com/tools/debugging/debugging-studio.html</span></a></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Then read over the first part of the following page on reading and writing logs, where the different log levels are discussed. (Please note that you will be looking at the log messages in the IDE, so you can skim over the sections about running the abd/logcat from the console).</span></p>
-        <p><a href="http://developer.android.com/tools/debugging/debugging-log.html" target="_blank"><span style="font-family: verdana, geneva; font-size: 10pt;">http://developer.android.com/tools/debugging/debugging-log.html</span></a></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">And also, look over the short "Class Overview" for the Log class:&nbsp;</span><a href="http://developer.android.com/reference/android/util/Log.html" target="_blank"><span style="font-family: verdana, geneva; font-size: 10pt;">http://developer.android.com/reference/android/util/Log.html</span></a></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Please note that the different levels of messages should be used appropriately (things that are informational use "i", an actual error in the code should use "e", etc.).</span></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">Finally, watch this short YouTube video about using LogCat in Android Studio:</span></p>
-        <p><a href="https://www.youtube.com/watch?v=2AHJsRKa_J8" target="_blank"><span style="font-family: verdana, geneva; font-size: 10pt;">https://www.youtube.com/watch?v=2AHJsRKa_J8</span></a></p>
-        <p><span style="font-family: verdana, geneva; font-size: 10pt;">&nbsp;</span></p>
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
+        <h2>10 Prepare : Reading</h2>
+        <p class="subtitle">Logging</p>
+        
+        <h3>Objectives</h3>
+
+         <ul>
+            <li><p>Understand how logging can help you debug your code.</p></li>
+            <li><p>Understand how to use Logging in Android.</p></li>
+        </ul>
 
 
+        <h3>Introduction</h3>
+
+        <p>Logging can provide a lot of benefits to your project. First, it allows you to use "Tracer Bullet Debugging" in order to see where things are going wrong in the code.</p>
+
+        <p>For example, imagine this code:</p>
+<pre><code class="java">void doSomething(int start) {
+    log("About to start doSomething() with start = " + start);
+    
+    doOtherThing();
+    log("Finished doing other thing");
+
+    while(...) {
+    ...
+    }
+
+    log("Finished loop...");
+
+}
+</code></pre>
+        <p>If you execute that code, and your program crashes, you can now look at the logs and see exactly at one point the program failed. If you see the first and second log statements, but not the third, that means something went wrong inside the loop. This is called Tracer Bullet Debugging.</p>
+
+        <p>Another use for logging is to detect the conditions that exist when something goes wrong. This is especailly useful if a user reports a problem with your program that you can't reproduce. By looking at the user's logs, you might notice that whenever the <code>doSomething()</code> function is called with <code>start</code> set to -1, it causes a crash.</p>
+
+        <p>A final common use for logging is for security audits. Being able to see when a specific person accessed a particular resource.</p>
+
+        <h3>Reading</h3>
+        <p>Read the following resources:</p>
+        <ol>
+            <li>
+                <p>Read about <a href="https://developer.android.com/reference/android/util/Log.html"> the log class in Android</a>.</p>
+            </li>
+            <li>
+                <p>Read about <a href="https://developer.android.com/studio/debug/am-logcat.html">the Android Studio logcat system</a>.</p>
+            </li>
+            <li>
+                <p>Review the <a href="http://stackoverflow.com/questions/7959263/android-log-v-log-d-log-i-log-w-log-e-when-to-use-each-one">this Stack Overflow post about log levels</a>.</p>
+            </li>
+        </ol>
+
+        <h3>Reading Quiz</h3>
+        <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
+
+    </article>
+    <script src="../course/js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+        
 </body>
 
 </html>

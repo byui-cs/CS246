@@ -2,40 +2,63 @@
 <html>
 
 <head>
-    <title>CS 246 - Team Activity</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 10 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-
-        <h1>Team Activity: Logging</h1>
-        <h3>Overview</h3>
-        <p>The purpose of this activity is to become more familiar with logging in Android. Make sure to read over the <a href="../prepare/246-10-prepare.html">preparation material</a> for this activity before starting.</p>
-        <h3>Instructions</h3>
-        <div>
-            <div>Work together as a team to help <b>each individual</b> do the following:</div>
-            <ol>
-                <li>Insert a log for an error message in at least one place. (Try to put this where an actual error occurs)&nbsp;</li>
-                <li>Insert a log for in info message in at least two places.</li>
-                <li>Ensure that you can see all of your messages in the Log output. (You may need to force a condition in some way to see your error message)</li>
-                <li>Change the Log display filters to only see the log messages that are Warnings or higher. Then verify that you no longer see the info messages.</li>
-                <li>Change the Log display filters see all log messages for your particular tag (i.e., in your specific activity). Verify that you do not see any other messages.</li>
-            </ol>
-        </div>
-        <h3>Submission</h3>
-        <p>Answer the following questions in an I-Learn assessment.</p>
-
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
+        <h2>10 Teach : Team Activity</h2>
+        <p class="subtitle">Logging in Android</p>
 
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Add some logging to to your project.</p></li>
+        </ul>
+
+        <h3>Overview</h3>
+        <p>This week you'll use the Log class to log debug messages related to your project</p>
+        
+        <h3>Instructions</h3>
+        
+        <p>The following steps will guide you through this process.</p>
+        
+        <h4>Part I - Plan what you need to log and log it.</h4>
+        <ol>
+            <li>
+                <p>Brainstorm with your team the types of things you should be logging. Good candidates for logging include user authentication, anytime you have to catch an exception, whenever you decide to access an external resource, etc...</p>
+            </li>
+           
+            
+            <li>
+                <p>Write the code necessary to log those events.</p>  
+                <p>It is up to you to decide what log levels and tag system you should use. The important thing isn't what levels and tags you choose, but that you are consistent with those choices throughout the application.</p>
+            </li>
+        </ol>
+        
+        <h4>Part II - Use the logcat system in Android studio to view your logs.</h4>
+        <ol>
+            <li>
+                <p>Run your app, and if necessary cause something to happen which forces a log message to be written.</p>
+            </li>
+            <li>
+                <p>Use the logcat system to filter out all messages except the ones from your application.</p>
+            </li>
+        </ol>
+
+        <p>Congratulations! You now know how to use logging in your Android Project.</p>
+
+        <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 
