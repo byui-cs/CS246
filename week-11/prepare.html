@@ -2,35 +2,85 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>CS 246 - Prepare</title>
-    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
 </head>
 
 <body>
-    <div id="frame"><img src="../course/cs246_large.jpg" border="0" alt="Software Design and Development CS 246" title="Software Design and Development CS 246" width="100%" />
-        <div id="content">
-
-
-
-        <h1>Team Activity Preparation - Javadocs</h1>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Before meeting with your team for your team activity, please go through the following tutorials regarding Javadocs:</span></p>
-        <ul>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;"><a href="http://en.wikipedia.org/wiki/Javadoc" target="_blank">http://en.wikipedia.org/wiki/Javadoc</a></span></li>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;"><a href="http://code.tutsplus.com/tutorials/learn-java-for-android-development-javadoc-code-documentation--mobile-3674" target="_blank">http://code.tutsplus.com/tutorials/learn-java-for-android-development-javadoc-code-documentation--mobile-3674</a></span></li>
-        </ul>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Keep in mind that the previous link discusses using Javadocs in Eclipse. To generate them in Android Studio, you can click "Tools -&gt; Generate JavaDoc..." and then select the appropriate options and specify an output directory.</span></p>
-        <p><span style="font-family: verdana,geneva; font-size: 10pt;">Then re-read the Javadoc section from our style guide:</span></p>
-        <ul>
-            <li><span style="font-family: verdana,geneva; font-size: 10pt;"><a href="https://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s7-javadoc" target="_blank">https://google-styleguide.googlecode.com/svn/trunk/javaguide.html#s7-javadoc</a></span></li>
-        </ul>
-
-
-
-
-        </div>
+    <div id="courseTitle">
+        <img class="logo" src="../course/byui.png" />
+        <h1>Software Design and Development :: CS 246</h1>
     </div>
+    <article>
+        <h2>11 Prepare : Reading</h2>
+        <p class="subtitle">Javadoc</p>
+        
+        <h3>Objectives</h3>
+
+         <ul>
+            <li><p>Understand how the Javadoc system can make your code more usable.</p></li>
+            <li><p>Understand how to use Javadoc comments.</p></li>
+        </ul>
 
 
+        <h3>Introduction</h3>
+
+        <p>Javadoc is a tool that can parse your code for specially formatted comments and use those comments to generate documentation.</p>
+
+        <p>Javadoc comments are also used to provide the text you see in IDE's such as IntelliJ and Android Studio when you are auto-completing your code.</p>
+
+        <img src="./img/ide-example.png" class="screenshot-large"/>
+
+        <p>(You can activate this feature in IntelliJ/Android Studio under Settings->Editor->General by checking the "Show quick documentation on mouse move" checkbox.)</p>
+
+        <p>For example, here's a Javadoc comment from our NSALoginController class:</p>
+<pre><code class="java">/**
+* This function takes the password from the {@link User} class and hashes it.
+* As a side-effect, the original password value is removed for security purposes.
+* @param user The user whose password needs to be hashed.
+* @exception Exception If there is a problem with the chosen hash function.
+*/
+</code></pre>
+        <p>Android Studio and InteliJ will both auto-generate the skeleton of a Javadoc comment for you if you position your cursor directly above the class or method you want to document and type: <code>/**</code> then press Enter.</p>
+
+        <p>This principle of structured code documentation is used in most major langauges, from C# to perl. And like the Javadoc system, tools exist for these other languages to autogenerate documentation from those comments.</p>
+
+
+        <h3>Reading</h3>
+        <p>Read the following resources:</p>
+        <ol>
+            <li>
+                <p>Read about <a href="http://en.wikipedia.org/wiki/Javadoc"> the Javadoc system</a>.</p>
+            </li>
+            <li>
+                <p>Read <a href="https://code.tutsplus.com/tutorials/learn-java-for-android-development-javadoc-code-documentation--mobile-3674">this overview of the Javadoc tags and attributes you can use</a>.</p>
+            </li>
+            <li>
+                <p>Read these specific <a href="https://google.github.io/styleguide/javaguide.html#s7-javadoc">guidelines for using Javadoc comments in the Google Java style guide</a>.</p>
+            </li>
+            <li>
+                <p>Read this <a href="http://stackoverflow.com/questions/211041/do-you-use-javadoc-for-every-method-you-write">Stack Overflow post on when to include Javadoc comments</a>.</p>
+            </li>
+            <li>
+                <p>Read this <a href="http://stackoverflow.com/questions/398546/technical-tips-for-writing-great-javadoc">Stack Overflow post containing tips on how to write good Javadoc comments</a>.</p>
+            </li>
+            <li>
+                <p>Read this <a href="http://stackoverflow.com/questions/3607641/javadoc-comments-vs-block-comments">Stack Overflow post explaining the difference between what should go in javadoc comments vs inline comments</a>.</p>
+            </li>
+           <li>
+                <p>Read this <a href="private">Stack Overflow post discussing thoughts on whether non-public methods should have Javadoc comments</a>.</p>
+            </li>
+
+        </ol>
+
+        <h3>Reading Quiz</h3>
+        <p>Don't forget to take the Reading Quiz in I-Learn. This quiz can be taken as many times as you like, but you must score at least 90% to pass. If you fail the quiz, review the relevant parts of the reading and try again.</p>
+
+    </article>
+    <script src="../course/js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+        
 </body>
 
 </html>
