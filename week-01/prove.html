@@ -33,7 +33,7 @@
         <p>When we add a new user to a system, we must avoid storing their password in plain text. If an attacker were to gain access to the password database, the user's accounts would be instantly compromised.</p>
         <p>One option is to store an encrypted version of the user's password, but then we have to safeguard the encryption key so that we can decrypt the password. If the encryption key is ever compromised, the accounts are once again at risk.</p>
 
-        <p>What we need is a way to "encrypt" the passwords in a way that they can't be decrypted. This process is achieved with an algorithm known as a <a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank">hash function</a>. A hash function takes an input value and converts it to an output of fixed size. Once something has been "hashed" into a hash value, (also known as a checksum or digest), it is extremely difficult to retrieve the original value. (For more information on hashing vs encryption, see <a href="http://stackoverflow.com/questions/4948322/fundamental-difference-between-hashing-and-encryption-algorithms">this Stack Overflow post</a>.</p>
+        <p>What we need is a way to "encrypt" the passwords in a way that they can't be decrypted. This process is achieved with an algorithm known as a <a href="https://en.wikipedia.org/wiki/Hash_function" target="_blank">hash function</a>. A hash function takes an input value and converts it to an output of fixed size. Once something has been "hashed" into a hash value, (also known as a checksum or digest), it is extremely difficult to retrieve the original value. (For more information on hashing vs encryption, see <a href="http://stackoverflow.com/questions/4948322/fundamental-difference-between-hashing-and-encryption-algorithms">this Stack Overflow post</a>).</p>
 
         <p>To use hashing to protect our user accounts, we'll first hash the user's password and store the hash in the database. A good hash function will make sure that every password results in a different hash value.</p>
 
@@ -71,7 +71,7 @@
 
                 <p><code>hashUserPassword(User user)</code> - Takes an instance of the <code>User</code> class, reads its password and generates the salted hash value.</p>
                 
-                <p><code>verifyPassword(Users user)</code> - Takes an instance of the <code>User</code> class and returns a <code>Boolean</code> indicating whether or not the User's password value matches the User's salted hash.</p>
+                <p><code>verifyPassword(User user)</code> - Takes an instance of the <code>User</code> class and returns a <code>Boolean</code> indicating whether or not the User's password value matches the User's salted hash.</p>
             </li>
 
             <li>
@@ -122,7 +122,7 @@
             
            <li><p>Add a <code>main()</code> method to the class. Remember to get the signature for main correct. Refer back to the <a href="./teach.html">team activity instructions</a> if necessary.</p></li>
 
-           <li><p>Have <code>main()</code> prompt the user for a password. (Refer to the stretch challenge portion of the <a href="./teach.html">team activity instructions</a> if you need help getting input from the user.</p><p>Then, create a new instance of the <code>User</code> class, providing the password in the constructor.</p></li>
+           <li><p>Have <code>main()</code> prompt the user for a password. (Refer to the stretch challenge portion of the <a href="./teach.html">team activity instructions</a> if you need help getting input from the user.)</p><p>Then, create a new instance of the <code>User</code> class, providing the password in the constructor.</p></li>
 
            <li><p>Call the <code>hashUserPassword()</code> function of the <code>NSALoginController</code> class, passing in the <code>User</code> object you created. (Note that we don't need to create an instance of NSALoginController, because the hash method is <code>static</code>.)</p>
            <p>This function will hash the password, and update the <code>User</code> object with the hash value and random salt.</p>
