@@ -1,34 +1,34 @@
 # 07 Ponder : Weekly Reflection
 
-1. What is the purpose of a UML class diagram?
+1. Did you fulfill all aspects of your team agreement this week, or if there was an infraction, did you fulfill the appropriate accountability measure? (If not, please explain.)
 
 
 
-2. What are some benefits of the MVC pattern?
+2. Did you hold your teammates accountable for upholding their commitments this week? (If not, please explain.)
 
 
 
-3. What are some drawbacks to the MVC pattern?
+3. What is the purpose of a UML class diagram?
 
 
 
-4. A common design-pattern interview question is "Describe the difference between the MVC pattern and the MVP variant.". How would you answer that question?
+4. What are some benefits of the MVC pattern?
 
 
 
-5. How would you explain to a new developer why they should go through the trouble of using the MVC pattern?
+5. What are some drawbacks to the MVC pattern?
 
 
 
-6. Give an example of when the MVC pattern would be overkill for a project.
+6. A common design-pattern interview question is "Describe the difference between the MVC pattern and the MVP variant.". How would you answer that question?
 
 
 
-7. Of all of the resources and tutorials in this week's assignments, which was the _most_ helpful to you and why?
+7. How would you explain to a new developer why they should go through the trouble of using the MVC pattern?
 
 
 
-8. Of all of the resources and tutorials in this week's assignments, which was the _least_ helpful to you and why?
+8. Give an example of when the MVC pattern would be overkill for a project.
 
 
 
