@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 06 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>06 Teach : Team Activity</h2>
+        <p class="subtitle">Using AsyncTask</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Create a multithreaded program in Android using AsyncTask.</p></li>
+        </ul>
+
+        <h3>Assignment</h3>
+        <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
+
+        <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI..</p>
+
+            
+        <h4>Part I: Create the Basic App</h4>
+
+        <ol>
+            <li>
+                <p>Create a new Android project.</p>
+            </li>
+            <li>
+                <p>Add a <a href="https://developer.android.com/guide/topics/ui/layout/listview.html">ListView</a> to your main activity.</p>
+                <p>Add three buttons below the list view, labeled "Create", "Load", and "Clear".</p>
+                <p>Add a <a href="https://developer.android.com/reference/android/widget/ProgressBar.html">ProgressBar</a> above your ListView.</p>
+            </li>
+            <li>
+                <p>Add an event handler to your Create button that does the following:</p>
+                    <ol>
+                        <li>
+                            <p>Creates a <a href="https://developer.android.com/training/basics/data-storage/files.html">new file in the internal storage area</a>, called <em>numbers.txt</em></p>
+                        </li>
+                        <li>
+                            <p>Write the numbers 1 - 10 to the file, one on each line.</p>
+                        </li>
+                        <li>
+                            <p>After writing each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
+                        </li>
+                    </ol>
+            </li>
+            <li>
+                <p>Add an event handler to your Load button that does the following:</p>
+                    <ol>
+                        <li>
+                            <p>Load the file <em>numbers.txt</em> and read it line by line.</p>
+                        </li>
+                        <li>
+                            <p>As you read each line, store each number in a list.</p>
+                        </li>
+                        <li>
+                            <p>After reading each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
+                        </li>
+                        <li>
+                            <p>Connect the List to your ListView so the numbers appear there. (You may want to investigate ArrayAdapters).</p>
+                        </li>
+                    </ol>
+            </li>
+            <li>
+                <p>Add an event handler to your Clear button that clears the list. (This is typically done by clearing the ArrayAdapter).</p>
+            </li>
+            <li>
+                <p>Run the app, confirming that you can create the file, load it into the ListView, and clear it again.</p>
+                <p>Notice how the creating the file and loading it cause the app to hang momentarily.</p>
+            </li>
+        </ol>
+
+        <h4>Part II: Make it Multithreaded</h4>
+
+        <ol>
+            <li>
+                <p>Modify the program so that creating and loading the file happens on a background thread.</p>
+                <p>After reading or writing each line, update the progress bar. (i.e. Pressing the Create button should set the progress to 0, and it should steadily fill up as each line is written. Pressing the Load button should again set it to 0, and it should steadily fill up as each line is read.)</p>
+                <p>Remember that background threads can't update the GUI directly.</p>
+                <p>You can use any multithreading option that Android has to offer, but <code>AsyncTask</code> is particularly suited for this type of scenario.</p>
+            </li>
+        </ol>
+        <p>Congratulations! You now know how to create and use multithreading in Android.</p>
+
+        <p>If you're feeling absolutely lost when it comes to the AsyncTask stuff, take a look at the <a href="https://gist.github.com/lfalin/9428fb5ffb79148f5ad4edb915a23a72">teacher's solution for handling the file creation</a>, but only look at this after you've exhausted all of your dilligence and other resources.</p>
+
+        <p>The teacher's solution <a href="https://gist.github.com/lfalin/69c46c71dbf6f881a348fb1e364b5a2f">for loading the data using AsyncTask</a> is also available, should you need it.</p>
+        
+        <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

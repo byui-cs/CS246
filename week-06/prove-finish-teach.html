@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 06 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>06 Prove : Assignment</h2>
+        <p class="subtitle">Using AsyncTask</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Create a multithreaded program in Android using AsyncTask.</p></li>
+        </ul>
+
+        <p>This assignment builds upon the team activity for this week. Before continuing, please read and complete this week's <a href="./teach.html">Team Activity</a>.</p>
+
+        <h3>Assignment</h3>
+
+        <p>Your assignment is to:</p>
+
+        <ol>
+            <li><p>Finish any parts of the team activity that you did not complete as a team.</p></li>
+            <li>
+                <p>Change the app so that the saving and loading of the file happen on a background thread, so that they do not cause the Graphical User Interface (GUI) to stop responding to the user.</p>
+                <p>After reading or writing each line, update the progress bar. (i.e. Pressing the Create button should set the progress to 0, and it should steadily fill up as each line is written. Pressing the Load button should again set it to 0, and it should steadily fill up as each line is read.)</p>
+                <p>Remember that background threads can't update the GUI directly.</p>
+            </li>
+        </ol>
+
+        <p>You are welcome to use any multithreading option that Android has to offer, but <code>AsyncTask</code> is particularly suited for this type of scenario. AsyncTask has several methods that run code on the background and main GUI threads at the appropriate times. There are some weird generic parameters to get used to, but when you put everything in place, it should take care of all the threading for you.</p>
+
+<!-- 
+        <p>If you're feeling absolutely lost when it comes to the AsyncTask stuff, take a look at the <a href="https://gist.github.com/lfalin/9428fb5ffb79148f5ad4edb915a23a72">teacher's solution for handling the file creation</a>, but only look at this after you've exhausted all of your dilligence and other resources.</p>
+
+        <p>The teacher's solution <a href="https://gist.github.com/lfalin/69c46c71dbf6f881a348fb1e364b5a2f">for loading the data using AsyncTask</a> is also available, should you need it.</p>
+ -->        
+        <p>When complete, upload your code to I-Learn, then check out the instructor's code and also, don't forget to complete the Ponder reflection for the week.</p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

@@ -22,22 +22,26 @@
             <li><p>Create a multithreaded program in Android using AsyncTask.</p></li>
         </ul>
 
+        <p>This assignment is fairly challenging. It used to be simply the individual assignment for the week, but to help you get a better start on it, we will do the first portion as the team activity for the week, then you can finish it up individually (although you are strongly encouraged to continue collaborating with your teammates).</p>
+
         <h3>Assignment</h3>
         <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
 
-        <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI..</p>
+        <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI.</p>
 
-            
-        <h4>Part I: Create the Basic App</h4>
+        <p>To minimize the number of variables in this assignment, rather than working with a database or remote server, you will instead just include a call to <code>Thread.sleep()</code> to simulate the computer spending time working on that task. (In a real project, you wouldn't include sleeping, because it's just wasting time. We are using it for simulation purposes.)</p>
+
+        <h4>The Application</h4>
+        <p>For this application, you will create an Android app that saves numbers to a file on the filesystem, and then with another button click, loads the numbers in that file and puts them into a list. The app will have a progress bar that is updated when saving and loading. Also, during the saving and loading, you will have the system sleep after each number, to simulate a complex process.</p>
+
+        <h4>Part I: Create the App and work with the File System.</h4>
 
         <ol>
             <li>
                 <p>Create a new Android project.</p>
             </li>
             <li>
-                <p>Add a <a href="https://developer.android.com/guide/topics/ui/layout/listview.html">ListView</a> to your main activity.</p>
-                <p>Add three buttons below the list view, labeled "Create", "Load", and "Clear".</p>
-                <p>Add a <a href="https://developer.android.com/reference/android/widget/ProgressBar.html">ProgressBar</a> above your ListView.</p>
+                <p>Add three buttons to the main activity, labeled "Create", "Load", and "Clear".</p>
             </li>
             <li>
                 <p>Add an event handler to your Create button that does the following:</p>
@@ -66,37 +70,55 @@
                             <p>After reading each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
                         </li>
                         <li>
-                            <p>Connect the List to your ListView so the numbers appear there. (You may want to investigate ArrayAdapters).</p>
+                            <p>Verify that the numbers are being read by displaying each number to the standard output, or creating a toast or something similar, as you read each number.</p>
+                        </li>
+                    </ol>
+            </li>
+        </ol>
+
+            
+        <h4>Part II: Working with ListViews and Array Adapters</h4>
+
+        <ol>
+            <li>
+                <p>Add a <a href="https://developer.android.com/reference/android/widget/ProgressBar.html">ProgressBar</a> to your main activity.</p>
+                <p>Add a <a href="https://developer.android.com/guide/topics/ui/layout/listview.html">ListView</a> to your main activity</p>
+            </li>
+            <li>
+                <p>Change your Create process so that after writing each number to the file, the progress bar is updated.</p>
+            </li>
+            <li>
+                <p>Change your Load process so that after reading each number from the file, the program:
+                    <ol>
+                        <li>
+                            <p>Updates the progress bar.</p>
+                        </li>
+                        <li>
+                            <p>Adds each number to the ListView.</p>
+                            <p>To make this happen, you'll want to create a List as a member variable of your activity, and then connect it to the ListView, so the numbers appear on the screen. (You may want to investigate ArrayAdapters to help connect the two...)</p>
                         </li>
                     </ol>
             </li>
             <li>
-                <p>Add an event handler to your Clear button that clears the list. (This is typically done by clearing the ArrayAdapter).</p>
+                <p>Add an event handler to your Clear button that clears the list. (This is typically done by clearing the ArrayAdapter.)</p>
             </li>
             <li>
-                <p>Run the app, confirming that you can create the file, load it into the ListView, and clear it again.</p>
-                <p>Notice how the creating the file and loading it cause the app to hang momentarily.</p>
+                <p>Run the app and confirm that you can create the file, load it into the ListView, and clear it again.</p>
+                <p>Notice how creating the file and loading it causes the app to hang momentarily, and that the progress bar does not update during the process, but instead just jumps right to the end when the process is finished. This is what we will fix in the individual assignment.</p>
             </li>
         </ol>
 
-        <h4>Part II: Make it Multithreaded</h4>
-
-        <ol>
-            <li>
-                <p>Modify the program so that creating and loading the file happens on a background thread.</p>
-                <p>After reading or writing each line, update the progress bar. (i.e. Pressing the Create button should set the progress to 0, and it should steadily fill up as each line is written. Pressing the Load button should again set it to 0, and it should steadily fill up as each line is read.)</p>
-                <p>Remember that background threads can't update the GUI directly.</p>
-                <p>You can use any multithreading option that Android has to offer, but <code>AsyncTask</code> is particularly suited for this type of scenario.</p>
-            </li>
-        </ol>
-        <p>Congratulations! You now know how to create and use multithreading in Android.</p>
-
-        <p>If you're feeling absolutely lost when it comes to the AsyncTask stuff, take a look at the <a href="https://gist.github.com/lfalin/9428fb5ffb79148f5ad4edb915a23a72">teacher's solution for handling the file creation</a>, but only look at this after you've exhausted all of your dilligence and other resources.</p>
+<!-- 
+        <p>If you're feeling absolutely lost when it comes to the AsyncTask stuff, take a look at the <a href="https://gist.github.com/lfalin/9428fb5ffb79148f5ad4edb915a23a72">teacher's solution for handling the file creation</a>, but only look at this after you've exhausted all of your diligence and other resources.</p>
 
         <p>The teacher's solution <a href="https://gist.github.com/lfalin/69c46c71dbf6f881a348fb1e364b5a2f">for loading the data using AsyncTask</a> is also available, should you need it.</p>
-        
-        <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
-    </article>
+ -->        
+
+        <p><strong>Compare your answer to the <a href="https://gist.github.com/sburton42/086d8b25152dcc480ef33d24622a6e4c">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+
+
+<!--         <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+ -->    </article>
 
    <script src="../course/js/highlight/highlight.pack.js"></script>
    <script>hljs.initHighlightingOnLoad();</script>
