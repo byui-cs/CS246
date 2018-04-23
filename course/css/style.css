@@ -299,3 +299,8 @@ div.tips p {
 .framed h2:first-child {
 	display: none;
 }
+
+.framed .subtitle {
+	text-align: left;
+	font-size: 30px;
+}
