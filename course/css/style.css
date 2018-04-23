@@ -295,3 +295,7 @@ div.tips p {
 	font-family: LatoWeb, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
 }
+
+.framed h2:first-child {
+	display: none;
+}
