@@ -279,3 +279,28 @@ div.tips p:first-child {
 div.tips p {
 	font-size: 0.8em;
 }
+
+/* iframe styles for canvas */
+.framed #courseTitle {
+	display: none;
+}
+
+.framed h1, .framed h2, .framed h3 {
+	font-family: LatoWeb, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: left;
+	font-weight: 300;
+}
+
+.framed p {
+	font-family: LatoWeb, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+}
+
+.framed h2:first-child {
+	display: none;
+}
+
+.framed .subtitle {
+	text-align: left;
+	font-size: 30px;
+}
