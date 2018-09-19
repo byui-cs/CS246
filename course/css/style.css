@@ -280,6 +280,18 @@ div.tips p {
 	font-size: 0.8em;
 }
 
+blockquote {
+	padding: 10px 10px 5px 10px;
+	margin: 20px 0 20px 20px;
+	font-style: italic;
+	background-color: #EEE;
+	border-left: 3px solid #006AB9;
+}
+
+blockquote p {
+	font-size: 16px;
+}
+
 /* iframe styles for canvas */
 .framed #courseTitle {
 	display: none;

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - Getting Help</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        
+        <h2>Getting Help</h2>
+        <p>One of the most important skills you'll develop as a software developer is how to find answers to problems you're experiencing.</p>
+        <p>There are three steps to this:</p>
+
+        <ol>
+            <li><p>Know what to ask.</p></li>
+            <li><p>Ask.</p></li>
+            <li><p>Apply the answer.</p></li>
+        </ol>
+
+        <h3>Knowing What to Ask</h3>
+        <p>Before you ask for help, make sure you've done <em>Everything</em> you can on your own.</p>
+        <p>Some things to try:</p>
+        <ul>
+            <li><p>Reread the instructions, possibly outloud. Make sure you're <em>reading</em> and not <em>skimming</em>.</p></li>
+            <li><p>Are there any words you don't know the meaning of? Don't guess, look them up.</p></li>
+            <li><p>Search the internet for assistance.</p></li>
+            <li><p>Try <a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging">rubber duck debugging</a>.</p></li>
+        </ul>
+
+        <h4>Searching for Answers</h4>
+        <p>The best place to find answers to specific programming questions is <a href="http://stackoverflow.com/">StackOverflow</a>.</p>
+        <p>Let’s say that you’re trying to complete an assignment that asks you to create a Java program to simulate a random number guessing game.</p>
+        <p>The first step would be to break this down into small steps:</p>
+        <pre><code class="markdown">1. Have the program choose a random number.
+2. Repeat these steps until the user guesses correctly:
+    a. Ask the user for their guess.
+    b. Tell the user if they were too high, too low, or guessed correctly.</code></pre>
+        <p>Let’s pretend you know how to do everything for choosing the random mumber.</p>
+        <p>You could conceivably try googling for "Write code for number guessing game" and find a bunch of code that would work. However, in that case you would learn very little. In addition, using such code would be considered plagiarism.</p>
+        <p>Instead, you should search for just how to do step 1: <a href="https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java">random number in java</a>.</p>
+        <p>Those results show several examples of how to select a random number in Java.</p>
+
+        <h4>Avoiding Plagiarism</h4>
+        <p>Note what does and does not count as plagiarism when it comes to programming assignments.</p>
+        <p>Copying and pasting the code we found directly without modifying or understanding it would constitute plagiarism.</p>
+        <p>Instead, if you use the example you find to understand the concepts involved, then use those concepts in your own code, that is not plagiarism.</p>
+
+
+        <h3>Asking for Help</h3>
+        <p>If you've exhausted everything you can do on your own, please feel free to ask your teacher or other students for assistance. There's a common phrase used in teaching: "there's no such thing as a dumb question." While this may be true, some questions are a lot better than others:</p>
+
+        <h4>Bad Questions:</h4>
+        <blockquote>
+            <p>"I don't know what to do."</p>
+            <p>"I'm stuck."</p>
+            <p>"I'm lost."</p>
+            <p>"It doesn't work."</p>
+        </blockquote>
+
+        <h4>Good Questions:</h4>
+        <blockquote>
+            <p>"I'm working on the guessing game assignment and I've been able to work out most of it except how to choose the random number. Right now, the computer always picks the number 12 as the secret number, using this code.... but I'm not sure how to get it to assign a random number."</p>
+            <p>---</p>
+            <p>"I was trying to use the foo_blaster command, and I expected this to work: foo_blaster fulano -d tal, however when I used that I received this error message: Error: no tal available. I looked this up on Stack Overflow and found that there is a known issue with using tal commands on Windows 64bit computers, but that didn't seem to apply to me. What would you suggest I try next?"</p>
+        </blockquote>
+
+        <p>The difference between a good question and a bad question is one of agency. Bad questions often indicate a lack of agency, a desire to be "acted upon", whereas good questions show a desire to be an agent who acts, someone who is proactive about their own learning.</p>
+        
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
