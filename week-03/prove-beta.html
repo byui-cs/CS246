@@ -121,7 +121,18 @@
                     <li><p>main</p></li>
                 </ul>
 
-                <p>Notice that <code>id</code> is an <code>integer</code>, <code>name</code> is a <code>String</code>, but <code>main</code> is a <code>Map</code> of <code>Strings</code> to <code>Floats</code>.</p>
+                <p>Notice that <code>id</code> is an <code>integer</code>, <code>name</code> is a <code>String</code>. On the other hand, <code>main</code> might look something like this:</p>
+
+<pre><code class="txt">
+"main": {
+    "temp": 286.99,
+    "pressure": 1013,
+    "humidity": 53,
+    "temp_min": 286.45,
+    "temp_max": 287.55
+}                    
+</code></pre>
+                    <p>Where it maps a <em>key</em> of type String to a <em>value</em> of type float (e.g., "temp" is a key that maps to a value of 286.99). Thus, you might choose a data structure, like <code>Map</code> which has generic types, <code>String</code> for the key and <code>Float</code> for the value, such as <code>Map&lt;String, Float&gt;</code>.
 
             </li>
             <li><p>Verify that you can load the current conditions and use GSON to deserialize them into a <code>WeatherConditions</code> object.</p></li>
