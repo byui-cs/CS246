@@ -4,11 +4,11 @@
 
 
 
-2. For the Twitter API assignment, what did you learn about how APIs work?
+2. For the Prove API assignment, what did you learn about how APIs work?
 
 
 
-3. Did you complete the Stretch Challenge for the Twitter API Assignment? If so, briefly describe which method you used.
+3. Did you complete the Stretch Challenge for the Prove API Assignment? If so, briefly describe which method you used.
 
 
 
@@ -20,7 +20,7 @@
 
 
 
-6. Aside from just searching for tweets with a given hashtag, what is another use you could see for the twitter API?
+6. Aside from the task you completed, what is another use you could see for the API we used?
 
 
 
