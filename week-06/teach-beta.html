@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 06 Teach : Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>06 Teach : Team Activity</h2>
+        <p class="subtitle">Multi-threaded Programs</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Create an Android app that runs code on a background thread.</p></li>
+        </ul>
+
+        <h3>Background</h3>
+        <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
+
+        <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI.</p>
+
+        <p>To minimize the number of variables in this assignment, rather than working with a database or remote server, you will instead just include a call to <code>Thread.sleep()</code> to simulate the computer spending time working on that task. (In a real project, you wouldn't include sleeping, because it's just wasting time. We are using it for simulation purposes.)</p>
+
+        <h3>Assignment</h3>
+        <p>For this assignment you will create a new android application that simultaneously counts to 100 by evens and also by odds.</p>
+
+        <h4>Part I: Starting the background threads</h4>
+        <p>Create a thread that counts to 100 by odd numbers. After displaying the number, include a call to <code>Thread.sleep()</code> to sleep for half a second (500 milliseconds).</p>
+
+
+        
+
+            
+        <h4>Part II: Updating the UI</h4>
+
+
+        <p><strong>Compare your answer to the <a href="https://gist.github.com/sburton42/086d8b25152dcc480ef33d24622a6e4c">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+
+
+<!--         <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+ -->    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
