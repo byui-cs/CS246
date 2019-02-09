@@ -27,26 +27,36 @@
 
         <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI.</p>
 
-        <p>To minimize the number of variables in this assignment, rather than working with a database or remote server, you will instead just include a call to <code>Thread.sleep()</code> to simulate the computer spending time working on that task. (In a real project, you wouldn't include sleeping, because it's just wasting time. We are using it for simulation purposes.)</p>
+        <p>To minimize the number of variables in this assignment, rather than working with a database or remote server, you will instead simply include a call to <code>Thread.sleep()</code> to simulate the computer spending time working on that task. (In a real project, you wouldn't include sleeping, because it's just wasting time. We are using it for simulation purposes.)</p>
 
         <h3>Assignment</h3>
         <p>For this assignment you will create a new android application that simultaneously counts to 100 by evens and also by odds.</p>
 
         <h4>Part I: Starting the background threads</h4>
-        <p>Create a thread that counts to 100 by odd numbers. After displaying the number, include a call to <code>Thread.sleep()</code> to sleep for half a second (500 milliseconds).</p>
+        <p>Create a <code>Runnable</code> class containing a <code>run()</code> method that counts to 100 by odd numbers and displays them to standard out (<code>System.out.println()</code>). After displaying each number, include a call to <code>Thread.sleep()</code> to sleep for a quarter of a second (250 milliseconds).</p>
 
+        <p>Create a second class that counts 100 by even numbers and displays them. After each one, sleep for 250 milliseconds.</p>
 
-        
+        <p>Next, on an empty activity, create two buttons one to start counting by even numbers and one to start counting by odds. In the button event handling method, you should create a new thread and start it running.</p>
 
+        <p>Click each button to start the corresponding processes, and watch the console output to ensure that they are both running in the background.</p>
             
         <h4>Part II: Updating the UI</h4>
+        <p>Change your code so that when a thread is finished counting, a <code>Toast</code> is displayed to the user letting them know that the counting is complete.</p>
 
+        <p>The trick here is that you cannot do things to the UI (i.e. make a toast) on a background thread, it has to be done on the main UI thread. There are various ways to accomplish this, but one approach is that when you create your Runnable object, you can give it a reference to the activity, or a control from that activity. Then, when you are ready you can call a method on the activity, <code>runOnUiThread</code>, that accepts another runnable (or lambda) that will be invoked on the UI thread.</p>
 
-        <p><strong>Compare your answer to the <a href="https://gist.github.com/sburton42/086d8b25152dcc480ef33d24622a6e4c">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+        <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+        <p>By storing a reference to the activity, or any UI component on the background thread, we have the potential for a memory leak and/or unexpected behavior if that activity is destroyed before the thread finishes (for example, someone accepts a phone call in the middle of the long running process).</p>
 
+        <p>To handle this situation, rather than store a reference to the activity, you should store a <em>weak reference</em> to it. This will allow it to be destroyed without your reference keeping it from being garbage collected. This is done by using a <code>WeakReference&lt; T &gt;</code> (where <code>T</code> is the type of class you are holding) for the data type of your member variable. Then, when you want to use the reference, you need to first check that it is not null.</p>
 
-<!--         <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
- -->    </article>
+        <p>For the stretch challenge, change your code to use weak references to the UI components.</p>
+
+        <h3>Submission</h3>
+        <p>After completing the activity, compare your answer to the <a href="https://gist.github.com/sburton42/086d8b25152dcc480ef33d24622a6e4c">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</p>
+
+        </article>
 
    <script src="../course/js/highlight/highlight.pack.js"></script>
    <script>hljs.initHighlightingOnLoad();</script>
