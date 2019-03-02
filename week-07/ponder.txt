@@ -7,32 +7,34 @@
 2. Did you hold your teammates accountable for upholding their commitments this week? (If not, please explain.)
 
 
-
-3. What is the purpose of a UML class diagram?
-
+3. Are there any concerns regarding your project or your team that you want the teacher to know about?
 
 
-4. What are some benefits of the MVC pattern?
+4. What is the purpose of a UML class diagram?
 
 
 
-5. What are some drawbacks to the MVC pattern?
+5. What are some benefits of the MVC pattern?
 
 
 
-6. A common design-pattern interview question is "Describe the difference between the MVC pattern and the MVP variant.". How would you answer that question?
+6. What are some drawbacks to the MVC pattern?
 
 
 
-7. How would you explain to a new developer why they should go through the trouble of using the MVC pattern?
+7. A common design-pattern interview question is "Describe the difference between the MVC pattern and the MVP variant.". How would you answer that question?
 
 
 
-8. Give an example of when the MVC pattern would be overkill for a project.
+8. How would you explain to a new developer why they should go through the trouble of using the MVC pattern?
 
 
 
-9. How many hours did you spend on this class this week?
+9. Give an example of when the MVC pattern would be overkill for a project.
+
+
+
+10. How many hours did you spend on this class this week?
 
 07 Prepare - 
 07 Teach - 
