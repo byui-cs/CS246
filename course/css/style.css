@@ -225,6 +225,10 @@ article ul li p:first-child:before {
 	margin-right: 0.5em;
 }
 
+li header {
+	margin-left: 0.5em;
+}
+
 table {
 	margin: 20px auto;
 }
