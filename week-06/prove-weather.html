@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>CS 246 - 06 Prove : Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/css/style.css" />
+</head>
+
+<body>
+<div id="courseTitle">
+    <img class="logo" src="../course/byui.png" />
+    <h1>Software Design and Development :: CS 246</h1>
+</div>
+    <article>
+        <h2>06 Prove : Assignment</h2>
+        <p class="subtitle">Using Background Threads</p>
+
+        <h3>Objectives</h3>
+
+        <ul>
+            <li><p>Create a multithreaded program in Android.</p></li>
+        </ul>
+
+        <h3>Background</h3>
+        <p>Using background threads is critical in any application with a graphical user interface (GUI), because it is important that the UI thread does not become blocked by time consuming operations. If it were to become blocked, the screen may not draw properly, buttons cannot be clicked in any way, and the user won't receive the feedback they expect from the application. In many cases, such as Android applications, the user will receive a notification stating that the application has stopped responding.</p>
+
+        <p>The solution to these problems is that any operations that can potentially be time or resource intensive, such as network or file system operations, should conduct these operations on a background thread. Then, when the task is complete, a message can be delivered to the UI thread letting it know that the task is finished and the UI can be updated accordingly.</p>
+
+        <p>In some cases, the framework will allow you to make poor decisions, whereas in others (such as Android) you will receive an error if you even try to conduct tasks like a network operation on the main thread. No matter the framework, you should do the right thing.</p>
+
+        <p>There are many different ways to handle the creation of and interaction among threads, and you are welcome to use any method that you prefer.</p>
+
+        <h3>Assignment</h3>
+
+        <p>Your assignment is to create an android application that queries weather data from an API and displays the forecast to the user.</p>
+
+        <h4>Part I - Creating the Interface</h4>
+        <p>Create a new Android project and a new activity, and add to it the following:</p>
+        <ul>
+            <li><p>A textbox for the user to enter a city name</p></li>
+            <li><p>A button to click to retrieve the current temperature</p></li>
+            <li><p>A button to click to retrieve the weather forecast</p></li>
+            <li><p>A ListView for the weather forecast information</p></li>
+        </ul>
+
+        <p>Connect each of these buttons to an event handling methods and ensure that they are working by getting the city name and displaying a message.</p>
+
+        <h4>Part II - Starting a background thread</h4>
+        <p>Ensure that you can call a function on the background thread:</p>
+
+        <ol>
+
+            <li><p>Create a class with a method that will run on a background thread. This method will eventually get the current temperature for a city.</p></li>
+
+            <li><p>You might consider passing the name of the city to your class in its constructor and having it store it as a member variable. Then, later in a run method, it can access the name of that city from that member variable.</p></li>
+
+            <li><p>At this point, have your run method produce a debug message that says it is getting the temperature for that city on a background thread.</p></li>
+
+            <li><p>Create a new thread and have it invoke your method above. Verify that the debug message is shown correctly.</p></li>
+        </ol>
+
+        <h4>Part III - Consuming the Weather API</h4>
+        <p>As defined in an <a href="../week-03/prove.html" target="_blank">earlier assignment</a>, call a Weather API to get the current weather conditions for the provided city. In particular, we are interested in the current temperature of the city for this assignment.</p>
+
+        <p>As a starting place, you are welcome to re-use your code from that assignment. If you did not complete that assignment (or even if you did), you are welcome to refer to its instructor solution to help guide you in this process.</p>
+
+        <p>Complete the API call and after the results are obtained, produce a debug message with the current temperature of the city.</p>
+
+        <h4>Part IV - Displaying the results</h4>
+        <p>Now that you have retrieved the current temperature on a background thread, you need to communicate this information to the UI and inform the user via a Toast message.</p>
+
+        <p>To accomplish this, you might consider passing a reference to the current activity (or a control from it) to the constructor of your class from above that received the city name. Then, it can save a reference to this activity as a member variable to use after the API call has been completed.</p>
+
+        <p>After the api call has been completed, you can use the activity's <code>runOnUIThread</code> method to provide code that you want run back on the main UI thread.</p>
+
+        <p>It may be helpful to use debugging messages at various stages along this path, to ensure that each successive piece is called at the correct time and with the correct information.</p>
+
+        <p>When you have completed the above task, verify that your code calls the API on a background thread and then displays the temperature to the user via a Toast message. When it does so, celebrate! This is a challenging task!</p>
+
+        <h4>Part V - Getting and Displaying the Forecast (Stretch Challenge)</h4>
+        <p>Now that you have been able to connect to an API on a background thread and communicate the results back to the UI thread to be displayed to the user, repeat the process, this time for the weather forecast for this city.</p>
+
+        <p>The forecast will produce a list of the forecast items for the city. Without worrying too much about formatting, put each of these forecast items into a list view.</p>
+
+        <p>Hint: you will likely want to make use of an <code>ArrayAdapter</code> to help connect your <code>ListView</code> control to a <code>List</code>.</p>
+
+        <h3>Submission</h3>
+        <p>When complete, upload your code to I-Learn, complete the self-assessment, then check out the instructor's code. Finally, don't forget to complete the Ponder reflection for the week.</p>
+    </article>
+
+   <script src="../course/js/highlight/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

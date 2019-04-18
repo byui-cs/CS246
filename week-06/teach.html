@@ -14,112 +14,49 @@
 </div>
     <article>
         <h2>06 Teach : Team Activity</h2>
-        <p class="subtitle">Using AsyncTask</p>
+        <p class="subtitle">Multi-threaded Programs</p>
 
         <h3>Objectives</h3>
 
         <ul>
-            <li><p>Create an Android app that reads and writes to files and employs an Adapter for updating the UI.</p></li>
-            <li><p>Convert that program to be multithreaded using AsyncTask to make it more responsive.</p></li>
+            <li><p>Create an Android app that runs code on a background thread.</p></li>
         </ul>
 
-        <p>This assignment is fairly challenging and should be approached in two parts. It used to be simply the individual assignment for the week, but to help you get a better start on it, we will do the first portion as the team activity for the week, then you can finish it up individually (although you are strongly encouraged to continue collaborating with your teammates).</p>
-
-        <h3>Assignment</h3>
+        <h3>Background</h3>
         <p>Before continuing, you should have completed this week's <a href="./prepare.html">preparation assignment</a>.</p>
 
         <p>File, network, and database operations can be very resource expensive, so you should not perform these kinds of operations on a main GUI thread. So, for this assignment, you will use multithreaded programming to be able to run these more complex, time consuming tasks on a background thread, without hanging the GUI.</p>
 
-        <p>To minimize the number of variables in this assignment, rather than working with a database or remote server, you will instead just include a call to <code>Thread.sleep()</code> to simulate the computer spending time working on that task. (In a real project, you wouldn't include sleeping, because it's just wasting time. We are using it for simulation purposes.)</p>
+        <p>To minimize the number of variables in this assignment, rather than working with a database or remote server, you will instead simply include a call to <code>Thread.sleep()</code> to simulate the computer spending time working on that task. (In a real project, you wouldn't include sleeping, because it's just wasting time. We are using it for simulation purposes.)</p>
 
-        <h4>The Application</h4>
-        <p>For this application, you will create an Android app that saves numbers to a file on the filesystem, and then with another button click, loads the numbers in that file and puts them into a list. The app will have a progress bar that is updated when saving and loading. Also, during the saving and loading, you will have the system sleep after each number, to simulate a complex process.</p>
+        <h3>Assignment</h3>
+        <p>For this assignment you will create a new android application that simultaneously counts to 100 by evens and also by odds.</p>
 
-        <h4>Part I: Create the App and work with the File System.</h4>
+        <h4>Part I: Starting the background threads</h4>
+        <p>Create a <code>Runnable</code> class containing a <code>run()</code> method that counts to 100 by odd numbers and displays them to standard out (<code>System.out.println()</code>). After displaying each number, include a call to <code>Thread.sleep()</code> to sleep for a quarter of a second (250 milliseconds).</p>
 
-        <ol>
-            <li>
-                <p>Create a new Android project.</p>
-            </li>
-            <li>
-                <p>Add three buttons to the main activity, labeled "Create", "Load", and "Clear".</p>
-            </li>
-            <li>
-                <p>Add an event handler to your Create button that does the following:</p>
-                    <ol>
-                        <li>
-                            <p>Creates a <a href="https://developer.android.com/training/basics/data-storage/files.html">new file in the internal storage area</a>, called <em>numbers.txt</em></p>
-                        </li>
-                        <li>
-                            <p>Write the numbers 1 - 10 to the file, one on each line.</p>
-                        </li>
-                        <li>
-                            <p>After writing each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
-                        </li>
-                    </ol>
-            </li>
-            <li>
-                <p>Add an event handler to your Load button that does the following:</p>
-                    <ol>
-                        <li>
-                            <p>Load the file <em>numbers.txt</em> and read it line by line.</p>
-                        </li>
-                        <li>
-                            <p>As you read each line, store each number in a list.</p>
-                        </li>
-                        <li>
-                            <p>After reading each line, add a <code>Thread.sleep(250);</code> to pause for a quarter of a second to simulate a more difficult task.</p>
-                        </li>
-                        <li>
-                            <p>Verify that the numbers are being read by displaying each number to the standard output, or creating a toast or something similar, as you read each number.</p>
-                        </li>
-                    </ol>
-            </li>
-        </ol>
+        <p>Create a second class that counts 100 by even numbers and displays them. After each one, sleep for 250 milliseconds.</p>
 
+        <p>Next, on an empty activity, create two buttons one to start counting by even numbers and one to start counting by odds. In the button event handling method, you should create a new thread and start it running.</p>
+
+        <p>Click each button to start the corresponding processes, and watch the console output to ensure that they are both running in the background.</p>
             
-        <h4>Part II: Working with ListViews and Array Adapters</h4>
+        <h4>Part II: Updating the UI</h4>
+        <p>Change your code so that when a thread is finished counting, a <code>Toast</code> is displayed to the user letting them know that the counting is complete.</p>
 
-        <ol>
-            <li>
-                <p>Add a <a href="https://developer.android.com/reference/android/widget/ProgressBar.html">ProgressBar</a> to your main activity.</p>
-                <p>Add a <a href="https://developer.android.com/guide/topics/ui/layout/listview.html">ListView</a> to your main activity</p>
-            </li>
-            <li>
-                <p>Change your Create process so that after writing each number to the file, the progress bar is updated.</p>
-            </li>
-            <li>
-                <p>Change your Load process so that after reading each number from the file, the program:
-                    <ol>
-                        <li>
-                            <p>Updates the progress bar.</p>
-                        </li>
-                        <li>
-                            <p>Adds each number to the ListView.</p>
-                            <p>To make this happen, you'll want to create a List as a member variable of your activity, and then connect it to the ListView, so the numbers appear on the screen. (You may want to investigate ArrayAdapters to help connect the two...)</p>
-                        </li>
-                    </ol>
-            </li>
-            <li>
-                <p>Add an event handler to your Clear button that clears the list. (This is typically done by clearing the ArrayAdapter.)</p>
-            </li>
-            <li>
-                <p>Run the app and confirm that you can create the file, load it into the ListView, and clear it again.</p>
-                <p>Notice how creating the file and loading it causes the app to hang momentarily, and that the progress bar does not update during the process, but instead just jumps right to the end when the process is finished. This is what we will fix in the individual assignment.</p>
-            </li>
-        </ol>
+        <p>The trick here is that you cannot do things to the UI (i.e. make a toast) on a background thread, it has to be done on the main UI thread. There are various ways to accomplish this, but one approach is that when you create your Runnable object, you can give it a reference to the activity, or a control from that activity. Then, when you are ready you can call a method on the activity, <code>runOnUiThread</code>, that accepts another runnable (or lambda) that will be invoked on the UI thread.</p>
 
-<!-- 
-        <p>If you're feeling absolutely lost when it comes to the AsyncTask stuff, take a look at the <a href="https://gist.github.com/lfalin/9428fb5ffb79148f5ad4edb915a23a72">teacher's solution for handling the file creation</a>, but only look at this after you've exhausted all of your diligence and other resources.</p>
+        <h4 class="stretch">🌟Stretch Challenge🌟</h4>
+        <p>By storing a reference to the activity, or any UI component on the background thread, we have the potential for a memory leak and/or unexpected behavior if that activity is destroyed before the thread finishes (for example, someone accepts a phone call in the middle of the long running process).</p>
 
-        <p>The teacher's solution <a href="https://gist.github.com/lfalin/69c46c71dbf6f881a348fb1e364b5a2f">for loading the data using AsyncTask</a> is also available, should you need it.</p>
- -->        
+        <p>To handle this situation, rather than store a reference to the activity, you should store a <em>weak reference</em> to it. This will allow it to be destroyed without your reference keeping it from being garbage collected. This is done by using a <code>WeakReference&lt; T &gt;</code> (where <code>T</code> is the type of class you are holding) for the data type of your member variable. Then, when you want to use the reference, you need to first check that it is not null.</p>
 
-        <p><strong>Compare your answer to the <a href="https://gist.github.com/sburton42/086d8b25152dcc480ef33d24622a6e4c">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</strong></p>
+        <p>For the stretch challenge, change your code to use weak references to the UI components.</p>
 
+        <h3>Submission</h3>
+        <p>After completing the activity, compare your answer to the <a href="https://byui-cs.github.io/cs246-faculty/28321883-07a1-48bc-bdaa-2b6aea1e9b61/">teacher's solution</a>, then complete the accompanying quiz for this assignment on I-Learn.</p>
 
-<!--         <p><strong>Make sure to complete the accompanying quiz for this assignment on I-Learn.</strong></p>
- -->    </article>
+        </article>
 
    <script src="../course/js/highlight/highlight.pack.js"></script>
    <script>hljs.initHighlightingOnLoad();</script>
