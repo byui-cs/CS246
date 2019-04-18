@@ -29,9 +29,9 @@
         <p>Most of the programs you've written up to this point have been doing exactly one thing at a time. They start in some kind of <code>main()</code> function, executing that code one line at a time until the function ends, thus ending the program.</p>
         
         <p>Sometimes, we need our programs to be able to do more than one thing at a time. This is especially common in programs with GUIs, such as an Android app. For example, imagine if every time you opened a new tab in your web browser and loaded a page, the entire browser froze while waiting for the page to finish loading.</p>
-        
-        <p>To prevent this, the page loading happens on another <em>thread</em>. You can think of a thread as a lightweight, subprocess. Or, another process running within your progam at the same time as the main thread.</p>
-        
+
+        <p>To prevent this, the page loading happens on another <em>thread</em>. You can think of a thread as a lightweight subprocess. Or, another process running within your progam at the same time as the main thread.</p>
+
         <p>In the case of real browsers, and most other GUI applications, the main thread is the one responsible for listening for and responding to mouse clicks and keyboard input, while other threads are used to execute tasks that might take a long time to complete, such as loading a web page, executing a database query, or performing a complex calculation.</p>
 
         <p>There are two main ways to use threading in a pure-Java application. The first is to subclass the <code>Thread</code> class. This is less desirable because it forces you into a specific inheritance hierarchy.</p>
