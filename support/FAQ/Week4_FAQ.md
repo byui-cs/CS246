@@ -5,8 +5,8 @@
 The following examples and videos support the material in Week 4.  Subsequent sections below provide additional information and examples for common questions that students encounter during this week.
 
 * Video: https://video.byui.edu/media/0_vrhdablk
-* Git Tutorial Worksheet: https://macbeth-byui.github.io/CS246/diagrams/git_class_tutorial.pdf
-* Example of Configuration Management Objectives in Avionics: https://macbeth-byui.github.io/CS246/diagrams/DO-178C_ConfigMgmt.pdf
+* Git Tutorial Worksheet: https://github.com/byui-cs/CS246/tree/master/support/diagrams/git_class_tutorial.pdf
+* Example of Configuration Management Objectives in Avionics: https://github.com/byui-cs/CS246/tree/master/support/diagrams/DO-178C_ConfigMgmt.pdf
 
 **Version Control**
 
