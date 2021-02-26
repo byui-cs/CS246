@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>build.gradle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #080808;}
+.s1 { color: #067d17;}
+.s2 { color: #1750eb;}
+.s3 { color: #0033b3;}
+.ln { color: #adadad; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+build.gradle</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">plugins {</span>
+<a name="l2"><span class="ln">2    </span></a>    <span class="s0">id </span><span class="s1">'com.android.application'</span>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">}</span>
+<a name="l4"><span class="ln">4    </span></a>
+<a name="l5"><span class="ln">5    </span></a><span class="s0">android {</span>
+<a name="l6"><span class="ln">6    </span></a>    <span class="s0">compileSdkVersion </span><span class="s2">30</span>
+<a name="l7"><span class="ln">7    </span></a>    <span class="s0">buildToolsVersion </span><span class="s1">&quot;30.0.2&quot;</span>
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a>    <span class="s0">defaultConfig {</span>
+<a name="l10"><span class="ln">10   </span></a>        <span class="s0">applicationId </span><span class="s1">&quot;t.macbeth.prove06&quot;</span>
+<a name="l11"><span class="ln">11   </span></a>        <span class="s0">minSdkVersion </span><span class="s2">24</span>
+<a name="l12"><span class="ln">12   </span></a>        <span class="s0">targetSdkVersion </span><span class="s2">30</span>
+<a name="l13"><span class="ln">13   </span></a>        <span class="s0">versionCode </span><span class="s2">1</span>
+<a name="l14"><span class="ln">14   </span></a>        <span class="s0">versionName </span><span class="s1">&quot;1.0&quot;</span>
+<a name="l15"><span class="ln">15   </span></a>
+<a name="l16"><span class="ln">16   </span></a>        <span class="s0">testInstrumentationRunner </span><span class="s1">&quot;androidx.test.runner.AndroidJUnitRunner&quot;</span>
+<a name="l17"><span class="ln">17   </span></a>    <span class="s0">}</span>
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a>    <span class="s0">buildTypes {</span>
+<a name="l20"><span class="ln">20   </span></a>        <span class="s0">release {</span>
+<a name="l21"><span class="ln">21   </span></a>            <span class="s0">minifyEnabled </span><span class="s3">false</span>
+<a name="l22"><span class="ln">22   </span></a>            <span class="s0">proguardFiles getDefaultProguardFile(</span><span class="s1">'proguard-android-optimize.txt'</span><span class="s0">), </span><span class="s1">'proguard-rules.pro'</span>
+<a name="l23"><span class="ln">23   </span></a>        <span class="s0">}</span>
+<a name="l24"><span class="ln">24   </span></a>    <span class="s0">}</span>
+<a name="l25"><span class="ln">25   </span></a>    <span class="s0">compileOptions {</span>
+<a name="l26"><span class="ln">26   </span></a>        <span class="s0">sourceCompatibility JavaVersion.VERSION_1_8</span>
+<a name="l27"><span class="ln">27   </span></a>        <span class="s0">targetCompatibility JavaVersion.VERSION_1_8</span>
+<a name="l28"><span class="ln">28   </span></a>    <span class="s0">}</span>
+<a name="l29"><span class="ln">29   </span></a><span class="s0">}</span>
+<a name="l30"><span class="ln">30   </span></a>
+<a name="l31"><span class="ln">31   </span></a><span class="s0">dependencies {</span>
+<a name="l32"><span class="ln">32   </span></a>    <span class="s0">implementation </span><span class="s1">'com.google.code.gson:gson:2.8.6'</span>
+<a name="l33"><span class="ln">33   </span></a>    <span class="s0">implementation </span><span class="s1">'androidx.appcompat:appcompat:1.2.0'</span>
+<a name="l34"><span class="ln">34   </span></a>    <span class="s0">implementation </span><span class="s1">'com.google.android.material:material:1.2.1'</span>
+<a name="l35"><span class="ln">35   </span></a>    <span class="s0">implementation </span><span class="s1">'androidx.constraintlayout:constraintlayout:2.0.4'</span>
+<a name="l36"><span class="ln">36   </span></a>    <span class="s0">testImplementation </span><span class="s1">'junit:junit:4.+'</span>
+<a name="l37"><span class="ln">37   </span></a>    <span class="s0">androidTestImplementation </span><span class="s1">'androidx.test.ext:junit:1.1.2'</span>
+<a name="l38"><span class="ln">38   </span></a>    <span class="s0">androidTestImplementation </span><span class="s1">'androidx.test.espresso:espresso-core:3.3.0'</span>
+<a name="l39"><span class="ln">39   </span></a><span class="s0">}</span></pre>
+</body>
+</html>

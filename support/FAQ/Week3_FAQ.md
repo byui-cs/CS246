@@ -5,13 +5,13 @@
 The following examples and videos support the material in Week 3.  Subsequent sections below provide additional information and examples for common questions that students encounter during this week.
 
 * Video:  https://video.byui.edu/media/CS246+Week+3+Collections/0_7fv9gzj5
-* Java Collection Framework UML: https://github.com/byui-cs/CS246/tree/master/support/diagrams/Java_Collection_Framework.html
+* Java Collection Framework UML: https://byui-cs.github.io/CS246/diagrams/Java_Collection_Framework.html
 * Data Structure Example Code: https://github.com/byui-cs/CS246/tree/master/support/Directory/src/macbeth
 * Another Example of HTTP Get Requests: https://github.com/byui-cs/CS246/tree/master/support/HTTPHelper/src/macbeth
-* Weather Conditions UML: https://github.com/byui-cs/CS246/tree/master/support/diagrams/WeatherConditions.html
-* Weather Forecast UML: https://github.com/byui-cs/CS246/tree/master/support/diagrams/WeatherForecast.html
+* Weather Conditions UML: https://byui-cs.github.io/CS246/diagrams/WeatherConditions.html
+* Weather Forecast UML: https://byui-cs.github.io/CS246/diagrams/WeatherForecast.html
 * Another Full API Example (Earthquakes): https://github.com/byui-cs/CS246/tree/master/support/EarthquakeAnalyzer/src/macbeth
-* Another Full API Example (Earthquakes UML): https://github.com/byui-cs/CS246/tree/master/support/diagrams/Earthquake.html
+* Another Full API Example (Earthquakes UML): https://byui-cs.github.io/CS246/diagrams/Earthquake.html
 
 **API's**
 
@@ -116,7 +116,7 @@ In this case, the name in the JSON data is "id" but the name in the class will b
     @SerializedName(value="id", alternate={"title"})
     private String name;
 
-In the assignment, the weather forecast contained many examples of complex embedded JSON structure.  When you have a mix of lists and classes, a UML diagram is good to draw based on what you see in that JSON structure.  For example, one possible UML for the WeatherForecast would be:  https://github.com/byui-cs/CS246/tree/master/support/diagrams/WeatherForecast.html
+In the assignment, the weather forecast contained many examples of complex embedded JSON structure.  When you have a mix of lists and classes, a UML diagram is good to draw based on what you see in that JSON structure.  For example, one possible UML for the WeatherForecast would be:  https://byui-cs.github.io/CS246/diagrams/WeatherForecast.html
 
 In general, you will create a full set of classes that represent the JSON model to get at the data you really want.  There are ways to parse through the JSON string to get to the data that you really want before converting it to an object.  If you want to learn more about this, consider this site:  http://tutorials.jenkov.com/java-json/gson-jsonreader.html
 

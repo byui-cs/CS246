@@ -1,0 +1,209 @@
+<html>
+<head>
+<title>CreatureHandler.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #808080; font-style: italic;}
+.s3 { color: #808080; font-style: italic;}
+.s4 { color: #808080; font-weight: bold; font-style: italic;}
+.s5 { color: #0000ff;}
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CreatureHandler.java</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">package </span>macbeth;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">import </span>java.util.AbstractList;
+<a name="l4"><span class="ln">4    </span></a><span class="s0">import </span>java.util.Random;
+<a name="l5"><span class="ln">5    </span></a><span class="s0">import </span>java.awt.Point;
+<a name="l6"><span class="ln">6    </span></a><span class="s0">import </span>java.util.List;
+<a name="l7"><span class="ln">7    </span></a><span class="s0">import </span>java.util.ArrayList;
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a><span class="s2">/**</span>
+<a name="l10"><span class="ln">10   </span></a><span class="s2">* The &quot;brains&quot; of the game, which controls all of the creature activites.</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s2">* </span><span class="s3">&lt;p&gt;</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s2">* </span><span class="s4">@author  </span><span class="s2">Brother Falin</span>
+<a name="l13"><span class="ln">13   </span></a><span class="s2">* </span><span class="s4">@version </span><span class="s2">1.0</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s2">* </span><span class="s4">@since   </span><span class="s2">2016-12-08 </span>
+<a name="l15"><span class="ln">15   </span></a><span class="s2">* </span><span class="s4">@see <a href="Creature.java.html">Creature</a></span>
+<a name="l16"><span class="ln">16   </span></a><span class="s2">*/</span>
+<a name="l17"><span class="ln">17   </span></a><span class="s0">public class </span>CreatureHandler
+<a name="l18"><span class="ln">18   </span></a>{
+<a name="l19"><span class="ln">19   </span></a>	<span class="s0">int </span>_rows;
+<a name="l20"><span class="ln">20   </span></a>	<span class="s0">int </span>_cols;
+<a name="l21"><span class="ln">21   </span></a>	Random _rand;
+<a name="l22"><span class="ln">22   </span></a>	List&lt;Creature&gt; _creatures; 
+<a name="l23"><span class="ln">23   </span></a>
+<a name="l24"><span class="ln">24   </span></a>	<span class="s2">/**</span>
+<a name="l25"><span class="ln">25   </span></a>	<span class="s2">* Retrieves all of the creatures that exist in the world</span>
+<a name="l26"><span class="ln">26   </span></a>	<span class="s2">* </span><span class="s4">@return </span><span class="s2">A list of the creatures in the world.</span>
+<a name="l27"><span class="ln">27   </span></a>	<span class="s2">*/</span>
+<a name="l28"><span class="ln">28   </span></a>	<span class="s0">public </span>List&lt;Creature&gt; getCreatures() {
+<a name="l29"><span class="ln">29   </span></a>		<span class="s0">return </span>_creatures;
+<a name="l30"><span class="ln">30   </span></a>	}
+<a name="l31"><span class="ln">31   </span></a>
+<a name="l32"><span class="ln">32   </span></a>	<span class="s2">/**</span>
+<a name="l33"><span class="ln">33   </span></a>	<span class="s2">* </span><span class="s4">@param </span><span class="s2">worldRows How many rows the world grid should have.</span>
+<a name="l34"><span class="ln">34   </span></a>	<span class="s2">* </span><span class="s4">@param </span><span class="s2">worldCols How many columns the world grid should have.</span>
+<a name="l35"><span class="ln">35   </span></a>	<span class="s2">* </span><span class="s4">@param </span><span class="s2">creatures A list of creatures to start the world with.</span>
+<a name="l36"><span class="ln">36   </span></a>	<span class="s2">*/</span>
+<a name="l37"><span class="ln">37   </span></a>	<span class="s0">public </span>CreatureHandler(<span class="s0">int </span>worldRows, <span class="s0">int </span>worldCols, List&lt;Creature&gt; creatures) {
+<a name="l38"><span class="ln">38   </span></a>		_rand = <span class="s0">new </span>Random();
+<a name="l39"><span class="ln">39   </span></a>		_rows = worldRows;
+<a name="l40"><span class="ln">40   </span></a>		_cols = worldCols;
+<a name="l41"><span class="ln">41   </span></a>		_creatures = creatures;
+<a name="l42"><span class="ln">42   </span></a>	}
+<a name="l43"><span class="ln">43   </span></a>
+<a name="l44"><span class="ln">44   </span></a>	<span class="s2">/**</span>
+<a name="l45"><span class="ln">45   </span></a>	<span class="s2">* Sets the initial positions of the creatures to random locations within the </span>
+<a name="l46"><span class="ln">46   </span></a>	<span class="s2">* world's grid.</span>
+<a name="l47"><span class="ln">47   </span></a>	<span class="s2">*/</span>
+<a name="l48"><span class="ln">48   </span></a>	<span class="s0">public void </span>setStartingPositions() {
+<a name="l49"><span class="ln">49   </span></a>
+<a name="l50"><span class="ln">50   </span></a>		<span class="s2">// Java's enhanced for loop (AKA for-each loop).</span>
+<a name="l51"><span class="ln">51   </span></a>		<span class="s2">// See: http://stackoverflow.com/a/11685345/28106</span>
+<a name="l52"><span class="ln">52   </span></a>		<span class="s0">for</span>(<a href="Creature.java.html">Creature</a> c : _creatures) {
+<a name="l53"><span class="ln">53   </span></a>			c.setLocation(getRandomLocation());
+<a name="l54"><span class="ln">54   </span></a>		}
+<a name="l55"><span class="ln">55   </span></a>	}
+<a name="l56"><span class="ln">56   </span></a>
+<a name="l57"><span class="ln">57   </span></a>	<span class="s0">private </span>Point getRandomLocation() {
+<a name="l58"><span class="ln">58   </span></a>		<span class="s0">int </span>r = _rand.nextInt(_rows);
+<a name="l59"><span class="ln">59   </span></a>		<span class="s0">int </span>c = _rand.nextInt(_cols);
+<a name="l60"><span class="ln">60   </span></a>		
+<a name="l61"><span class="ln">61   </span></a>		<span class="s0">return new </span>Point(r, c);
+<a name="l62"><span class="ln">62   </span></a>	}
+<a name="l63"><span class="ln">63   </span></a>
+<a name="l64"><span class="ln">64   </span></a>	<span class="s0">private void </span>wrapPoint(Point p) {
+<a name="l65"><span class="ln">65   </span></a>
+<a name="l66"><span class="ln">66   </span></a>		<span class="s2">// If we go too far left or right, wrap around</span>
+<a name="l67"><span class="ln">67   </span></a>		<span class="s2">// to the other side.</span>
+<a name="l68"><span class="ln">68   </span></a>		<span class="s0">if</span>(p.x &gt; _cols)
+<a name="l69"><span class="ln">69   </span></a>			p.x = <span class="s5">0</span>;
+<a name="l70"><span class="ln">70   </span></a>		<span class="s0">else if</span>(p.x &lt; <span class="s5">0</span>)
+<a name="l71"><span class="ln">71   </span></a>			p.x = _cols;
+<a name="l72"><span class="ln">72   </span></a>		
+<a name="l73"><span class="ln">73   </span></a>		<span class="s2">// If we go too far up or down, wrap around</span>
+<a name="l74"><span class="ln">74   </span></a>		<span class="s2">// to the other side.</span>
+<a name="l75"><span class="ln">75   </span></a>		<span class="s0">if</span>(p.y &gt; _rows)
+<a name="l76"><span class="ln">76   </span></a>			p.y = <span class="s5">0</span>;
+<a name="l77"><span class="ln">77   </span></a>		<span class="s0">else if</span>(p.y &lt; <span class="s5">0</span>)
+<a name="l78"><span class="ln">78   </span></a>			p.y = _rows;
+<a name="l79"><span class="ln">79   </span></a>	}
+<a name="l80"><span class="ln">80   </span></a>
+<a name="l81"><span class="ln">81   </span></a>	<span class="s0">private <a href="Creature.java.html">Creature</a> </span>getTarget(<a href="Creature.java.html">Creature</a> source, <span class="s0">int </span>xOffset, <span class="s0">int </span>yOffset) {
+<a name="l82"><span class="ln">82   </span></a>		
+<a name="l83"><span class="ln">83   </span></a>		<span class="s2">// Determine where we are looking based on our current location</span>
+<a name="l84"><span class="ln">84   </span></a>		<span class="s2">// and the offset</span>
+<a name="l85"><span class="ln">85   </span></a>		Point newPoint = (Point)source.getLocation().clone();
+<a name="l86"><span class="ln">86   </span></a>		newPoint.x += xOffset;
+<a name="l87"><span class="ln">87   </span></a>		newPoint.y += yOffset;
+<a name="l88"><span class="ln">88   </span></a>
+<a name="l89"><span class="ln">89   </span></a>		<span class="s2">// Wrap the target point if necessary</span>
+<a name="l90"><span class="ln">90   </span></a>		wrapPoint(newPoint);
+<a name="l91"><span class="ln">91   </span></a>
+<a name="l92"><span class="ln">92   </span></a>		<span class="s2">// Look at every creature in our list, and see if it is sitting in the spot</span>
+<a name="l93"><span class="ln">93   </span></a>		<span class="s2">// where we are looking. (ignoring dead creatures)</span>
+<a name="l94"><span class="ln">94   </span></a>		<span class="s0">for</span>(<a href="Creature.java.html">Creature</a> c : _creatures) {
+<a name="l95"><span class="ln">95   </span></a>			<span class="s0">if</span>(c == source || !c.isAlive())
+<a name="l96"><span class="ln">96   </span></a>				<span class="s0">continue</span>;
+<a name="l97"><span class="ln">97   </span></a>				
+<a name="l98"><span class="ln">98   </span></a>			<span class="s0">if</span>(c.getLocation().x == newPoint.x &amp;&amp; 
+<a name="l99"><span class="ln">99   </span></a>			   c.getLocation().y == newPoint.y)
+<a name="l100"><span class="ln">100  </span></a>				<span class="s0">return </span>c;
+<a name="l101"><span class="ln">101  </span></a>		}
+<a name="l102"><span class="ln">102  </span></a>		
+<a name="l103"><span class="ln">103  </span></a>		<span class="s2">// If we didn't find anything, return null.</span>
+<a name="l104"><span class="ln">104  </span></a>		<span class="s0">return null</span>;
+<a name="l105"><span class="ln">105  </span></a>	}
+<a name="l106"><span class="ln">106  </span></a>
+<a name="l107"><span class="ln">107  </span></a>	<span class="s0">private void </span>handleMove(<a href="Creature.java.html">Creature</a> c) {
+<a name="l108"><span class="ln">108  </span></a>		
+<a name="l109"><span class="ln">109  </span></a>		<a href="Movable.java.html">Movable</a> m = (<a href="Movable.java.html">Movable</a>)c;
+<a name="l110"><span class="ln">110  </span></a>		m.move();
+<a name="l111"><span class="ln">111  </span></a>		
+<a name="l112"><span class="ln">112  </span></a>		wrapPoint(c.getLocation());
+<a name="l113"><span class="ln">113  </span></a>	}
+<a name="l114"><span class="ln">114  </span></a>
+<a name="l115"><span class="ln">115  </span></a>	<span class="s2">/**</span>
+<a name="l116"><span class="ln">116  </span></a>	<span class="s2">* Updates all of the living creatures in the game by making they each get a chance to</span>
+<a name="l117"><span class="ln">117  </span></a>	<span class="s2">* act on their implemented behaviors.</span>
+<a name="l118"><span class="ln">118  </span></a>	<span class="s2">*/</span>
+<a name="l119"><span class="ln">119  </span></a>	<span class="s0">public void </span>updateCreatures() {
+<a name="l120"><span class="ln">120  </span></a>
+<a name="l121"><span class="ln">121  </span></a>		<span class="s2">// Handle all our creature behaviors here. Since we don't know ahead of time</span>
+<a name="l122"><span class="ln">122  </span></a>		<span class="s2">// which creatures implement which behaviors, we can use the instanceof keyword</span>
+<a name="l123"><span class="ln">123  </span></a>		<span class="s2">// to see if a given instance implements a particular interface.</span>
+<a name="l124"><span class="ln">124  </span></a>		List&lt;Creature&gt; newCreatures = <span class="s0">new </span>ArrayList&lt;Creature&gt;();
+<a name="l125"><span class="ln">125  </span></a>
+<a name="l126"><span class="ln">126  </span></a>		<span class="s0">for</span>(<a href="Creature.java.html">Creature</a> c : _creatures) {
+<a name="l127"><span class="ln">127  </span></a>				
+<a name="l128"><span class="ln">128  </span></a>				<span class="s2">// Skip dead creatures</span>
+<a name="l129"><span class="ln">129  </span></a>				<span class="s0">if</span>(!c.isAlive())
+<a name="l130"><span class="ln">130  </span></a>					<span class="s0">continue</span>;
+<a name="l131"><span class="ln">131  </span></a>
+<a name="l132"><span class="ln">132  </span></a>				<span class="s0">if</span>(c <span class="s0">instanceof <a href="Aware.java.html">Aware</a></span>) {
+<a name="l133"><span class="ln">133  </span></a>					<a href="Creature.java.html">Creature</a> above = getTarget(c, <span class="s5">0</span>, -<span class="s5">1</span>);
+<a name="l134"><span class="ln">134  </span></a>					<a href="Creature.java.html">Creature</a> below = getTarget(c, <span class="s5">0</span>, <span class="s5">1</span>);
+<a name="l135"><span class="ln">135  </span></a>					<a href="Creature.java.html">Creature</a> left = getTarget(c, -<span class="s5">1</span>, <span class="s5">0</span>);
+<a name="l136"><span class="ln">136  </span></a>					<a href="Creature.java.html">Creature</a> right = getTarget(c, <span class="s5">1</span>, <span class="s5">0</span>);
+<a name="l137"><span class="ln">137  </span></a>
+<a name="l138"><span class="ln">138  </span></a>					<a href="Aware.java.html">Aware</a> a = (<a href="Aware.java.html">Aware</a>)c;
+<a name="l139"><span class="ln">139  </span></a>					a.senseNeighbors(above, below, left, right);
+<a name="l140"><span class="ln">140  </span></a>				}
+<a name="l141"><span class="ln">141  </span></a>
+<a name="l142"><span class="ln">142  </span></a>				<span class="s0">if</span>(c <span class="s0">instanceof <a href="Movable.java.html">Movable</a></span>) {
+<a name="l143"><span class="ln">143  </span></a>					handleMove(c);
+<a name="l144"><span class="ln">144  </span></a>				}
+<a name="l145"><span class="ln">145  </span></a>				
+<a name="l146"><span class="ln">146  </span></a>				<span class="s0">if</span>(c <span class="s0">instanceof <a href="Aggressor.java.html">Aggressor</a></span>) {
+<a name="l147"><span class="ln">147  </span></a>					<a href="Creature.java.html">Creature</a> target = getTarget(c, <span class="s5">0</span>, <span class="s5">0</span>);
+<a name="l148"><span class="ln">148  </span></a>					<a href="Aggressor.java.html">Aggressor</a> a = (<a href="Aggressor.java.html">Aggressor</a>)c;
+<a name="l149"><span class="ln">149  </span></a>					a.attack(target);
+<a name="l150"><span class="ln">150  </span></a>				}
+<a name="l151"><span class="ln">151  </span></a>
+<a name="l152"><span class="ln">152  </span></a>				<span class="s2">// Prompt all creatures that implement the Spawner</span>
+<a name="l153"><span class="ln">153  </span></a>				<span class="s2">// interface to spawn a new creature.</span>
+<a name="l154"><span class="ln">154  </span></a>				<span class="s0">if </span>(c <span class="s0">instanceof <a href="Spawner.java.html">Spawner</a></span>) {
+<a name="l155"><span class="ln">155  </span></a>					<a href="Spawner.java.html">Spawner</a> spawner = (<a href="Spawner.java.html">Spawner</a>) c;
+<a name="l156"><span class="ln">156  </span></a>					<a href="Creature.java.html">Creature</a> newCreature = spawner.spawnNewCreature();
+<a name="l157"><span class="ln">157  </span></a>					<span class="s0">if </span>(newCreature != <span class="s0">null</span>)
+<a name="l158"><span class="ln">158  </span></a>					{
+<a name="l159"><span class="ln">159  </span></a>						<span class="s2">// If a new creature was created, then add it to</span>
+<a name="l160"><span class="ln">160  </span></a>						<span class="s2">// a list of new creatures.  We don't want to modify</span>
+<a name="l161"><span class="ln">161  </span></a>						<span class="s2">// the _creatures list since we are currently</span>
+<a name="l162"><span class="ln">162  </span></a>						<span class="s2">// iterating through it ... the iterator would</span>
+<a name="l163"><span class="ln">163  </span></a>						<span class="s2">// be adversely disrupted.</span>
+<a name="l164"><span class="ln">164  </span></a>						newCreatures.add(newCreature);
+<a name="l165"><span class="ln">165  </span></a>					}
+<a name="l166"><span class="ln">166  </span></a>				}
+<a name="l167"><span class="ln">167  </span></a>
+<a name="l168"><span class="ln">168  </span></a>				<span class="s2">// Prompt all creature that implement the Grower</span>
+<a name="l169"><span class="ln">169  </span></a>				<span class="s2">// interface to plant.</span>
+<a name="l170"><span class="ln">170  </span></a>				<span class="s0">if </span>(c <span class="s0">instanceof <a href="Grower.java.html">Grower</a></span>) {
+<a name="l171"><span class="ln">171  </span></a>					<a href="Grower.java.html">Grower</a> grower = (<a href="Grower.java.html">Grower</a>) c;
+<a name="l172"><span class="ln">172  </span></a>					<a href="Creature.java.html">Creature</a> newCreature = grower.plant();
+<a name="l173"><span class="ln">173  </span></a>					<span class="s0">if </span>(newCreature != <span class="s0">null</span>)
+<a name="l174"><span class="ln">174  </span></a>					{
+<a name="l175"><span class="ln">175  </span></a>						<span class="s2">// As with the spawner above, need to add</span>
+<a name="l176"><span class="ln">176  </span></a>						<span class="s2">// any new creatures (plants) to the </span>
+<a name="l177"><span class="ln">177  </span></a>						<span class="s2">// new creatures list.</span>
+<a name="l178"><span class="ln">178  </span></a>						newCreatures.add(newCreature);
+<a name="l179"><span class="ln">179  </span></a>					}
+<a name="l180"><span class="ln">180  </span></a>				}
+<a name="l181"><span class="ln">181  </span></a>			}
+<a name="l182"><span class="ln">182  </span></a>			
+<a name="l183"><span class="ln">183  </span></a>			<span class="s2">// Now that the iterator is finished, add any new creatures</span>
+<a name="l184"><span class="ln">184  </span></a>		    <span class="s2">// that were created earlier.</span>
+<a name="l185"><span class="ln">185  </span></a>			_creatures.addAll(newCreatures);
+<a name="l186"><span class="ln">186  </span></a>	}
+<a name="l187"><span class="ln">187  </span></a>}</pre>
+</body>
+</html>

@@ -6,7 +6,7 @@ The following examples and videos support the material in Week 5.  Subsequent se
 
 * Video: https://video.byui.edu/media/CS246+Week+5+Android/0_nzck0cdl
 * Hello World App: https://github.com/byui-cs/CS246/tree/master/support/HelloWorldApp
-* Activity Lifecycle and Saving Data: https://github.com/byui-cs/CS246/tree/master/support/diagrams/activity_lifecycle.pdf
+* Activity Lifecycle and Saving Data: https://byui-cs.github.io/CS246/diagrams/activity_lifecycle.pdf
 * Shared Preferences App: https://github.com/byui-cs/CS246/tree/master/support/SharedPrefExample
 
 **Android and Java**

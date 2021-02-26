@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Creature.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #808080; font-style: italic;}
+.s3 { color: #808080; font-style: italic;}
+.s4 { color: #808080; font-weight: bold; font-style: italic;}
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Creature.java</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">package </span>macbeth;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">import </span>java.awt.Color;
+<a name="l4"><span class="ln">4    </span></a><span class="s0">import </span>java.awt.Point;
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s2">// Since this is an abstract class, it cannot be created using new.</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s2">// Instead, we have to create subclasses of this class.</span>
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a><span class="s2">/**</span>
+<a name="l10"><span class="ln">10   </span></a><span class="s2">*  Creature is the base class for all creatures in the game. However, unless they implement</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s2">*  one of the defined interfaces, they just sit there and do nothing.</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s2">* </span><span class="s3">&lt;p&gt;</span>
+<a name="l13"><span class="ln">13   </span></a><span class="s2">* </span><span class="s4">@author  </span><span class="s2">Brother Falin</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s2">* </span><span class="s4">@version </span><span class="s2">1.0</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s2">* </span><span class="s4">@since   </span><span class="s2">2016-12-08 </span>
+<a name="l16"><span class="ln">16   </span></a><span class="s2">*/</span>
+<a name="l17"><span class="ln">17   </span></a><span class="s0">public abstract class </span>Creature {
+<a name="l18"><span class="ln">18   </span></a>	
+<a name="l19"><span class="ln">19   </span></a>	Point _location;
+<a name="l20"><span class="ln">20   </span></a>	<span class="s0">int </span>_health;
+<a name="l21"><span class="ln">21   </span></a>	
+<a name="l22"><span class="ln">22   </span></a>	<span class="s2">/**</span>
+<a name="l23"><span class="ln">23   </span></a>	<span class="s2">* Gets the location of the creature in game coordinates.</span>
+<a name="l24"><span class="ln">24   </span></a>	<span class="s2">* </span><span class="s4">@return </span><span class="s2">The current location of the creature.</span>
+<a name="l25"><span class="ln">25   </span></a>	<span class="s2">*/</span>
+<a name="l26"><span class="ln">26   </span></a>	<span class="s0">public </span>Point getLocation() {
+<a name="l27"><span class="ln">27   </span></a>		<span class="s0">return </span>_location;
+<a name="l28"><span class="ln">28   </span></a>	}
+<a name="l29"><span class="ln">29   </span></a>	
+<a name="l30"><span class="ln">30   </span></a>	<span class="s2">/**</span>
+<a name="l31"><span class="ln">31   </span></a>	<span class="s2">* Sets the location of the creature in game coordinates.</span>
+<a name="l32"><span class="ln">32   </span></a>	<span class="s2">* </span><span class="s4">@param </span><span class="s2">newValue The new location of the creature. </span>
+<a name="l33"><span class="ln">33   </span></a>	<span class="s2">*/</span>
+<a name="l34"><span class="ln">34   </span></a>	<span class="s0">public void </span>setLocation(Point newValue) {
+<a name="l35"><span class="ln">35   </span></a>		_location = newValue;
+<a name="l36"><span class="ln">36   </span></a>	}
+<a name="l37"><span class="ln">37   </span></a>	
+<a name="l38"><span class="ln">38   </span></a>	<span class="s2">/**</span>
+<a name="l39"><span class="ln">39   </span></a>	<span class="s2">* Allows the creature to take damage if something comes by to attack it.</span>
+<a name="l40"><span class="ln">40   </span></a>	<span class="s2">* </span><span class="s4">@param </span><span class="s2">damage The amount of damage inflicted by the attacker</span>
+<a name="l41"><span class="ln">41   </span></a>	<span class="s2">*/</span>
+<a name="l42"><span class="ln">42   </span></a>	<span class="s0">public void </span>takeDamage(<span class="s0">int </span>damage) {
+<a name="l43"><span class="ln">43   </span></a>		_health -= damage;
+<a name="l44"><span class="ln">44   </span></a>	}
+<a name="l45"><span class="ln">45   </span></a>	
+<a name="l46"><span class="ln">46   </span></a>	<span class="s2">// Since the following methods are marked as abstract, subclasses</span>
+<a name="l47"><span class="ln">47   </span></a>	<span class="s2">// must implement them. </span>
+<a name="l48"><span class="ln">48   </span></a>
+<a name="l49"><span class="ln">49   </span></a>	<span class="s2">/**</span>
+<a name="l50"><span class="ln">50   </span></a>	<span class="s2">* Gets the {</span><span class="s4">@link <a href="Shape.java.html">Shape</a></span><span class="s2">} used to represent this creature.</span>
+<a name="l51"><span class="ln">51   </span></a>	<span class="s2">* </span><span class="s4">@return </span><span class="s2">The shape drawn for this creature.</span>
+<a name="l52"><span class="ln">52   </span></a>	<span class="s2">*/</span>
+<a name="l53"><span class="ln">53   </span></a>	<span class="s0">abstract <a href="Shape.java.html">Shape</a> </span>getShape();
+<a name="l54"><span class="ln">54   </span></a>
+<a name="l55"><span class="ln">55   </span></a>	<span class="s2">/**</span>
+<a name="l56"><span class="ln">56   </span></a>	<span class="s2">* Gets the {</span><span class="s4">@link </span><span class="s2">java.awt.Color} used to represent this creature.</span>
+<a name="l57"><span class="ln">57   </span></a>	<span class="s2">* </span><span class="s4">@return </span><span class="s2">The color drawn for this creature.</span>
+<a name="l58"><span class="ln">58   </span></a>	<span class="s2">*/</span>
+<a name="l59"><span class="ln">59   </span></a>	<span class="s0">abstract </span>Color getColor();
+<a name="l60"><span class="ln">60   </span></a>
+<a name="l61"><span class="ln">61   </span></a>	<span class="s2">/**</span>
+<a name="l62"><span class="ln">62   </span></a>	<span class="s2">* Is the creature alive?</span>
+<a name="l63"><span class="ln">63   </span></a>	<span class="s2">* </span><span class="s4">@return </span><span class="s2">A boolean indicating if the creature is alive.</span>
+<a name="l64"><span class="ln">64   </span></a>	<span class="s2">*/</span>
+<a name="l65"><span class="ln">65   </span></a>	<span class="s0">abstract </span>Boolean isAlive();
+<a name="l66"><span class="ln">66   </span></a>}</pre>
+</body>
+</html>

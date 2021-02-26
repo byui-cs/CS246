@@ -1,0 +1,221 @@
+<html>
+<head>
+<title>NSALoginController.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #808080; font-style: italic;}
+.s3 { color: #808080; font-weight: bold; font-style: italic;}
+.s4 { color: #808080; font-style: italic;}
+.s5 { color: #0000ff;}
+.s6 { color: #008000; font-weight: bold;}
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+NSALoginController.java</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">package </span>macbeth;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s2">/*  Note that we're not using wildcards in our import statements like: 
+<a name="l4"><span class="ln">4    </span></a>    
+<a name="l5"><span class="ln">5    </span></a>    import java.util.*  
+<a name="l6"><span class="ln">6    </span></a> 
+<a name="l7"><span class="ln">7    </span></a>    Instead, we're being explicit about the classes we use. 
+<a name="l8"><span class="ln">8    </span></a>    See the first answer here for a good discussion on why:  
+<a name="l9"><span class="ln">9    </span></a>    http://stackoverflow.com/questions/147454/why-is-using-a-wild-card-with-a-java-import-statement-bad 
+<a name="l10"><span class="ln">10   </span></a>*/</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s0">import </span>java.util.Random;
+<a name="l12"><span class="ln">12   </span></a><span class="s0">import </span>java.security.SecureRandom;
+<a name="l13"><span class="ln">13   </span></a><span class="s0">import </span>javax.crypto.spec.PBEKeySpec;
+<a name="l14"><span class="ln">14   </span></a><span class="s0">import </span>javax.crypto.SecretKeyFactory;
+<a name="l15"><span class="ln">15   </span></a><span class="s0">import </span>java.util.Arrays;
+<a name="l16"><span class="ln">16   </span></a><span class="s0">import </span>java.util.Base64;
+<a name="l17"><span class="ln">17   </span></a>
+<a name="l18"><span class="ln">18   </span></a><span class="s2">/**</span>
+<a name="l19"><span class="ln">19   </span></a> <span class="s2">*</span>
+<a name="l20"><span class="ln">20   </span></a> <span class="s2">*/</span>
+<a name="l21"><span class="ln">21   </span></a>
+<a name="l22"><span class="ln">22   </span></a><span class="s2">/**</span>
+<a name="l23"><span class="ln">23   </span></a><span class="s2">* The NSALoginController class handles password hashing and verification</span>
+<a name="l24"><span class="ln">24   </span></a><span class="s2">* for the {</span><span class="s3">@link <a href="User.java.html">User</a></span><span class="s2">} class.</span>
+<a name="l25"><span class="ln">25   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l26"><span class="ln">26   </span></a><span class="s2">* It contains only static methods, and therefore maintains no state.</span>
+<a name="l27"><span class="ln">27   </span></a><span class="s2">* Another example of a class containing only static methods is </span>
+<a name="l28"><span class="ln">28   </span></a><span class="s2">* Java's built-in {</span><span class="s3">@link </span><span class="s2">java.lang.Math} class.</span>
+<a name="l29"><span class="ln">29   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l30"><span class="ln">30   </span></a><span class="s2">* Notice the interesting formatting used in this comment block.</span>
+<a name="l31"><span class="ln">31   </span></a><span class="s2">* This special formatting is called Javadocs and is used by Java IDEs</span>
+<a name="l32"><span class="ln">32   </span></a><span class="s2">* to automatically generate documentation for classes. </span>
+<a name="l33"><span class="ln">33   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l34"><span class="ln">34   </span></a><span class="s2">* Many Java IDEs will help you automatically generate the formatting</span>
+<a name="l35"><span class="ln">35   </span></a><span class="s2">* for the Javadoc comments. </span>
+<a name="l36"><span class="ln">36   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l37"><span class="ln">37   </span></a><span class="s2">* Javadocs are widely used in industry, and if you work for a company that</span>
+<a name="l38"><span class="ln">38   </span></a><span class="s2">* uses Java code, you will almost certainly be expected to include Javadocs</span>
+<a name="l39"><span class="ln">39   </span></a><span class="s2">* in your own code, so it's a good habit to develop.</span>
+<a name="l40"><span class="ln">40   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l41"><span class="ln">41   </span></a><span class="s2">* You can use the </span><span class="s4">&lt;code&gt;</span><span class="s2">javadoc</span><span class="s4">&lt;/code&gt; </span><span class="s2">tool to generate fancy HTML files. For example:</span>
+<a name="l42"><span class="ln">42   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l43"><span class="ln">43   </span></a><span class="s2">* </span><span class="s4">&lt;code&gt;</span><span class="s2">javadoc *.java -d ./doc</span><span class="s4">&lt;/code&gt;</span>
+<a name="l44"><span class="ln">44   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l45"><span class="ln">45   </span></a><span class="s2">* Then you can open the index.html file in the doc directory.</span>
+<a name="l46"><span class="ln">46   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l47"><span class="ln">47   </span></a><span class="s2">* For more information about </span><span class="s4">&lt;em&gt;</span><span class="s2">how</span><span class="s4">&lt;/em&gt; </span><span class="s2">to write javadocs see:</span>
+<a name="l48"><span class="ln">48   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l49"><span class="ln">49   </span></a><span class="s2">* </span><span class="s4">&lt;a href=&quot;https://www.tutorialspoint.com/java/java_documentation.htm&quot;&gt;</span><span class="s2">Javadoc Tutorial</span><span class="s4">&lt;/a&gt;</span>
+<a name="l50"><span class="ln">50   </span></a><span class="s2">* </span><span class="s4">&lt;p&gt;</span>
+<a name="l51"><span class="ln">51   </span></a><span class="s2">* For more information about </span><span class="s4">&lt;em&gt;</span><span class="s2">when</span><span class="s4">&lt;/em&gt; </span><span class="s2">to write javadocs see these Stack Overflow posts:</span>
+<a name="l52"><span class="ln">52   </span></a><span class="s2">* </span><span class="s4">&lt;ul&gt;</span>
+<a name="l53"><span class="ln">53   </span></a><span class="s2">* </span><span class="s4">&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/211041/do-you-use-javadoc-for-every-method-you-write&quot;&gt;</span><span class="s2">Do you use Javadoc for every method you write?</span><span class="s4">&lt;/a&gt;&lt;/li&gt;</span>
+<a name="l54"><span class="ln">54   </span></a><span class="s2">* </span><span class="s4">&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/398546/technical-tips-for-writing-great-javadoc&quot;&gt;</span><span class="s2">Technical tips for writing great Javadoc</span><span class="s4">&lt;/a&gt;&lt;/li&gt;</span>
+<a name="l55"><span class="ln">55   </span></a><span class="s2">* </span><span class="s4">&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/1028967/simple-getter-setter-comments&quot;&gt;</span><span class="s2">Simple Getter/Setter comments</span><span class="s4">&lt;/a&gt;&lt;/li&gt;</span>
+<a name="l56"><span class="ln">56   </span></a><span class="s2">* </span><span class="s4">&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/3607641/javadoc-comments-vs-block-comments&quot;&gt;</span><span class="s2">Javadoc comments vs block comments?</span><span class="s4">&lt;/a&gt;&lt;/li&gt;</span>
+<a name="l57"><span class="ln">57   </span></a><span class="s2">* </span><span class="s4">&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/21632086/javadoc-for-private-protected-methods&quot;&gt;</span><span class="s2">Javadoc for private/protected methods?</span><span class="s4">&lt;/a&gt;&lt;/li&gt;</span>
+<a name="l58"><span class="ln">58   </span></a><span class="s2">* </span><span class="s4">&lt;/ul&gt;</span>
+<a name="l59"><span class="ln">59   </span></a><span class="s2">* </span><span class="s3">@author  </span><span class="s2">Brother Falin</span>
+<a name="l60"><span class="ln">60   </span></a><span class="s2">* </span><span class="s3">@version </span><span class="s2">1.0</span>
+<a name="l61"><span class="ln">61   </span></a><span class="s2">* </span><span class="s3">@since   </span><span class="s2">2016-12-08 </span>
+<a name="l62"><span class="ln">62   </span></a><span class="s2">* </span>
+<a name="l63"><span class="ln">63   </span></a><span class="s2">* This code was adapted from </span><span class="s4">&lt;a href=&quot;http://stackoverflow.com/a/18143616/28106&quot;&gt;</span><span class="s2">this Stack Overflow post</span><span class="s4">&lt;/a&gt;</span><span class="s2">.</span>
+<a name="l64"><span class="ln">64   </span></a><span class="s2">*/</span>
+<a name="l65"><span class="ln">65   </span></a><span class="s0">public final class </span>NSALoginController {
+<a name="l66"><span class="ln">66   </span></a>	
+<a name="l67"><span class="ln">67   </span></a>	<span class="s2">// The SecureRandom() class is a special subclass of Random() in </span>
+<a name="l68"><span class="ln">68   </span></a>	<span class="s2">// order to make our &quot;random&quot; salt values less predictable.</span>
+<a name="l69"><span class="ln">69   </span></a>	<span class="s2">// For more information, see:</span>
+<a name="l70"><span class="ln">70   </span></a>	<span class="s2">// http://stackoverflow.com/questions/11051205/difference-between-java-util-random-and-java-security-securerandom</span>
+<a name="l71"><span class="ln">71   </span></a>	<span class="s0">private static final </span>Random RANDOM = <span class="s0">new </span>SecureRandom();
+<a name="l72"><span class="ln">72   </span></a>
+<a name="l73"><span class="ln">73   </span></a>	<span class="s2">// The use of &quot;static final&quot; here is the equivalent of &quot;const&quot; in C++</span>
+<a name="l74"><span class="ln">74   </span></a>	<span class="s2">// These constant values are used by the hash algorithm.</span>
+<a name="l75"><span class="ln">75   </span></a>	<span class="s0">private static final int </span>ITERATIONS = <span class="s5">10000</span>;
+<a name="l76"><span class="ln">76   </span></a>	<span class="s0">private static final int </span>KEY_LENGTH = <span class="s5">256</span>;
+<a name="l77"><span class="ln">77   </span></a>
+<a name="l78"><span class="ln">78   </span></a>	<span class="s2">// By using a private constructor, we prevent instances of this class from being created</span>
+<a name="l79"><span class="ln">79   </span></a>	<span class="s0">private </span>NSALoginController() {
+<a name="l80"><span class="ln">80   </span></a>
+<a name="l81"><span class="ln">81   </span></a>	}
+<a name="l82"><span class="ln">82   </span></a>
+<a name="l83"><span class="ln">83   </span></a>	<span class="s2">// This function generates a random, 16-byte </span>
+<a name="l84"><span class="ln">84   </span></a>	<span class="s2">// salt value. You might be wondering if a longer salt</span>
+<a name="l85"><span class="ln">85   </span></a>	<span class="s2">// would result in a more secure hash:</span>
+<a name="l86"><span class="ln">86   </span></a>	<span class="s2">// http://stackoverflow.com/questions/184112/what-is-the-optimal-length-for-user-password-salt</span>
+<a name="l87"><span class="ln">87   </span></a>	<span class="s0">private static byte</span>[] getNextSalt() {
+<a name="l88"><span class="ln">88   </span></a>		<span class="s0">byte</span>[] salt = <span class="s0">new byte</span>[<span class="s5">16</span>];
+<a name="l89"><span class="ln">89   </span></a>		RANDOM.nextBytes(salt);
+<a name="l90"><span class="ln">90   </span></a>		<span class="s0">return </span>salt;
+<a name="l91"><span class="ln">91   </span></a>	}
+<a name="l92"><span class="ln">92   </span></a>	
+<a name="l93"><span class="ln">93   </span></a>	<span class="s2">// This function uses the PBKDF2 algorithm for generating the hash. If you're </span>
+<a name="l94"><span class="ln">94   </span></a>	<span class="s2">// interested in why this particular function was chosen, see:</span>
+<a name="l95"><span class="ln">95   </span></a>	<span class="s2">// http://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage/6415#6415</span>
+<a name="l96"><span class="ln">96   </span></a>	<span class="s0">private static byte</span>[] getHash(<span class="s0">char</span>[] password, <span class="s0">byte</span>[] salt) <span class="s0">throws </span>Exception {
+<a name="l97"><span class="ln">97   </span></a>
+<a name="l98"><span class="ln">98   </span></a>		PBEKeySpec spec = <span class="s0">new </span>PBEKeySpec(password, salt, ITERATIONS, KEY_LENGTH);
+<a name="l99"><span class="ln">99   </span></a>		Arrays.fill(password, Character.MIN_VALUE);
+<a name="l100"><span class="ln">100  </span></a>
+<a name="l101"><span class="ln">101  </span></a>		SecretKeyFactory skf = SecretKeyFactory.getInstance(<span class="s6">&quot;PBKDF2WithHmacSHA1&quot;</span>);
+<a name="l102"><span class="ln">102  </span></a>		<span class="s0">byte</span>[] hash = skf.generateSecret(spec).getEncoded();
+<a name="l103"><span class="ln">103  </span></a>	
+<a name="l104"><span class="ln">104  </span></a>		<span class="s0">return </span>hash;
+<a name="l105"><span class="ln">105  </span></a>	}
+<a name="l106"><span class="ln">106  </span></a>	
+<a name="l107"><span class="ln">107  </span></a>	<span class="s2">/**</span>
+<a name="l108"><span class="ln">108  </span></a>	<span class="s2">* This function takes the password from the {</span><span class="s3">@link <a href="User.java.html">User</a></span><span class="s2">} class and hashes it.</span>
+<a name="l109"><span class="ln">109  </span></a>	<span class="s2">* As a side-effect, the original password value is removed for security purposes.</span>
+<a name="l110"><span class="ln">110  </span></a>	<span class="s2">* </span><span class="s3">@param </span><span class="s2">user The user whose password needs to be hashed.</span>
+<a name="l111"><span class="ln">111  </span></a>	<span class="s2">* </span><span class="s3">@exception </span><span class="s2">Exception If there is a problem with the chosen hash function.</span>
+<a name="l112"><span class="ln">112  </span></a>	<span class="s2">* </span><span class="s3">@exception <a href="WeakPasswordException.java.html">WeakPasswordException</a> </span><span class="s2">If there is a weak password detected.</span>
+<a name="l113"><span class="ln">113  </span></a>	<span class="s2">*/</span>
+<a name="l114"><span class="ln">114  </span></a>	<span class="s0">public static void </span>hashUserPassword(<a href="User.java.html">User</a> user) <span class="s0">throws </span>Exception {
+<a name="l115"><span class="ln">115  </span></a>		
+<a name="l116"><span class="ln">116  </span></a>		<span class="s2">// Get the next random salt value to use for this password</span>
+<a name="l117"><span class="ln">117  </span></a>		<span class="s0">byte</span>[] salt = getNextSalt();
+<a name="l118"><span class="ln">118  </span></a>		<span class="s0">char</span>[] password = user.getPassword().toCharArray();
+<a name="l119"><span class="ln">119  </span></a>
+<a name="l120"><span class="ln">120  </span></a>		<span class="s2">// Verify password rules:</span>
+<a name="l121"><span class="ln">121  </span></a>		<span class="s2">// 1) Length at least 8 characters</span>
+<a name="l122"><span class="ln">122  </span></a>		<span class="s2">// 2) Contain at least one digit</span>
+<a name="l123"><span class="ln">123  </span></a>		<span class="s0">if </span>(password.length &lt; <span class="s5">8</span>)
+<a name="l124"><span class="ln">124  </span></a>		{
+<a name="l125"><span class="ln">125  </span></a>			<span class="s0">throw new <a href="WeakPasswordException.java.html">WeakPasswordException</a></span>(<span class="s6">&quot;Password must be at least 8 characters long.&quot;</span>);
+<a name="l126"><span class="ln">126  </span></a>		}
+<a name="l127"><span class="ln">127  </span></a>		<span class="s0">boolean </span>hasDigit = <span class="s0">false</span>;
+<a name="l128"><span class="ln">128  </span></a>		<span class="s0">for </span>(<span class="s0">int </span>i=<span class="s5">0</span>; i&lt;password.length; i++)
+<a name="l129"><span class="ln">129  </span></a>		{
+<a name="l130"><span class="ln">130  </span></a>			<span class="s0">if </span>(Character.isDigit(password[i]))
+<a name="l131"><span class="ln">131  </span></a>			{
+<a name="l132"><span class="ln">132  </span></a>				hasDigit = <span class="s0">true</span>;
+<a name="l133"><span class="ln">133  </span></a>			}
+<a name="l134"><span class="ln">134  </span></a>		}
+<a name="l135"><span class="ln">135  </span></a>		<span class="s0">if </span>(!hasDigit)
+<a name="l136"><span class="ln">136  </span></a>		{
+<a name="l137"><span class="ln">137  </span></a>			<span class="s0">throw new <a href="WeakPasswordException.java.html">WeakPasswordException</a></span>(<span class="s6">&quot;Password must contain at least 1 digit.&quot;</span>);
+<a name="l138"><span class="ln">138  </span></a>		}
+<a name="l139"><span class="ln">139  </span></a>		<span class="s2">// Once we've generated the hash, clear the old password</span>
+<a name="l140"><span class="ln">140  </span></a>		<span class="s2">// from memory for security purposes</span>
+<a name="l141"><span class="ln">141  </span></a>		<span class="s0">byte</span>[] hash = getHash(password, salt);
+<a name="l142"><span class="ln">142  </span></a>		Arrays.fill(password, Character.MIN_VALUE);
+<a name="l143"><span class="ln">143  </span></a>		user.setPassword(<span class="s6">&quot;&quot;</span>);
+<a name="l144"><span class="ln">144  </span></a>		
+<a name="l145"><span class="ln">145  </span></a>		<span class="s0">if</span>(hash != <span class="s0">null</span>) {
+<a name="l146"><span class="ln">146  </span></a>
+<a name="l147"><span class="ln">147  </span></a>			<span class="s2">// By Base64-encoding the raw bytes, we can store them as strings.</span>
+<a name="l148"><span class="ln">148  </span></a>			<span class="s2">// This allows us to save the values to a file or database if needed.</span>
+<a name="l149"><span class="ln">149  </span></a>			<span class="s2">// For more information on Base64 encoding, see:</span>
+<a name="l150"><span class="ln">150  </span></a>			<span class="s2">// http://stackoverflow.com/questions/201479/what-is-base-64-encoding-used-for</span>
+<a name="l151"><span class="ln">151  </span></a>			<span class="s2">// https://en.wikipedia.org/wiki/Base64</span>
+<a name="l152"><span class="ln">152  </span></a>			String hashString = Base64.getEncoder().encodeToString(hash);
+<a name="l153"><span class="ln">153  </span></a>			String saltString = Base64.getEncoder().encodeToString(salt);
+<a name="l154"><span class="ln">154  </span></a>			
+<a name="l155"><span class="ln">155  </span></a>			user.setHashedPassword(hashString);
+<a name="l156"><span class="ln">156  </span></a>			user.setSalt(saltString);
+<a name="l157"><span class="ln">157  </span></a>		}
+<a name="l158"><span class="ln">158  </span></a>		<span class="s0">else</span>
+<a name="l159"><span class="ln">159  </span></a>		{
+<a name="l160"><span class="ln">160  </span></a>			user.setHashedPassword(<span class="s0">null</span>);
+<a name="l161"><span class="ln">161  </span></a>			user.setSalt(<span class="s0">null</span>);
+<a name="l162"><span class="ln">162  </span></a>		}
+<a name="l163"><span class="ln">163  </span></a>	}
+<a name="l164"><span class="ln">164  </span></a>	
+<a name="l165"><span class="ln">165  </span></a>	<span class="s2">/**</span>
+<a name="l166"><span class="ln">166  </span></a>	<span class="s2">* This function uses the password and salt in the {</span><span class="s3">@link <a href="User.java.html">User</a></span><span class="s2">} to generate a hash,</span>
+<a name="l167"><span class="ln">167  </span></a>	<span class="s2">* then compares that hash to the original hash value.</span>
+<a name="l168"><span class="ln">168  </span></a>	<span class="s2">* </span><span class="s3">@param </span><span class="s2">user The user whose password needs to be hashed.</span>
+<a name="l169"><span class="ln">169  </span></a>	<span class="s2">* </span><span class="s3">@return </span><span class="s2">Whether or not the password values match.</span>
+<a name="l170"><span class="ln">170  </span></a>	<span class="s2">* </span><span class="s3">@exception </span><span class="s2">Exception If there is a problem with the chosen hash function.</span>
+<a name="l171"><span class="ln">171  </span></a>	<span class="s2">*/</span>
+<a name="l172"><span class="ln">172  </span></a>	<span class="s0">public static </span>Boolean verifyPassword(<a href="User.java.html">User</a> user) <span class="s0">throws </span>Exception {
+<a name="l173"><span class="ln">173  </span></a>		
+<a name="l174"><span class="ln">174  </span></a>		<span class="s2">// Have to get the raw data values to use on our hash function</span>
+<a name="l175"><span class="ln">175  </span></a>		<span class="s0">char</span>[] password = user.getPassword().toCharArray();
+<a name="l176"><span class="ln">176  </span></a>		<span class="s0">byte</span>[] salt = Base64.getDecoder().decode(user.getSalt());
+<a name="l177"><span class="ln">177  </span></a>		
+<a name="l178"><span class="ln">178  </span></a>		<span class="s2">// Generate the new hash, and retrieve the user's hash</span>
+<a name="l179"><span class="ln">179  </span></a>		<span class="s0">byte</span>[] expectedHash = getHash(password, salt);
+<a name="l180"><span class="ln">180  </span></a>		<span class="s0">byte</span>[] userHash = Base64.getDecoder().decode(user.getHashedPassword());
+<a name="l181"><span class="ln">181  </span></a>		
+<a name="l182"><span class="ln">182  </span></a>		<span class="s2">// If the new hash came out as null, or the lengths don't match,</span>
+<a name="l183"><span class="ln">183  </span></a>		<span class="s2">// we know that the original password is different</span>
+<a name="l184"><span class="ln">184  </span></a>		<span class="s0">if</span>(expectedHash == <span class="s0">null </span>|| expectedHash.length != userHash.length)
+<a name="l185"><span class="ln">185  </span></a>			<span class="s0">return false</span>;
+<a name="l186"><span class="ln">186  </span></a>		
+<a name="l187"><span class="ln">187  </span></a>		<span class="s2">// Check each byte of the two hashes and as soon as we find one</span>
+<a name="l188"><span class="ln">188  </span></a>		<span class="s2">// that is different, we know that the passwords don't match</span>
+<a name="l189"><span class="ln">189  </span></a>		<span class="s0">for</span>(<span class="s0">int </span>i = <span class="s5">0</span>; i &lt; expectedHash.length; i++) {
+<a name="l190"><span class="ln">190  </span></a>			<span class="s0">if</span>(expectedHash[i] != userHash[i])
+<a name="l191"><span class="ln">191  </span></a>				<span class="s0">return false</span>;
+<a name="l192"><span class="ln">192  </span></a>		}
+<a name="l193"><span class="ln">193  </span></a>		
+<a name="l194"><span class="ln">194  </span></a>		<span class="s2">// If we got this far, it means the password hashes match, so we</span>
+<a name="l195"><span class="ln">195  </span></a>		<span class="s2">// can assume the passwords do as well.</span>
+<a name="l196"><span class="ln">196  </span></a>		<span class="s0">return true</span>;
+<a name="l197"><span class="ln">197  </span></a>	}
+<a name="l198"><span class="ln">198  </span></a>}</pre>
+</body>
+</html>

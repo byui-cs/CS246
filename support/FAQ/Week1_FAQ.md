@@ -6,7 +6,7 @@ The following examples and videos support the material in Week 1.  Subsequent se
 
 * Video: https://video.byui.edu/media/CS246+Week+1A+Intro+Java/0_0pzxzkz1
 * Hello World Code: https://github.com/byui-cs/CS246/tree/master/support/HelloWorld/src/macbeth
-* Prove 01 UML: https://github.com/byui-cs/CS246/tree/master/support/diagrams/CS246_Prove01.html
+* Prove 01 UML: https://byui-cs.github.io/CS246/diagrams/CS246_Prove01.html
 
 **Exception Handling**
 
