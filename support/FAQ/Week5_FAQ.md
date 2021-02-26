@@ -5,9 +5,9 @@
 The following examples and videos support the material in Week 5.  Subsequent sections below provide additional information and examples for common questions that students encounter during this week.
 
 * Video: https://video.byui.edu/media/CS246+Week+5+Android/0_nzck0cdl
-* Hello World App: https://github.com/macbeth-byui/CS246_Class/tree/master/HelloWorldApp
+* Hello World App: https://github.com/byui-cs/CS246/tree/master/support/HelloWorldApp
 * Activity Lifecycle and Saving Data: https://macbeth-byui.github.io/CS246/diagrams/activity_lifecycle.pdf
-* Shared Preferences App: https://github.com/macbeth-byui/CS246_Class/tree/master/SharedPrefExample
+* Shared Preferences App: https://github.com/byui-cs/CS246/tree/master/support/SharedPrefExample
 
 **Android and Java**
 
@@ -334,7 +334,7 @@ You should use this to store small amounts of data.  For example, in assignment 
 
 When you save data, you should think about how other Activities may need the data.  For example, in assignment 5, the display activity needs to be able to save the scripture so that the prompt activity can load the scripture.  Since the prompt activity needs the scripture split up into 3 parts, it would be wise to send the 3 parts (book ,chapter, verse) separately in the intent so that the display scripture can store the 3 pieces separately in the Shared Preferences.
 
-You can see some example code here:  https://github.com/macbeth-byui/CS246_Class/tree/master/SharedPrefExample/app/src/main/java/macbeth/sharedprefexample
+You can see some example code here:  https://github.com/byui-cs/CS246/tree/master/support/SharedPrefExample/app/src/main/java/macbeth/sharedprefexample
 
 Android documentation for shared preferences is here:  https://developer.android.com/training/data-storage/shared-preferences
 

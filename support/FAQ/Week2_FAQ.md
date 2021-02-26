@@ -6,9 +6,9 @@ The following examples and videos support the material in Week 2.  Subsequent se
 
 * Video: https://video.byui.edu/media/CS246+Week+2+Interfaces/1_tezex14a
 * Prove 02 UML: https://macbeth-byui.github.io/CS246/diagrams/prove-02_uml.html
-* Another Inheritance Example (Asteroids): https://github.com/macbeth-byui/CS246_Class/tree/master/Asteroids/src/macbeth
+* Another Inheritance Example (Asteroids): https://github.com/byui-cs/CS246/tree/master/support/Asteroids/src/macbeth
 * Teach 02 UML: https://macbeth-byui.github.io/CS246/diagrams/TA2_UML.html
-* Example of Extra Game of Life Feature (Sleeper): https://github.com/macbeth-byui/CS246_Class/tree/master/GameOfLife_Sleeper
+* Example of Extra Game of Life Feature (Sleeper): https://github.com/byui-cs/CS246/tree/master/support/GameOfLife_Sleeper
 
 **The instanceof Operator**
 

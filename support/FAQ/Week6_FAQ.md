@@ -5,10 +5,10 @@
 The following examples and videos support the material in Week 6.  Subsequent sections below provide additional information and examples for common questions that students encounter during this week.
 
 * Video: https://video.byui.edu/media/CS246+Week+6+Multithreading/0_uzsf9e8s
-* Work Example (Java + Threading): https://github.com/macbeth-byui/CS246_Class/tree/master/worker/src/macbeth
-* WorkerApp Example (Android + Threading): https://github.com/macbeth-byui/CS246_Class/tree/master/WorkerApp
-* EarthquakeMapper (Android + ArcGIS + Threading): https://github.com/macbeth-byui/CS246_Class/tree/master/EarthquakeMapper
-* ProcessRequestsApp (Android + Threading): https://github.com/macbeth-byui/CS246_Class/tree/master/ProcessRequestsApp
+* Work Example (Java + Threading): https://github.com/byui-cs/CS246/tree/master/support/worker/src/macbeth
+* WorkerApp Example (Android + Threading): https://github.com/byui-cs/CS246/tree/master/support/WorkerApp
+* EarthquakeMapper (Android + ArcGIS + Threading): https://github.com/byui-cs/CS246/tree/master/support/EarthquakeMapper
+* ProcessRequestsApp (Android + Threading): https://github.com/byui-cs/CS246/tree/master/support/ProcessRequestsApp
 
 **Threading**
 

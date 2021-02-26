@@ -6,11 +6,11 @@ The following examples and videos support the material in Week 3.  Subsequent se
 
 * Video:  https://video.byui.edu/media/CS246+Week+3+Collections/0_7fv9gzj5
 * Java Collection Framework UML: https://macbeth-byui.github.io/CS246/diagrams/Java_Collection_Framework.html
-* Data Structure Example Code: https://github.com/macbeth-byui/CS246_Class/tree/master/Directory/src/macbeth
-* Another Example of HTTP Get Requests: https://github.com/macbeth-byui/CS246_Class/tree/master/HTTPHelper/src/macbeth
+* Data Structure Example Code: https://github.com/byui-cs/CS246/tree/master/support/Directory/src/macbeth
+* Another Example of HTTP Get Requests: https://github.com/byui-cs/CS246/tree/master/support/HTTPHelper/src/macbeth
 * Weather Conditions UML: https://macbeth-byui.github.io/CS246/diagrams/WeatherConditions.html
 * Weather Forecast UML: https://macbeth-byui.github.io/CS246/diagrams/WeatherForecast.html
-* Another Full API Example (Earthquakes): https://github.com/macbeth-byui/CS246_Class/tree/master/EarthquakeAnalyzer/src/macbeth
+* Another Full API Example (Earthquakes): https://github.com/byui-cs/CS246/tree/master/support/EarthquakeAnalyzer/src/macbeth
 * Another Full API Example (Earthquakes UML): https://macbeth-byui.github.io/CS246/diagrams/Earthquake.html
 
 **API's**
