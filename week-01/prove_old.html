@@ -33,7 +33,7 @@
         </ul>
         -->
         <p>The three programs that you will write in this first assignment are intended to be a tutorial of the Java language.  All the steps for coding the solutions can be found in this assignment.  You should follow all the steps and create all three programs as described.  You will need to submit the code that you write.</p>
-        <p>Future assignments will not provide all of this specific detail.  You will need to learn to find additional resources online and ask questions to your teacher and peers.  You should also refer to the additional examples and notes provided as support each week.  You can find these examples in the weekly modules within I-Learn.</p>
+        <p>Future assignments will not provide all of this specific detail.  You will need to learn to find additional resources online and ask questions to your teacher and peers in Slack.  You should also refer to the additional examples and notes provided as support each week.  You can find these examples in the weekly modules within I-Learn.</p>
         
         <p>Before starting this assignment, you should complete the 01 Teach: Team Activity individually and (if teams are established already) as a team to ensure you have IntelliJ working and can do "Hello World".</p>
         
@@ -41,13 +41,13 @@
         
         <h3>Problem 1: Simple Calculator</h3>
         
-        <p>The purpose of this program is to write a simple four function calculator using two classes.  The first class will be called <code>Calculator</code> and the second class will be called <code>TestCalculator</code>.  The <code>TestCalculator</code> class will have the <code>main</code> function and will be used to test the <code>Calculator</code>.</p>
+        <p>The purpose of this program is to write a simple four function calculator using two classes.  The first class will be called Calculator and the second class will be called TestCalculator.  The TestCalculator class will have the main function and will be used to test the Calculator.</p>
         
         <ol>
             <li><p>Create a new project in ItelliJ called <code>Calculator</code>.</p></li>
-            <li><p>Create a new package inside the <code>src</code> folder of your project.  Use your last name for the package name.</p></li>
-            <li><p>Create two new Java Classes in your package called <code>Calculator</code> and <code>TestCalculator</code>. Notice that IntelliJ will put the <code>package</code> statement and the empty class definition in both of the files for you.</p></li>
-            <li><p>Our calculator will maintain a current result and do basic math operations.  Here is the summary of what you want in the class:</p></li>
+            <li><p>Create a new package inside the src folder of your project.  Use your last name for the package name.</p></li>
+            <li><p>Create two new Java Classes in your package called <code>Calculator</code> and <code>TestCalculator</code>. Notice that IntelliJ will put the package statement and the empty class definition in both of the files for you.</p></li>
+            <li><p>Our calculator will maintain a current result and do basic math operations.  Here is the summary of what we want in the class:</p></li>
             <table>
                 <tr>
                     <th>Member Data / Attributes</th>
@@ -114,7 +114,7 @@
                 </tr>                
             </table>
             
-            <li><p>In the <code>Calculator</code> class, first write the member data:</p></li>
+            <li><p>In the Calculator class, first write the member data:</p></li>
 <pre><code class="Java">	
 public class Calculator {
     
@@ -123,14 +123,14 @@ public class Calculator {
 }
 </code></pre> 
             
-            <li><p>If there is member data, then you need a constructor to initialize the member data.  Constructors in Java are named the same as the class and should be public.  Create a constructor for the <code>Calculator</code> class after the member data.  Note that <code>0.0f</code> means float and <code>0.0</code> means double.</p></li>
+            <li><p>If there is member data, then we need a constructor to initialize the member data.  Constructors in Java are named the same as the class and should be public.  Create a constructor for the <code>Calculator</code> class after the member data.  Note that <code>0.0f</code> means float and <code>0.0</code> means double.</p></li>
 <pre><code class="Java">
     public Calculator() {
         result = 0.0f;
     }
 </code></pre> 
             
-            <li><p>Implement the <code>add</code>, <code>subtract</code>, <code>multiply</code>, and <code>divide</code> functions described in the table after the constructor.  Note that each parameter includes the data type.  Also note that the return type of the function is also specified.  If the function does not return anything then you use <code>void</code>.  The <code>divide</code> function must use an <code>if</code> statement to ensure you do not try division by zero.</p></li>
+            <li><p>Implement the <code>add</code>, <code>subtract</code>, <code>multiply</code>, and <code>divide</code> functions described above after the constructor.  Note that each one specifies data types of each parameter and the also the data type of what the function will return.  If the function does not return anything then we use <code>void</code>.  Note that the divide function must do an <code>if</code> statement to ensure we do not try division by zero.</p></li>
 <pre><code class="Java">
     public void add(float value) {
         result += value;
@@ -154,7 +154,7 @@ public class Calculator {
     }
 </code></pre>            
             
-        <li><p>Implement the <code>reset</code> function.  This function has no inputs.</p></li>
+        <li><p>Implement the <code>reset</code> function.  This function has not inputs.</p></li>
 <pre><code class="Java">
     public void reset() {
         result = 0.0f;
@@ -168,7 +168,7 @@ public class Calculator {
     }
 </code></pre>            
             
-        <li><p>Now that you have the <code>Calculator</code> class written, you will write some test code in the <code>TestCalculator</code> class.  Create a <code>main</code> function in the <code>TestCalculator</code> class.</p></li>
+        <li><p>Now that we have the <code>Calculator</code> class written, we will write some test code in the <code>TestCalculator</code> class.  Create a <code>main</code> function in the <code>TestCalculator</code> Class.</p></li>
 <pre><code class="Java">
 public class TestCalculator {
     
@@ -178,7 +178,7 @@ public class TestCalculator {
 }
 </code></pre>            
             
-        <li><p>In your <code>main</code> function, create a <code>Calculator</code> object using the <code>new</code> keyword.  All objects are created dynamically on the heap in Java.  You don't have to delete them when you are done.  Java will use "garbage collection" to delete unused objects.  The <code>Calculator</code> object variable that you create is holding a reference or pointer to the object.</p></li>
+        <li><p>In your <code>main</code> function, create a <code>Calculator</code> object using the <code>new</code> keyword.  All objects are created dynamically on the heap in Java.  You don't have to delete them when you are done.  Java will use "garbage collection" to delete unused objects.  The <code>Calculator</code> object variable you create is holding a reference or pointer to the object.</p></li>
 <pre><code class="Java">
     public static void main(String[] args) {
         Calculator calc = new Calculator();
@@ -193,8 +193,8 @@ public class TestCalculator {
     }
 </code></pre>
             
-        <li><p>Run the program by pressing the green play button in IntelliJ to the left of the <code>main</code> function code.  It should display "Result = 0.0".</p></li>            
-        <li><p>Change the code to add 5, multiply by 3, subtract 1, and then divide by 2.  Run it again and you should get "Result = 7.0".</p></li>
+        <li><p>Run the program by pressing the green play button in IntelliJ next to the left of the main function.  It should display "Result = 0.0"</p></li>            
+        <li><p>Change the code to add 5, multiply by 3, subtract 1, and then divide by 2.  Run it again and you should get "Result = 7.0"</p></li>
 <pre><code class="Java">
     public static void main(String[] args) {
         Calculator calc = new Calculator();
@@ -207,7 +207,7 @@ public class TestCalculator {
     }
 </code></pre>           
             
-        <li><p>Create a <code>do while</code> loop in your <code>main</code> function (after the code you have already written) to allow the user to select an operation.  The <code>do while</code> loop will keep running until the user selects the exit option.  Reading from the keyboard requires the use of the <code>Scanner</code> class provided by Java.  <code>Scanner</code> allows you to read a line of text.  Notice that when you create the <code>Scanner</code> object, IntelliJ will show an error until you provide the <code>import</code> statement.  Java requires that you specify which libraries you are using. You only have to create the <code>Scanner</code> object once before the loop.  When you ask for values from the user, we need to convert the <code>String</code> to a <code>float</code> using <code>Float.parseFloat</code>.  Note that <code>parseFloat</code> is a static function which is why you don't need a <code>Float</code> object to call it.  Also note that you can not use <code>==</code> to compare strings in Java.  You must use the <code>equals</code> function.</p></li>            
+        <li><p>After your current test code, create a <code>do while</code> loop to allow the user to select an operation.  The <code>do while</code> loop will keep running until the user selects the exit option.  Reading from the keyboard requires the use of the <code>Scanner</code> class provided by Java.  <code>Scanner</code> allows you to read a line of text.  Notice that when you create the <code>Scanner</code> object, IntelliJ will show an error until you provide the <code>import</code> statement.  Java requires that you specify which libraries you are using. You only have to create the <code>Scanner</code> object once before the loop and use it in the loop.  When we ask for values from the user, we need to convert the <code>String</code> to a <code>float</code> using <code>Float.parseFloat</code>.  Note that <code>parseFloat</code> is a static function which is why don't need a <code>Float</code> object to call it.  Also note that you can not use <code>==</code> to compare strings in Java.  You must use the <code>equals</code> functions.</p></li>            
 <pre><code class="Java">
 import java.util.Scanner;
 
@@ -262,12 +262,12 @@ public class TestCalculator {
         
         <h3>Problem 2: Form Letter</h3>
         
-        <p>The purpose of this program is to learn how to use a simple data structure called the ArrayList.  The <code>ArrayList</code> is like the <code>Vector</code> in C++ or the <code>list</code> in Python.  When you create an <code>ArrayList</code> (like other data structures in Java) you have to specify what it will hold.  You are going to hold an <code>ArrayList</code> of <code>Account</code> objects.  You will use these <code>Account</code> objects to populate form letters.  This will allow you to demonstrate loops.</p>
+        <p>The purpose of this program is to learn how to use a simple data structure called the ArrayList.  The <code>ArrayList</code> is like the <code>Vector</code> in C++ or the <code>list</code> in Python.  When you create an <code>ArrayList</code> (like other data structures in Python) you have to specify what it will hold.  In our case, we are going to hold an <code>ArrayList</code> of <code>Account</code> objects.  We will use these <code>Account</code> objects to populate form letters.  This will allow use to demonstrate loops.</p>
         
         <ol>
             <li><p>Create a new project in ItelliJ called <code>FormLetter</code>.</p></li>
-            <li><p>Create a new package inside the <code>src</code> folder of your project.  Use your last name for the package name.</p></li>
-            <li><p>Create two new Java Classes in your package called <code>Account</code> and <code>LetterGenerator</code>. Notice that IntelliJ will put the <code>package</code> statement and the empty class definition in both of the files for you.</p></li>
+            <li><p>Create a new package inside the src folder of your project.  Use your last name for the package name.</p></li>
+            <li><p>Create two new Java Classes in your package called <code>Account</code> and <code>LetterGenerator</code>. Notice that IntelliJ will put the package statement and the empty class definition in both of the files for you.</p></li>
             <li><p>The <code>Account</code> Class will contain the following member data.</p></li>
             <table>
                 <tr>
@@ -295,7 +295,7 @@ public class TestCalculator {
                     <td>The number of days since the last purchase</td>
                 </tr>                
             </table>
-            <li><p>Write the member data in the <code>Account</code> class and write a construtor to intialize all the member data.  This time you want the constructor to accept the three pieces of member data as parameters.  Just like the getters, you can use IntelliJ to auto-generate a constructor for the class.  Specify that you want all three parameters <code>name</code>, <code>lastPurchase</code>, and <code>daysSincePurchase</code> to be included in the constructor.  Note the use of the keyword <code>this</code>.  The keyword <code>this</code> is used when you want to refer to your object.  Python used the keyword <code>self</code>.</p></li>
+            <li><p>Write the member data in the <code>Account</code> class and write a construtor to intialize all the member data.  This time we want the constructor to accept the three pieces of member data as parameters.  Just like the getters, you can use IntelliJ to auto-generate a constructor for the class.  Specify that you want all three parameters <code>name</code>, <code>lastPurchase</code>, and <code>daysSincePurchase</code> to be included in the constructor.  Note the use of the keyword <code>this</code>.  We use <code>this</code> when we want to refer to our object.  Python used the word <code>self</code>.</p></li>
 <pre><code class="Java">
 public class Account {
 
@@ -397,7 +397,7 @@ public class LetterGenerator {
     }
 }
 </code></pre>            
-          <li><p>Implement the <code>addAcccount</code> function.  This function will use a <code>Scanner</code> to read in the information and create an <code>Account</code> object.  You will add the <code>Account</code> object to our <code>accounts</code> list by using the <code>add</code> function.</p></li>  
+          <li><p>Implement the <code>addAcccount</code> function.  This function will use a <code>Scanner</code> to read in the information and create an <code>Account</code> object.  We will add the <code>Account</code> object to our accounts list by using the <code>add</code> function.</p></li>  
 <pre><code class="Java">
     public void addAccount() {
         Scanner scanner = new Scanner(System.in);
@@ -420,7 +420,7 @@ public class LetterGenerator {
         }
     }
 </code></pre>    
-    <li><p>In the loop, replace "[name]" with the <code>name</code> from <code>currAccount</code>.  To get the <code>name</code> from the <code>currAccount</code>, call the <code>getName</code> function that you created in the <code>Account</code> class.  Do the same for "[days]" and "[purchase]".  Notice that you need to convert the days <code>int</code> to a <code>String</code> using <code>String.valueof</code>.  The <code>String</code> class in Java has lots of functions available to use.  Look in the <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html" target="_blank">JavaDoc</a> to see more available functions (good place to bookmark). </p></li>
+    <li><p>In the loop, replace [name] with the <code>name</code> from <code>currAccount</code>.  To get the <code>name</code> from the <code>currAccount</code>, call the <code>getName</code> function that you created in the <code>Account</code> class.  Do the same for [days] and [purchase].  Notice that we need to convert the days <code>int</code> to a <code>String</code> using <code>String.valueof</code>.  The <code>String</code> class in Java has lots of functions available to use.  Look in the <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html" target="_blank">JavaDoc</a> to see more available functions (good place to bookmark). </p></li>
 <pre><code class="Java">
     public void generateLetters() {
         for (Account currAccount : accounts) {
@@ -432,7 +432,7 @@ public class LetterGenerator {
         }
     }
 </code></pre>
-    <li><p>Create a <code>main</code> function in the <code>LetterGenerator</code> to test out your code.  Call <code>addAccount</code> three times with different information and then call <code>generateLetters</code>.  Check to make sure the form letter is populated properly each time.</p></li>
+    <li><p>Create a <code>main</code> function in the <code>LetterGenerator</code> to test out your code.  Call <code>addAccount</code> three times with different information and then call <code>generateLetters</code>.  Check to make sure the form letter was populated properly each time.</p></li>
 <pre><code class="Java">
     public static void main(String [] args) {
         LetterGenerator letterGenerator = new LetterGenerator();
@@ -452,9 +452,9 @@ public class LetterGenerator {
             <li><p>Start by creating a new Project in IntelliJ called <code>NSALogin</code></p></li>
             <li><p>Create a package using your last name.</p></li>
             <li><p>Download <a href="./code/prove/NSALogin-Student.zip">the files for this project</a>.  After unzipping this file, look for <code>NSALoginController.java</code>.  You can drag and drop this file into your package within IntelliJ.  When you do this, it will change the package statement in <code>NSALoginController</code>.  
-            <li><p>Browse through the code in the <code>NSALoginController</code> class to see what functions are available.  Consider making a UML diagram to better understand the class.  You don't need to understand how all this code works to do encryption.  Take special note of the <code>hashUserPassword</code> and <code>verifyPassword</code> functions.  You will be testing those in the next section.  Also note that these functions are <code>static</code>.  A <code>static</code> function does not require an object to call.  Also note that each of these functions has <code>throws Exception</code> in the function declaration line.  You will be required to catch these potential exceptions in your test code. </p></li>
-            <li><p>The purpose of <code>hashUserPassword</code> is to take a <code>User</code> object (you will need to create that class later), read its password, and generate a salt and encrypted hashed password.  The generated salt is used to encrypt the password.  It will then delete the password for security.  The salted and hashed password are the only things we need to save.</p></li>
-            <li><p>The purpose of <code>verifyPassword</code> is to take a <code>User</code> object (with the salt and hashed password still populated along with the password we are testing) and return a <code>boolean</code> indicating whether or not the user's password is correct.</p></li>
+            <li><p>Browse through the code in the <code>NSALoginController</code> class to see what functions are available.  Consider making a UML diagram to better understand the class.  Take special note of the <code>hashUserPassword</code> and <code>verifyPassword</code> functions.  You will be testing those in the next section.  Also note that these functions are static.  A static function does not require an object to call.  Also note that each of these functions has <code>throws Exception</code> in the function declaration line.  You will be required to catch these potential exceptions in your test code. </p></li>
+            <li><p>The purpose of <code>hashUserPassword</code> is to take a <code>User</code> object (you will need to create that class later), read its password, and generate a salted hash value.  It will then delete the password for security.  The salted hash is the only thing we need to save.</p></li>
+            <li><p>The purpose of <code>verifyPassword</code> is to take a <code>User</code> object and return a <code>Boolean</code> indicating whether or not the user's password value matches the user's salted hash value.</p></li>
         </ol>
         <h4>Part II - Test the EXISTING CODE</h4>
         <ol>
@@ -530,24 +530,10 @@ public class User {
     }
 }
 </code></pre> 
-        <li><p>In the <code>main</code> function of the <code>Test</code> class, you will first test the <code>hashUserPassword</code> function in <code>NSALoginController</code>.  You will first need create a <code>User</code> object since both functions require a <code>User</code> object.  You should add some debug code to make sure our user object was created correctly.</p></li>
+        <li><p>In the <code>main</code> function of the <code>Test</code> class, we will test the <code>hashUserPassword</code> and <code>verifyPassword</code> functions in <code>NSALoginController</code>.  We will first need create a <code>User</code> object since both functions require a <code>User</code> object.  We should add some debug code to make sure our user object was created correctly.</p></li>
 <pre><code class="Java">
-public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Enter password: ");
-    String password = scanner.nextLine();
-    User user = new User(password);
-
-    // Only Password should be set at this point
-    System.out.println("Password: " + user.getPassword());
-    System.out.println("Salt: " + user.getSalt());
-    System.out.println("Hashed Password: " + user.getHashedPassword());
-}
-</code></pre>
-        <li><p>Pass the <code>User</code> object to the <code>hashUserPassword</code>.  Since the function might throw an <code>Exception</code>, we are required to <code>catch</code> that potential exception.  If something fails in the <code>try</code> block (e.g. <code>hashUserPassword</code> throws an exception) then execution will be immediately diverted to the <code>catch</code> block.  Again, we should add some debug code to see if the hash operation worked.  Take note that the <code>password</code> should be cleared after the <code>hashUserPassword</code> function is called.</p></li>
-<pre><code class="Java">
-public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
         User user = new User(password);
@@ -556,22 +542,25 @@ public static void main(String[] args) {
         System.out.println("Password: " + user.getPassword());
         System.out.println("Salt: " + user.getSalt());
         System.out.println("Hashed Password: " + user.getHashedPassword());
-        try {
-            // hashUserPassword is a static function (no NSALoginController object needed)
-            // This function will set the salt and hashedPassword in the user object
-            NSALoginController.hashUserPassword(user);
+    }
+</code></pre>
+        <li><p>Pass the <code>User</code> object to the <code>hashUserPassword</code>.  Since the function might throw an <code>Exception</code>, we are required to <code>catch</code> that potential exception.  The something fails in the <code>try</code> block (e.g. <code>hashUserPassword</code> throws an exception) then execution will be immediately diverted to the <code>catch</code> block.  Again, we should add some debug code to see if the hash operation worked.  Take note that the <code>password</code> should be cleared after the <code>hashUserPassword</code> function is called.</p></li>
+<pre><code class="Java">
+try {
+    // hashUserPassword is a static function (no NSALoginController object needed)
+    // This function will set the salt and hashedPassword in the user object
+    NSALoginController.hashUserPassword(user);
 
-            // Only salt and hashed password set at this point
-            System.out.println("Password: " + user.getPassword());
-            System.out.println("Salt: " + user.getSalt());
-            System.out.println("Hashed Password: " + user.getHashedPassword());
-        }
-        catch(Exception e) {
-            System.out.println("General Exception: " + e.toString());
-        }
+    // Only salt and hashed password set at this point
+    System.out.println("Password: " + user.getPassword());
+    System.out.println("Salt: " + user.getSalt());
+    System.out.println("Hashed Password: " + user.getHashedPassword());
+}
+catch(Exception e) {
+    System.out.println("General Exception: " + e.toString());
 }
 </code></pre>        
-        <li><p>To test the <code>verifyPassword</code>, you will ask the user for their <code>password</code>.  We will add the <code>password</code> into our previously created <code>User</code> object.  That object still has the <code>salt</code> and <code>hashedUserPassword</code> populated.  The <code>verifyPassword</code> function will compare the <code>password</code> with the <code>salt</code> and <code>hashedUserPassword</code> values.  This function can throw an exception too so we will keep it in the <code>try</code> block.  The function also returns a <code>boolean</code>.  If it returns <code>true</code>, then the password matched.</p></li>
+        <li><p>To test the <code>verifyPassword</code>, we will ask the user for their <code>password</code>.  We will add the <code>password</code> into our previously created <code>User</code> object.  That object still has the <code>salt</code> and <code>hashedUserPassword</code> populated.  The <code>verifyPassword</code> function will compare the <code>password</code> with the <code>salt</code> and <code>hashedUserPassword</code> values.  This function can throw an exception too so we will keep it in the <code>try</code> block.  The function also returns a <code>boolean</code>.  If it returns <code>true</code>, then the password matched.</p></li>
 <pre><code class="Java">
 try {
     // hashUserPassword is a static function (no NSALoginController object needed)
@@ -608,64 +597,61 @@ catch(Exception e) {
         </ol>
         <h4>Part III - Modify the EXISTING CODE</h4>
         <ol>
-            <li><p>Once you have proven that the <code>NSALoginController</code> is working, you can now modify it.  You need to change it to require a password length of at least 8 and a requirement to have at least one digit in the password.  We can use the <code>.length</code> property on a <code>String</code> to determine the length.  To determine if there is a digit, we can loop through each letter of the password and use the <code>Character.isDigit</code> function. </p></li>
+            <li><p>Once we have proven that the <code>NSALoginController</code> is working, we can now modify it.  We want to change it to require a password length of at least 8 and a requirement to have at least one digit in the password.  We can use the <code>.length</code> property on a <code>String</code> to determine the length.  To determine if there is a digit, we can loop through each letter of the password and use the <code>Character.isDigit</code> function. </p></li>
 <pre><code class="Java">
-public static void hashUserPassword(User user) throws Exception {
+public static void hashUserPassword(User user) throws Exception, WeakPasswordException {
 		
-    // Get the next random salt value to use for this password
-    byte[] salt = getNextSalt();
-    char[] password = user.getPassword().toCharArray();
+		// Get the next random salt value to use for this password
+		byte[] salt = getNextSalt();
+		char[] password = user.getPassword().toCharArray();
 
-    // Verify password rules:
-    // 1) Length at least 8 characters
-    // 2) Contain at least one digit
-    if (password.length < 8) {
-        // Do Something!
-    }
-    boolean hasDigit = false;
-    for (Character c : password) {
-        if (Character.isDigit(c)) {
-            hasDigit = true;
-        }
-    }
-    if (!hasDigit) {
-        // Do Something!
-    }
+		// Verify password rules:
+		// 1) Length at least 8 characters
+		// 2) Contain at least one digit
+		if (password.length < 8)
+		{
+			// Do Something!
+		}
+		boolean hasDigit = false;
+		for (Character c : password) {
+			if (Character.isDigit(c))
+			{
+				hasDigit = true;
+			}
+		}
+		if (!hasDigit)
+		{
+			// Do Something!
+		}
 </code></pre>   
 
     <li><p>If password checking has failed, then we have to exit the function and notify the calling function.  However, recall that this function is throwing exceptions (which we had to catch in our main function).  One solution is to throw a new <code>Exception</code> object.</p></li>
     
 <pre><code class="Java">
-public static void hashUserPassword(User user) throws Exception {
-		
-    // Get the next random salt value to use for this password
-    byte[] salt = getNextSalt();
-    char[] password = user.getPassword().toCharArray();
-
-    // Verify password rules:
-    // 1) Length at least 8 characters
-    // 2) Contain at least one digit
-    if (password.length < 8) {
-        throw new Exception("Password must be at least 8 characters long.");
+if (password.length < 8)
+{
+    throw new Exception("Password must be at least 8 characters long.");
+}
+boolean hasDigit = false;
+for (Character c : password) {
+    if (Character.isDigit(c))
+    {
+        hasDigit = true;
     }
-    boolean hasDigit = false;
-    for (Character c : password) {
-        if (Character.isDigit(c)) {
-            hasDigit = true;
-        }
-    }
-    if (!hasDigit) {
-        throw new Exception("Password must contain at least 1 digit.");
-    }
+}
+if (!hasDigit)
+{
+    throw new Exception("Password must contain at least 1 digit.");
+}
 </code></pre>
     <li><p>In Java, it can be useful to create new exception classes for special scenarios like this one.  Creating your own exception class provides for better readability of the code and allows you to respond to errors less generically.  To create your own exception class, you have to inherit the base <code>Exception</code> class.</p></li>
-    <li><p>Create a new class called <code>WeakPasswordException</code>.  When the class is created, modify it to <code>extends</code> the <code>Exception</code> class.  This is how you inherit a base class.</p></li>
+    <li><p>Create a new class called <code>WeakPasswordException</code>.  When the class is created, modify it to <code>extends</code> the <code>Exception</code> class.  This is how we inherit a base class.</p></li>
 <pre><code class="Java">
 public class WeakPasswordException extends Exception {
 
 }
 </code></pre>
-    <li><p>This class will be very simple.  It will not have any member data within it.  You are allowed, but in this case you don't have any need.  The only additional requirement is that you provide a constructor that will pass the customized error message up to the constructor of the <code>Exception</code> base class.  You can call the parent constructor by using <code>super</code>.</p></li>
+    <li><p>This class will be very simple.  It will not have any member data within it.  You are allowed, but in this case we don't have any need.  The only additional requirement is that we provide a constructor that will pass the customized error message up to the constructor of the <code>Exception</code> base class.  We can call the parent constructor by using <code>super</code>.</p></li>
 <pre><code class="Java">
 public class WeakPasswordException extends Exception {
 
@@ -675,29 +661,23 @@ public class WeakPasswordException extends Exception {
     }
 }
 </code></pre>    
-    <li><p>With the creation of <code>WeakPasswordException</code>, we can now use it in our <code>hashUserPassword</code> function</p>.  Note you also need to state that you can <code>throws Exception, WeakPasswordException</code>.</li>
+    <li><p>With the creation of <code>WeakPasswordException</code>, we can now use it in our <code>hashUserPassword</code> function</p></li>
 <pre><code class="Java">
-public static void hashUserPassword(User user) throws Exception, WeakPasswordException {
-		
-    // Get the next random salt value to use for this password
-    byte[] salt = getNextSalt();
-    char[] password = user.getPassword().toCharArray();
-
-    // Verify password rules:
-    // 1) Length at least 8 characters
-    // 2) Contain at least one digit
-    if (password.length < 8) {
-        throw new WeakPasswordException("Password must be at least 8 characters long.");
+if (password.length < 8)
+{
+    throw new WeakPasswordException("Password must be at least 8 characters long.");
+}
+boolean hasDigit = false;
+for (Character c : password) {
+    if (Character.isDigit(c))
+    {
+        hasDigit = true;
     }
-    boolean hasDigit = false;
-    for (Character c : password) {
-        if (Character.isDigit(c)) {
-            hasDigit = true;
-        }
-    }
-    if (!hasDigit) {
-        throw new WeakPasswordException("Password must contain at least 1 digit.");
-    }
+}
+if (!hasDigit)
+{
+    throw new WeakPasswordException("Password must contain at least 1 digit.");
+}
 </code></pre> 
     <li><p>Since this function can throw multiple types of exceptions now, our <code>main</code> function code can list them out separately.  You can have multiple <code>catch</code> blocks in your code for a single <code>try</code> block</p></li>
 <pre><code class="Java">
