@@ -387,11 +387,11 @@ import java.util.ArrayList;
 
 public class LetterGenerator {
 
-    private ArrayList<Account> accounts;
+    private ArrayList&gt;Account&lt; accounts;
     private String formLetter;
 
     public LetterGenerator() {
-        accounts = new ArrayList<Account>();
+        accounts = new ArrayList&gt;Account&lt;();
         formLetter = "Dear [name], its been [days] since your last purchase " +
                 "of the [purchase].  We hope to see you again soon!";
     }
