@@ -97,7 +97,7 @@ When you read the intent, you would use:
 ```java
 String s_json = intent.getStringExtra("scripture");
 Gson gson = new Gson();
-Scripture s = gson.fromJson(s, Scripture.class);
+Scripture s = gson.fromJson(s_json, Scripture.class);
 ```
 
 The other option is to "implements" the Serializable interface in your data class (in this example called Scripture).  This interface has not functions to implement but it identifies the class as being serializable.  A serializable class has only member data is either native typed (e.g. int, float, boolean) or objects that implemented Serializable already (e.g. String or ArrayList ... look in the JavaDoc to see if the class implements Serializable).  If you do this, you will use the putExtra and the getSerializableExtra functions.
